@@ -1,0 +1,320 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_updation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-10 07:59+0000\n"
+"PO-Revision-Date: 2020-06-10 14:23+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ru\n"
+"X-Generator: Poedit 2.3.1\n"
+
+#. module: hr_employee_updation
+#: model_terms:ir.ui.view,arch_db:hr_employee_updation.hr_contract_notice_period
+msgid "<span> days</span>"
+msgstr "<span> дни</span>"
+
+#. module: hr_employee_updation
+#: model_terms:ir.ui.view,arch_db:hr_employee_updation.journal_config_settings_view_form
+msgid "<span>days</span>"
+msgstr "<span>дни</span>"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__id_attachment_id
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__passport_attachment_id
+msgid "Attachment"
+msgstr "Приложение"
+
+#. module: hr_employee_updation
+#: model_terms:ir.ui.view,arch_db:hr_employee_updation.hr_employee_inherit_form_view
+msgid "Bank details"
+msgstr "Данные Банка"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__bic
+msgid "Bank identification code"
+msgstr "Идентификационный код банка"
+
+#. module: hr_employee_updation
+#: model:ir.model,name:hr_employee_updation.model_res_config_settings
+msgid "Config Settings"
+msgstr "Настройки конфигурации"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__member_contact
+msgid "Contact No"
+msgstr "Контакты"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__create_uid
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation__create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__create_date
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation__create_date
+msgid "Created on"
+msgstr "Был создан"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__birth_date
+msgid "DOB"
+msgstr ""
+
+#. module: hr_employee_updation
+#: model_terms:ir.ui.view,arch_db:hr_employee_updation.hr_employee_inherit_form_view
+msgid "Dependence Details"
+msgstr "Детали зависимости"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__display_name
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation__display_name
+msgid "Display Name"
+msgstr "Название"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__type_of_docs
+msgid "Document type"
+msgstr "Вид документа"
+
+#. module: hr_employee_updation
+#: model:ir.model,name:hr_employee_updation.model_hr_employee
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__employee_id
+msgid "Employee"
+msgstr "Сотрудник"
+
+#. module: hr_employee_updation
+#: model:ir.model,name:hr_employee_updation.model_hr_contract
+msgid "Employee Contract"
+msgstr "Контракт сотрудника"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee__joining_date
+msgid "Employee joining date computed from the contract start date"
+msgstr "Дата присоединения сотрудника, рассчитанная с даты начала контракта"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__id_expiry_date
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__passport_expiry_date
+msgid "Expiry Date"
+msgstr "Срок действия"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee__id_expiry_date
+msgid "Expiry date of Identification ID"
+msgstr "Дата истечения срока действия идентификационного номера"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee__passport_expiry_date
+msgid "Expiry date of Passport ID"
+msgstr "Дата истечения срока действия паспорта"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__fam_ids
+msgid "Family"
+msgstr "Семья"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee__fam_ids
+msgid "Family Information"
+msgstr "Информация о семье"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__id_given_by
+msgid "Given by"
+msgstr "Выдан"
+
+#. module: hr_employee_updation
+#: model:ir.actions.server,name:hr_employee_updation.employee_data_reminder_ir_actions_server
+#: model:ir.cron,cron_name:hr_employee_updation.employee_data_reminder
+#: model:ir.cron,name:hr_employee_updation.employee_data_reminder
+msgid "HR Employee Data Expiration"
+msgstr "Срок действия данных сотрудника HR"
+
+#. module: hr_employee_updation
+#: model:ir.model,name:hr_employee_updation.model_hr_employee_family
+msgid "HR Employee Family"
+msgstr "Семья сотрудника HR"
+
+#. module: hr_employee_updation
+#: model:ir.ui.menu,name:hr_employee_updation.menu_hr_management
+msgid "HR Management"
+msgstr "Управление персоналом"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__iban
+msgid "IBAN"
+msgstr "IBAN"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__id
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields.selection,name:hr_employee_updation.selection__hr_employee__type_of_docs__id_card
+msgid "ID card"
+msgstr "Удостоверение личности"
+
+#. module: hr_employee_updation
+#: code:addons/extra/hr_employee_updation/models/hr_employee.py:0
+#: code:addons/hr_employee_updation/models/hr_employee.py:0
+#, python-format
+msgid "ID-%s Expired On %s"
+msgstr ""
+
+#. module: hr_employee_updation
+#: model_terms:ir.ui.view,arch_db:hr_employee_updation.hr_employee_inherit_form_view
+msgid "Identification ID"
+msgstr "Удостоверение личности"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__iic
+msgid "Individual identification code"
+msgstr "Индивидуальный идентификационный код"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__iin
+msgid "Individual identification number"
+msgstr "Индивидуальный идентификационный номер"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__id_issue_date
+msgid "Issue date"
+msgstr "Дата выпуска"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__joining_date
+msgid "Joining Date"
+msgstr "Дата вступления"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family____last_update
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение на"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__write_uid
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновление"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__write_date
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields.selection,name:hr_employee_updation.selection__hr_employee__id_given_by__mvd
+msgid "Ministry of Internal Affairs of Kazakhstan"
+msgstr "Министерство внутренних дел Казахстана"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields.selection,name:hr_employee_updation.selection__hr_employee__id_given_by__mj
+msgid "Ministry of Justice of Kazakhstan"
+msgstr "Министерство юстиции Казахстана"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__personal_mobile
+msgid "Mobile"
+msgstr "Мобильный"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__member_name
+msgid "Name"
+msgstr "Имя"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee__bank_name
+msgid "Name of the bank"
+msgstr "Название банка"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_res_config_settings__no_of_days
+msgid "No Of Days"
+msgstr "Номер дней"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_contract__notice_days
+#: model:ir.model.fields,field_description:hr_employee_updation.field_res_config_settings__notice_period
+msgid "Notice Period"
+msgstr "Период уведомления"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields.selection,name:hr_employee_updation.selection__hr_employee__type_of_docs__passport
+msgid "Passport"
+msgstr "Пасспорт"
+
+#. module: hr_employee_updation
+#: model_terms:ir.ui.view,arch_db:hr_employee_updation.hr_employee_inherit_form_view
+msgid "Passport ID"
+msgstr "Пасспорт"
+
+#. module: hr_employee_updation
+#: code:addons/extra/hr_employee_updation/models/hr_employee.py:0
+#: code:addons/hr_employee_updation/models/hr_employee.py:0
+#, python-format
+msgid "Passport-%s Expired On %s"
+msgstr ""
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee__personal_mobile
+msgid "Personal mobile number of the employee"
+msgstr "Персональный номер мобильного телефона сотрудника"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_family__relation_id
+msgid "Relation"
+msgstr "Связь"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,field_description:hr_employee_updation.field_hr_employee_relation__name
+msgid "Relationship"
+msgstr "Отношения"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee_family__relation_id
+msgid "Relationship with the employee"
+msgstr "Отношения с работником"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee_relation__name
+msgid "Relationship with thw employee"
+msgstr ""
+
+#. module: hr_employee_updation
+#: model:ir.ui.menu,name:hr_employee_updation.employee_report_menu
+msgid "Reports"
+msgstr "Отчеты"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee_family__employee_id
+msgid "Select corresponding Employee"
+msgstr "Выберите соответствующего сотрудника"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee__passport_attachment_id
+msgid "You can attach the copy of Passport"
+msgstr "Вы можете приложить копию паспорта"
+
+#. module: hr_employee_updation
+#: model:ir.model.fields,help:hr_employee_updation.field_hr_employee__id_attachment_id
+msgid "You can attach the copy of your Id"
+msgstr "Вы можете прикрепить копию своего удостоверения"
+
+#. module: hr_employee_updation
+#: model:ir.model,name:hr_employee_updation.model_hr_employee_relation
+msgid "hr.employee.relation"
+msgstr ""

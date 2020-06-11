@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model='ir.ui.view' id='hr_document_template_form_view_inherit'>
+        <field name="name">hr.document.form</field>
+        <field name="model">hr.document</field>
+        <field name="inherit_id" ref="oh_employee_documents_expiry.hr_document_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='note']" position="after">
+                <field name="document_type" string="Document type"/>
+            </xpath>
+            <xpath expr="//sheet/group" position="inside">
+
+                <group name="Priem_na_rabotu" string="О приеме на работу"
+                       attrs="{'invisible':[('document_type', '!=', 'hr_recruitment')]}">
+                    <field name="employee_id"/>
+<!--                    <button type="object" name="check_python_docx" string="Refresh Data" class="btn-link"/>-->
+                    <field name="name_boss"/>
+                    <field name="director_spec" string="Должность руководителя"/>
+                    <field name="date_document"/>
+                    <field name="future_job_spec"/>
+                    <field name="future_job_spec_gen" invisible="1"/>
+                    <field name="employee_id_gen" invisible="1"/>
+                    <field name="date_vstupleniya_spec_gen_rus" invisible="1"/>
+                    <field name="date_vstupleniya_spec_gen_kaz" invisible="1"/>
+                    <field name="number_document_gen" invisible="1"/>
+                    <field name="date_vstupleniya_spec"/>
+                </group>
+
+                <group name="Business_trip" string="О командировании"
+                       attrs="{'invisible':[('document_type', '!=', 'hr_business_trip')]}">
+                    <field name="employee_id"/>
+                    <field name="name_boss"/>
+                    <field name="date_document"/>
+                    <field name="city_departure"/>
+                    <field name="employee_spec"/>
+                    <field name="director_spec" string="Должность руководителя"/>
+                    <field name="date_departure"/>
+                    <field name="number_days"/>
+                </group>
+
+                <group name="On_taking_office" string="О вступлении в должность"
+                       attrs="{'invisible':[('document_type', '!=', 'on_taking_office')]}">
+                    <field name="employee_id"/>
+                    <field name="name_boss"/>
+                    <field name="director_spec" string="Должность руководителя"/>
+                    <field name="date_document"/>
+                    <field name="date_vstupleniya_spec"/>
+                    <field name="future_job_spec"/>
+                </group>
+
+                <group name="Going_to_work" string="О выходе на работу"
+                       attrs="{'invisible':[('document_type', '!=', 'going_to_work')]}">
+                    <field name="employee_id"/>
+                    <field name="name_boss"/>
+                    <field name="date_document"/>
+                    <field name="employee_spec"/>
+                    <field name="director_spec" string="Должность руководителя"/>
+                    <field name="date_vstupleniya_spec"/>
+                    <field name="osnovaniye" invisible="1"/>
+                </group>
+
+                <group name="Termination_employment_contract" string="О прекращение Трудового Договора"
+                       attrs="{'invisible':[('document_type', '!=', 'termination_employment_contract')]}">
+                    <field name="employee_id"/>
+                    <field name="name_boss"/>
+                    <field name="date_document"/>
+                    <field name="employee_spec"/>
+                    <field name="director_spec" string="Должность руководителя"/>
+                    <field name="date_last_time_at_job"/>
+                </group>
+
+                <group name="Leave_without_pay" string="О предоставлении отпуска без сохранения заработной платы"
+                       attrs="{'invisible':[('document_type', '!=', 'leave_without_pay')]}">
+                    <field name="employee_id"/>
+                    <field name="name_boss"/>
+                    <field name="date_document"/>
+                    <field name="employee_spec"/>
+                    <field name="director_spec" string="Должность руководителя"/>
+                    <field name="date_first_day_otpusk"/>
+                    <field name="date_last_day_otpusk"/>
+                    <field name="days_difference" invisible="1"/>
+                    <field name="osnovaniye" invisible="1"/>
+                </group>
+
+                <group name="Paid_leave" string="О предоставлении оплачиваемого трудового отпуска"
+                       attrs="{'invisible':[('document_type', '!=', 'paid_leave')]}">
+                    <field name="employee_id"/>
+                    <field name="name_boss"/>
+                    <field name="date_document"/>
+                    <field name="date_first_day_otpusk"/>
+                    <field name="date_last_day_otpusk"/>
+                    <field name="employee_spec"/>
+                    <field name="director_spec" string="Должность руководителя"/>
+                    <field name="date_finish_period" string="Дата последнего дня на работе"/>
+                    <field name="osnovaniye" invisible="1"/>
+                    <field name="number_days" string="Срок отпуска(кол. дней)" invisible="1"/>
+                </group>
+
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>

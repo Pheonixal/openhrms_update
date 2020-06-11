@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_disciplinary_tracking.disciplinary_action_details" model="ir.actions.act_window">
+            <field name="name">Disciplinary Actions</field>
+            <field name="res_model">disciplinary.action</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','action'),('employee_name.id', '=', active_id)]</field>
+        </record>
+
+    </data>
+</odoo>

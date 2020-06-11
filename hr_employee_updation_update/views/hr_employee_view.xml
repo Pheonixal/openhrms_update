@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="hr_employee_inherited_form_view">
+            <field name="name">hr.employee.form.view.inhherited</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='bank_account_id']" position="after">
+                    <field name="type_of_docs" groups="hr.group_hr_user"/>
+                </xpath>
+                <xpath expr="//page[@name='hr_settings']" position="after">
+                    <page name="bank_details" string="Bank details" groups="hr.group_hr_user">
+                        <group string="Bank details">
+                            <field name="bank_name" groups="hr.group_hr_user"/>
+                            <field name="bic" groups="hr.group_hr_user"/>
+                            <field name="iban" groups="hr.group_hr_user"/>
+                            <field name="iic" groups="hr.group_hr_user"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='job_title']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_employee_inherit_form_view_inherit" model="ir.ui.view" >
+            <field name="name">hr.employee.form.view.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_employee_updation.hr_employee_inherit_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='identification_id']" position="attributes">
+                    <attribute name="invisible">('type_of_docs', '!=', 'id_card')</attribute>
+                </xpath>
+
+                <xpath expr="//group[@name='passport_id']" position="attributes">
+                    <attribute name="invisible">('type_of_docs', '=', 'id_card')</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='identification_id']" position="after">
+                    <field name="iin" groups="hr.group_hr_user"
+                           attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                    <field name="id_given_by" groups="hr.group_hr_user"
+                           attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                    <field name="id_issue_date" groups="hr.group_hr_user"
+                           attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="action_report_hiring"
+            string="О приеме на работу"
+            model="hr.document"
+            report_type="qweb-pdf"
+            file="oh_employee_documents_expiry_update.report_hiring"
+            name="oh_employee_documents_expiry_update.report_hiring"
+            print_report_name="'Document name - %s' % (object.name)"
+        />
+    </data>
+
+    <data>
+        <report
+            id="action_report_business_trip"
+            string="О командировании"
+            model="hr.document"
+            report_type="qweb-pdf"
+            file="oh_employee_documents_expiry_update.report_trip"
+            name="oh_employee_documents_expiry_update.report_trip"
+            print_report_name="'Document name - %s' % (object.name)"
+        />
+    </data>
+
+     <data>
+        <report
+            id="action_report_on_taking_office"
+            string="О вступлении в должность"
+            model="hr.document"
+            report_type="qweb-pdf"
+            file="oh_employee_documents_expiry_update.taking_office"
+            name="oh_employee_documents_expiry_update.taking_office"
+            print_report_name="'Document name - %s' % (object.name)"
+        />
+    </data>
+
+    <data>
+        <report
+            id="action_report_going_to_work"
+            string="О выходе на работу"
+            model="hr.document"
+            report_type="qweb-pdf"
+            file="oh_employee_documents_expiry_update.going_work"
+            name="oh_employee_documents_expiry_update.going_work"
+            print_report_name="'Document name - %s' % (object.name)"
+        />
+    </data>
+
+     <data>
+        <report
+            id="action_report_termination_contract"
+            string="О преращении ТД"
+            model="hr.document"
+            report_type="qweb-pdf"
+            file="oh_employee_documents_expiry_update.termination_contract"
+            name="oh_employee_documents_expiry_update.termination_contract"
+            print_report_name="'Document name - %s' % (object.name)"
+        />
+    </data>
+
+    <data>
+        <report
+            id="action_report_the_provision_of_leave_without_pay"
+            string="О предоставлении отпуска без сохранения заработной платы"
+            model="hr.document"
+            report_type="qweb-pdf"
+            file="oh_employee_documents_expiry_update.leave_without_pay"
+            name="oh_employee_documents_expiry_update.leave_without_pay"
+            print_report_name="'Document name - %s' % (object.name)"
+        />
+    </data>
+
+      <data>
+        <report
+            id="action_report_the_provision_of_paid_leave"
+            string="О предоставлении оплачиваемого трудового отпуска"
+            model="hr.document"
+            report_type="qweb-pdf"
+            file="oh_employee_documents_expiry_update.paid_leave"
+            name="oh_employee_documents_expiry_update.paid_leave"
+            print_report_name="'Document name - %s' % (object.name)"
+        />
+    </data>
+
+</odoo>
