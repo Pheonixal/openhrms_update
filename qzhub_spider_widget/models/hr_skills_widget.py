@@ -6,7 +6,7 @@ class Employee(models.Model):
     _inherit = 'hr.employee'
 
     spider_widget = fields.Char('Spider Widget',
-                                help='Display spider chart in form view')
+                                help='Display spider chart in form view', default = "spiderwidget")
 
 
 class EmployeeSkill(models.Model):

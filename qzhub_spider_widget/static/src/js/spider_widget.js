@@ -17,7 +17,7 @@ let SpiderWidget = AbstractField.extend({
 
   //Render this chart in odoo front
 
-    _renderEdit: function () {
+    _renderReadonly: function () {
         var self = this
         console.log(self.record.data.id)
     return this._rpc({
@@ -71,8 +71,8 @@ let SpiderWidget = AbstractField.extend({
 
         },
 
-    _renderReadonly: function () {
-        return this._renderEdit();
+    _render: function () {
+        return this._renderReadonly();
     },
 
 });

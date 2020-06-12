@@ -10,8 +10,8 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='personal_information']" position="after">
                 <page string="Skills" name="Skills">
-                    <group>
-                        <group>
+                    <group string=" Skill Analysis of Employees">
+                        <group name="Status">
                             <field mode="tree" nolabel="1" name="employee_skill_ids" widget="hr_skills">-->
                                 <tree>
                                     <field name="skill_type_id" invisible="1"/>
@@ -21,8 +21,8 @@
                                 </tree>
                             </field>
                         </group>
-                        <group>
-                            <field mode="tree" name="spider_widget" nolabel="1" widget="spider"/>
+                        <group name="Vizual">
+                            <field mode="tree" name="spider_widget" widget="spider" nolabel="1"/>
                         </group>
                     </group>
                 </page>
@@ -31,9 +31,6 @@
             <xpath expr="//field[@name='employee_skill_ids']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-            <!--                 <xpath expr="//separator[@name='Skills']" position="attributes">-->
-            <!--                   <attribute name="invisible">1</attribute>-->
-            <!--                </xpath>-->
 
         </field>
     </record>
