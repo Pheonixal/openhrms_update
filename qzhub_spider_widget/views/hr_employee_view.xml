@@ -5,8 +5,11 @@
         <field name="model">hr.employee.skill</field>
         <field name="inherit_id" ref="hr_skills.employee_skill_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='level_progress']" position="after">
-                 <field name="required_level_progress" widget="progressbar"/>
+            <xpath expr="//field[@name='level_progress']" position="replace">
+                 <field name="level_progress"/>
+            </xpath>
+             <xpath expr="//field[@name='level_progress']" position="after">
+                 <field name="required_level_progress" />
             </xpath>
         </field>
     </record>
@@ -16,8 +19,11 @@
         <field name="model">hr.skill.level</field>
         <field name="inherit_id" ref="hr_skills.employee_skill_level_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='level_progress']" position="replace">
+                 <field name="level_progress"/>
+            </xpath>
             <xpath expr="//field[@name='level_progress']" position="after">
-                 <field name="required_level_progress" string="Progress (%)"/>
+                 <field name="required_level_progress"/>
             </xpath>
         </field>
   </record>
@@ -37,8 +43,8 @@
                                     <field name="skill_type_id" invisible="1"/>
                                     <field name="skill_id"/>
                                     <field name="skill_level_id"/>
-                                    <field name="level_progress" widget="progressbar"/>
-                                    <field name="required_level_progress"  widget="progressbar"/>
+                                    <field name="level_progress" />
+                                    <field name="required_level_progress"/>
                                 </tree>
                             </field>
                         </group>

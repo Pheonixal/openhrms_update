@@ -30,4 +30,6 @@ class EmployeeSkill(models.Model):
 class SkillLevel(models.Model):
     _inherit = 'hr.skill.level'
 
-    required_level_progress = fields.Integer(string="Required Progress", help="Progress from zero knowledge (0%) to fully mastered (100%).")
+    required_level_progress = fields.Integer(string="Necessary level", help="Progress from zero knowledge (0%) to fully mastered (100%).")
+    level_progress = fields.Integer(string="Current level",
+                                    help="Progress from zero knowledge (0%) to fully mastered (100%).")

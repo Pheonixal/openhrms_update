@@ -47,8 +47,8 @@ let SpiderWidget = AbstractField.extend({
                               display: false
                            },
                           ticks: {
-                              suggestedMin: 0,
-                              suggestedMax: 100
+                              suggestedMin: 1,
+                              suggestedMax: 5
                            }
                        }
                     }
