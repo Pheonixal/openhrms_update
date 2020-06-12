@@ -11,6 +11,7 @@ class Employee(models.Model):
 
 class EmployeeSkill(models.Model):
     _inherit = 'hr.employee.skill'
+    required_level_progress = fields.Integer(related='skill_level_id.required_level_progress')
 
     @api.model
     def gotSkills(self, employee_id):
@@ -19,7 +20,14 @@ class EmployeeSkill(models.Model):
         for skill in skills:
             data.append({
                 'label': skill.skill_id.name,
-                'level': skill.skill_level_id.level_progress
+                'level': skill.skill_level_id.level_progress,
+                'required_level': skill.skill_level_id.required_level_progress,
+
             })
 
         return data
+
+class SkillLevel(models.Model):
+    _inherit = 'hr.skill.level'
+
+    required_level_progress = fields.Integer(string="Required Progress", help="Progress from zero knowledge (0%) to fully mastered (100%).")
