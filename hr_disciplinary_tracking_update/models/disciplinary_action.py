@@ -33,7 +33,7 @@ class CategoryDiscipline(models.Model):
 class DisciplinaryAction(models.Model):
     _inherit = 'disciplinary.action'
 
-    date_start = fields.Date(required=True)
+    date_start = fields.Date()
     date_end = fields.Date()
     description = fields.Text(string="Description")
     line_type_id = fields.Many2one('hr.resume.line.type', string="Type")
