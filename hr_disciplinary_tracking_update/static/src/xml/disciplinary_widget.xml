@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="disciplinary_aciton" name="qz_document_expiry assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script src="/hr_disciplinary_tracking_update/static/src/js/disciplinary_widget.js" type="text/javascript"/>
+
+        </xpath>
+    </template>
+</odoo>

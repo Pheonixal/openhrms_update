@@ -17,6 +17,11 @@
     'depends': ['base', 'hr', 'hr_disciplinary_tracking'],
     'data': [
              'views/disciplinary_action.xml',
+             'static/src/xml/disciplinary_widget.xml',
+
+    ],
+    'qweb': [
+        'static/src/xml/disciplinary_template.xml',
     ],
     'license': 'AGPL-3',
     'installable': True,

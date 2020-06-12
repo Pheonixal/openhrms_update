@@ -15,6 +15,11 @@ class InheritEmployee(models.Model):
         for employee in self:
             employee.discipline_count = mapping.get(employee.id, 0)
 
+    disciplinary_line_ids = fields.One2many('disciplinary.action', 'employee_name', string="Disciplinary actions")
+
+    just_field = fields.Char(string='Just Field')
+    display_type = fields.Selection([('classic', 'Classic')], string="Display Type", default='classic')
+
 
 class CategoryDiscipline(models.Model):
     _inherit = 'discipline.category'
@@ -24,3 +29,12 @@ class CategoryDiscipline(models.Model):
 
     name = fields.Char(string="Name", required=True, help="Category name", translate=True)
 
+
+class DisciplinaryAction(models.Model):
+    _inherit = 'disciplinary.action'
+
+    date_start = fields.Date(required=True)
+    date_end = fields.Date()
+    description = fields.Text(string="Description")
+    line_type_id = fields.Many2one('hr.resume.line.type', string="Type")
+    display_type = fields.Selection([('classic', 'Classic')], string="Display Type", default='classic')
