@@ -8,6 +8,13 @@ class Employee(models.Model):
     spider_widget = fields.Char('Spider Widget',
                                 help='Display spider chart in form view', default = "spiderwidget")
 
+class EmployeePublic(models.Model):
+    _inherit = 'hr.employee.public'
+
+    spider_widget = fields.Char('Spider Widget',
+                                help='Display spider chart in form view', default="spiderwidget")
+
+
 
 class EmployeeSkill(models.Model):
     _inherit = 'hr.employee.skill'
