@@ -37,7 +37,7 @@ let SpiderWidget = AbstractField.extend({
                             backgroundColor: 'rgba(233, 0, 6, 0.39)'
                         },{
                             label: 'Required',
-                            data: response.map(val => 50),
+                            data: response.map(val => val.required_level),
                             backgroundColor: 'rgba(38,233,0,0.39)'
                         }]
                     },
@@ -47,8 +47,8 @@ let SpiderWidget = AbstractField.extend({
                               display: false
                            },
                           ticks: {
-                              suggestedMin: 0,
-                              suggestedMax: 100
+                              suggestedMin: 1,
+                              suggestedMax: 5
                            }
                        }
                     }
