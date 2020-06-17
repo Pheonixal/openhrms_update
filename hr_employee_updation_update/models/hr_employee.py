@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
 from odoo import models, fields, _, api
-
+from datetime import date
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
@@ -23,6 +23,16 @@ class HrEmployee(models.Model):
         ('mvd', 'Ministry of Internal Affairs of Kazakhstan'),
         ('mj', 'Ministry of Justice of Kazakhstan'),
     ], string="Given by", groups="hr.group_hr_user")
+    age_from_born = fields.Char(compute='_get_age_from_born_date')
+
+    def _get_age_from_born_date(self,):
+        if self.birthday:
+            my_str = str(self.birthday).split("-")
+            born = date(int(my_str[0]), int(my_str[1]), int(my_str[2]))
+            today = date.today()
+            self.age_from_born = str(today.year - born.year - ((today.month, today.day) < (born.month, born.day)))
+        else:
+            self.age_from_born = ""
 
 
 class EmployeeRelationInfo(models.Model):

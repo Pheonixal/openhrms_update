@@ -33,8 +33,8 @@ class CategoryDiscipline(models.Model):
 class DisciplinaryAction(models.Model):
     _inherit = 'disciplinary.action'
 
-    date_start = fields.Date()
-    date_end = fields.Date()
+    date_disciplinary = fields.Date()
+    date_action = fields.Date()
     description = fields.Text(string="Description")
     line_type_id = fields.Many2one('hr.resume.line.type', string="Type")
     display_type = fields.Selection([('classic', 'Classic')], string="Display Type", default='classic')

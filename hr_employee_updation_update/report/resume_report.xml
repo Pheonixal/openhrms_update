@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <data>
+        <report
+            id="employee_resume"
+            string="Резюме"
+            model="hr.employee"
+            report_type="qweb-html"
+            file="hr_employee_updation_update.employee_resume"
+            name="hr_employee_updation_update.employee_resume"
+            print_report_name="'Resume - %s' % (object.name)"
+        />
+    </data>
+
+</odoo>

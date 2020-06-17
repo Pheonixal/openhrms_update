@@ -34,7 +34,6 @@
                             <field name="discipline_reason"/>
                             <field name="action"/>
                             <field name="attachment_ids"/>
-                            <field name="date_end"/>
                             <field name="display_type" invisible="1"/>
                         </tree>
                     </field>
@@ -44,5 +43,68 @@
 
             </field>
         </record>
+
+        <record id="employee_disciplinary_form_inherited" model="ir.ui.view">
+            <field name="name">disciplinary.action.form.inherited</field>
+            <field name="model">disciplinary.action</field>
+            <field name="inherit_id" ref="hr_disciplinary_tracking.employee_disciplinary_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='joined_date']" position="after">
+                    <field name="date_disciplinary" string="Date Disciplinary"/>
+                </xpath>
+                <xpath expr="//field[@name='action']" position="after">
+                    <field name="date_action" string="Action Date"/>
+                </xpath>
+
+            </field>
+        </record>
+
+<!--        <record id="disciplinary_category_view_tree_inherited" model="ir.ui.view">-->
+<!--            <field name="name">discipline.category.tree.inherited</field>-->
+<!--            <field name="model">discipline.category</field>-->
+<!--            <field name="inherit_id" ref="hr_disciplinary_tracking.disciplinary_category_view_tree"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <header>-->
+<!--                    <button name="confirm" string="Confirm" class="oe_highlight"/>-->
+<!--                    </header>-->
+
+
+
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="hr_disciplinary_tracking.action_disciplinary_category_view" model="ir.actions.act_window">
+            <field name="name">Discipline Categories</field>
+            <field name="res_model">discipline.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('category_type', '=', 'disciplinary')]</field>
+
+        </record>
+
+
+        <record id="action_category_view" model="ir.actions.act_window">
+            <field name="name">Discipline Categories</field>
+            <field name="res_model">discipline.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('category_type', '=', 'action')]</field>
+
+        </record>
+        <record id="action_category_view2" model="ir.actions.act_window">
+            <field name="name">Discipline Categories</field>
+            <field name="res_model">discipline.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('category_type', '!=', 'disciplinary'), ('category_type', '!=', 'action')]</field>
+
+        </record>
+
+
+        <menuitem id="disciplinary_category_view2" action="action_category_view"  groups="hr.group_hr_manager" name="Action Category" parent="hr_disciplinary_tracking.disciplinary_action"
+                    sequence="3"/>
+
+        <menuitem id="disciplinary_category_view3" action="action_category_view2"  groups="hr.group_hr_manager" name="Other Category" parent="hr_disciplinary_tracking.disciplinary_action"
+                    sequence="4"/>
+
+
     </data>
 </odoo>

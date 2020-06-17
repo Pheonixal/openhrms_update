@@ -11,6 +11,8 @@
     'depends': ['base', 'hr', 'hr_employee_updation'],
     'data': [
         'views/hr_employee_view.xml',
+        'report/resume_report.xml',
+        'report/resume_template.xml',
     ],
     'demo': [],
     'license': 'AGPL-3',
