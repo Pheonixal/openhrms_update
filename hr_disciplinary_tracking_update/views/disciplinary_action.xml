@@ -90,20 +90,13 @@
             <field name="domain">[('category_type', '=', 'action')]</field>
 
         </record>
-        <record id="action_category_view2" model="ir.actions.act_window">
-            <field name="name">Discipline Categories</field>
-            <field name="res_model">discipline.category</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">[('category_type', '!=', 'disciplinary'), ('category_type', '!=', 'action')]</field>
 
-        </record>
 
 
         <menuitem id="disciplinary_category_view2" action="action_category_view"  groups="hr.group_hr_manager" name="Action Category" parent="hr_disciplinary_tracking.disciplinary_action"
                     sequence="3"/>
 
-        <menuitem id="disciplinary_category_view3" action="action_category_view2"  groups="hr.group_hr_manager" name="Other Category" parent="hr_disciplinary_tracking.disciplinary_action"
-                    sequence="4"/>
+
 
 
     </data>
