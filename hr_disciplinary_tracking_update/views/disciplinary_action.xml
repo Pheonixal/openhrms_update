@@ -16,14 +16,12 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//page[@name='public']/div" position="attributes">
-                    <attribute name="class">o_hr_skills_group o_group_resume col-lg-7 d-flex</attribute>
+                    <attribute name="class">o_hr_skills_group o_group_resume col-lg-10 d-flex </attribute>
                 </xpath>
                 <xpath expr="//page[@name='public']/div/div[2]" position="replace">
 
                 </xpath>
                 <xpath expr="//page[@name='public']/div/div" position="after">
-
-                    <!--                <field name="disciplinary_line_ids"/>-->
 
                     <field mode="tree" nolabel="1" name="disciplinary_line_ids" widget="disciplinary_action">
                         <tree>
@@ -34,6 +32,8 @@
                             <field name="discipline_reason"/>
                             <field name="action"/>
                             <field name="attachment_ids"/>
+                            <field name="date_disciplinary"/>
+                            <field name="date_action"/>
                             <field name="display_type" invisible="1"/>
                         </tree>
                     </field>

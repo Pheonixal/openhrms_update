@@ -165,11 +165,15 @@ var DisciplinaryRenderer = AbstractGroupedOne2ManyRenderer.extend({
             }
         var attachment = data.attachment_ids
         var reason = data.discipline_reason;
-        console.log(attachment)
+        var date_disciplinary = data.date_disciplinary && data.date_disciplinary.format(dateFormat) || "";
+        var date_action = data.date_action && data.date_action.format(dateFormat) || "";
+        console.log()
         return _.extend(data, {
-            action: "Action: "+action,
-            reason: "Reason: "+reason.data.display_name,
+            action: action,
+            reason: reason.data.display_name,
             attachment: attachment,
+            date_disciplinary: date_disciplinary,
+            date_action: date_action,
         });
     },
 
