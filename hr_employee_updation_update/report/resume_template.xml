@@ -53,7 +53,7 @@
                         <header class="header">
                             <div class="personal_info">
                                 <div class="float-right">
-                                    <img style="max-height: 145px;"
+                                    <img style="max-height: 145px; max-width:145px"
                                          t-attf-src="data:image/*;base64,{{template.image_1920}}"
                                     />
                                 </div>
