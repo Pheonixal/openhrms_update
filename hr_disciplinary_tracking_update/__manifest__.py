@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'QZHub diciplinary tracking',
+    'name': 'QZHub disciplinary tracking',
     'summary': """
         QZHub Attendance""",
 
