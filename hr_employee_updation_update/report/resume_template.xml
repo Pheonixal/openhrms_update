@@ -49,7 +49,7 @@
                 </style>
                 <t t-foreach="docs" t-as="template">
                     <t t-call="web.internal_layout">
-                    <div class="container" style="page-break-inside: avoid">
+                    <div class="container">
                         <header class="header">
                             <div class="personal_info">
                                 <div class="float-right">
@@ -207,5 +207,15 @@
             </div>
         </t>
     </template>
+
+    <template id="report_header_custom" inherit_id="web.internal_layout">
+            <xpath expr="//div[@class='col-2 offset-2 text-center']" position="replace">
+                <div class ="col-2 offset-2 text-center">
+                    <img style="max-height: 145px;"
+                                     t-attf-src="data:image/*;base64,{{company.logo_web}}"
+                                />
+                </div>
+            </xpath>
+        </template>
 
 </odoo>
