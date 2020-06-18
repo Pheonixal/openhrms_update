@@ -35,7 +35,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='personal_information']" position="after">
-                <page string="Skills" name="Skills">
+                <page string="Skills" name="Skillsiks">
                     <group>
                         <group name="Status">
                             <field mode="tree" nolabel="1" name="employee_skill_ids">
@@ -55,9 +55,9 @@
                 </page>
             </xpath>
 
-            <xpath expr="//field[@name='employee_skill_ids']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
+<!--            <xpath expr="//field[@name='employee_skill_ids']" position="attributes">-->
+<!--                <attribute name="invisible">1</attribute>-->
+<!--            </xpath>-->
 
         </field>
     </record>
