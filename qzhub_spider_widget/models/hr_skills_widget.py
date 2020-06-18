@@ -29,7 +29,7 @@ class EmployeeSkill(models.Model):
                 'label': skill.skill_id.name,
                 'level': skill.skill_level_id.level_progress,
                 'required_level': skill.skill_level_id.required_level_progress,
-
+                'label_id': skill.id,
             })
 
         return data

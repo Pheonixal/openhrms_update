@@ -30,7 +30,7 @@ let SpiderWidget = AbstractField.extend({
                 let spiderwidget = {
                     type: 'radar',
                     data: {
-                        labels: response.map(val => val.label),
+                        labels: response.map(val => val.label_id),
                         datasets: [{
                             label: 'Current',
                             data: response.map(val => val.level),

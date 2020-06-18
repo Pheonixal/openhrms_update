@@ -41,6 +41,7 @@
                             <field mode="tree" nolabel="1" name="employee_skill_ids">
                                 <tree>
                                     <field name="skill_type_id" invisible="1"/>
+                                    <field name="id" string="№"/>
                                     <field name="skill_id"/>
                                     <field name="skill_level_id"/>
                                     <field name="level_progress"/>
@@ -82,6 +83,7 @@
                             <field mode="tree" nolabel="1" name="employee_skill_ids">
                                 <tree>
                                     <field name="skill_type_id" invisible="1"/>
+                                    <field name="id" string="№"/>
                                     <field name="skill_id"/>
                                     <field name="skill_level_id"/>
                                     <field name="level_progress"/>
