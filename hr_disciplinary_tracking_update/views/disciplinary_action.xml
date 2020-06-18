@@ -56,23 +56,32 @@
                 <xpath expr="//field[@name='action']" position="after">
                     <field name="date_action" string="Action Date"/>
                 </xpath>
+                <xpath expr="//page[@name='action_information']" position="after">
+
+                    <page name="labor_code" string="Labor Code">
+                        <field name="content" widget="html"/>
+                    </page>
+
+
+                </xpath>
 
             </field>
         </record>
 
-<!--        <record id="disciplinary_category_view_tree_inherited" model="ir.ui.view">-->
-<!--            <field name="name">discipline.category.tree.inherited</field>-->
-<!--            <field name="model">discipline.category</field>-->
-<!--            <field name="inherit_id" ref="hr_disciplinary_tracking.disciplinary_category_view_tree"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <header>-->
-<!--                    <button name="confirm" string="Confirm" class="oe_highlight"/>-->
-<!--                    </header>-->
 
 
+        <!--        <record id="disciplinary_category_view_tree_inherited" model="ir.ui.view">-->
+        <!--            <field name="name">discipline.category.tree.inherited</field>-->
+        <!--            <field name="model">discipline.category</field>-->
+        <!--            <field name="inherit_id" ref="hr_disciplinary_tracking.disciplinary_category_view_tree"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <header>-->
+        <!--                    <button name="confirm" string="Confirm" class="oe_highlight"/>-->
+        <!--                    </header>-->
 
-<!--            </field>-->
-<!--        </record>-->
+
+        <!--            </field>-->
+        <!--        </record>-->
 
         <record id="hr_disciplinary_tracking.action_disciplinary_category_view" model="ir.actions.act_window">
             <field name="name">Discipline Categories</field>
@@ -92,11 +101,9 @@
         </record>
 
 
-
-        <menuitem id="disciplinary_category_view2" action="action_category_view"  groups="hr.group_hr_manager" name="Action Category" parent="hr_disciplinary_tracking.disciplinary_action"
-                    sequence="3"/>
-
-
+        <menuitem id="disciplinary_category_view2" action="action_category_view" groups="hr.group_hr_manager"
+                  name="Action Category" parent="hr_disciplinary_tracking.disciplinary_action"
+                  sequence="3"/>
 
 
     </data>
