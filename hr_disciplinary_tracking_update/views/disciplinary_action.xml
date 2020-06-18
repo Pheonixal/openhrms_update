@@ -106,5 +106,36 @@
                   sequence="3"/>
 
 
+        <record id="help_form_view" model="ir.ui.view">
+            <field name="name">disciplinary.action.form.inherited_help</field>
+            <field name="model">disciplinary.action</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div>
+                    <field name="content" widget="html" create="False"/>
+                        </div>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="help_action" model="ir.actions.act_window">
+            <field name="name">Help</field>
+            <field name="res_model">disciplinary.action</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="help_form_view"/>
+
+        </record>
+
+
+
+
+        <menuitem id="help_labor_code" name="Help" action="help_action" parent="hr.menu_hr_root"
+                  sequence="25"/>
+
+
     </data>
 </odoo>
