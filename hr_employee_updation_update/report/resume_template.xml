@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<template id="employee_resume">
-        <t t-call="web.basic_layout">
+    <template id="employee_resume">
+        <t t-call="web.html_container">
             <div class="page">
                 <style>
                     * {
@@ -15,6 +15,7 @@
                     h1 {
 
                     }
+
                     .container {
 
                     margin-left: auto;
@@ -45,35 +46,23 @@
                     .location {
                     margin-left: 10px;
                     }
-
-                    .round {
-                    width: 5em;
-                    height: 5em;
-                    border: 2px solid white;
-                    border-radius: 50%;
-                    line-height: 4.6em; /* подробнее про line-height */
-                    text-align: center; /* выравнять текст по середине по горизонтали */
-                    background: #white;
-                    font-weight: 800;
-                    }
-
-
-
                 </style>
                 <t t-foreach="docs" t-as="template">
-                    <div class="container">
+                    <t t-call="web.internal_layout">
+                    <div class="container" style="page-break-inside: avoid">
                         <header class="header">
                             <div class="personal_info">
-
-
                                 <div class="float-right">
-                                    <img style="max-height: 145px; max-width: 145px;"
-                                     t-attf-src="data:image/*;base64,{{template.image_1920}}"
-                                />
+                                    <img style="max-height: 145px;"
+                                         t-attf-src="data:image/*;base64,{{template.image_1920}}"
+                                    />
                                 </div>
                                 <div>
                                     <h1><t t-esc="template.name"/>,
-                                        <span><t t-esc="template.age_from_born"/> лет</span>
+                                        <span>
+                                            <t t-esc="template.age_from_born"/>
+                                            лет
+                                        </span>
                                     </h1>
                                 </div>
 
@@ -82,17 +71,24 @@
                             <div>
                                 <span>
                                     <span class="fa fa-map-marker"></span>
-                                    <t t-esc="template.address_home_id.street"/>, <t t-esc="template.address_home_id.city"/>, <t t-esc="template.address_home_id.state_id.name"/>, <t t-esc="template.address_home_id.country_id.name"/>
+                                    <t t-esc="template.address_home_id.street"/>,<t
+                                        t-esc="template.address_home_id.city"/>,<t
+                                        t-esc="template.address_home_id.state_id.name"/>,
+                                    <t t-esc="template.address_home_id.country_id.name"/>
                                 </span>
                             </div>
                             <div class="about_work">
                                 <br></br>
                                 <br></br>
-                                <span><t t-esc="template.job_id.name"/></span>
+                                <span>
+                                    <t t-esc="template.job_id.name"/>
+                                </span>
                                 <div class="contact_info">
                                     <div class="contacts_1">
                                         <span class="fa fa-phone"></span>
-                                        <span><t t-esc="template.phone"/></span>
+                                        <span>
+                                            <t t-esc="template.phone"/>
+                                        </span>
                                         <span style="margin-left: 50%;">
                                             <span class="fa fa-envelope"></span>
                                             <t t-esc="template.private_email"/>
@@ -108,19 +104,18 @@
                                 <br/>
                             </div>
                         </header>
-                    </div>
 
 
-                    <div class="container">
                         <section>
                             <p style="font-weight: 800;">Опыт работы</p>
-                            <hr style="color: black;"/>
-                            <div style="display: flex;">
-                            </div>
+                            <p style="border-bottom: 1px solid #d2d7da; margin-top:5px;"> </p>
                             <ul>
                                 <t t-foreach="template.resume_line_ids" t-as="template2">
                                     <t t-if="template2.line_type_id.name == 'Experience'">
-                                    <li><t t-esc="template2.name"/>, <t t-esc="template2.description"/>, <t t-esc="template2.date_start"/>-<t t-esc="template2.date_end"/></li>
+                                        <li><t t-esc="template2.name"/>,<t t-esc="template2.description"/>,<t
+                                                t-esc="template2.date_start"/>-
+                                            <t t-esc="template2.date_end"/>
+                                        </li>
                                     </t>
                                 </t>
 
@@ -128,13 +123,14 @@
                         </section>
                         <section>
                             <p style="font-weight: 800;">Образование</p>
-                            <hr style="color: black;"/>
-                            <div style="display: flex;">
-                            </div>
+                            <p style="border-bottom: 1px solid #d2d7da; margin-top:5px;"> </p>
                             <ul>
                                 <t t-foreach="template.resume_line_ids" t-as="template2">
                                     <t t-if="template2.line_type_id.name == 'Education'">
-                                    <li><t t-esc="template2.name"/>, Специальность: <t t-esc="template2.description"/>, <t t-esc="template2.date_start"/>-<t t-esc="template2.date_end"/></li>
+                                        <li><t t-esc="template2.name"/>, Специальность:<t
+                                                t-esc="template2.description"/>,<t t-esc="template2.date_start"/>-
+                                            <t t-esc="template2.date_end"/>
+                                        </li>
                                     </t>
                                 </t>
                             </ul>
@@ -142,13 +138,14 @@
 
                         <section>
                             <p style="font-weight: 800;">Внутренние Сертификаты</p>
-                            <hr style="color: black;"/>
-                            <div style="display: flex;">
-                            </div>
+                            <p style="border-bottom: 1px solid #d2d7da; margin-top:5px;"> </p>
                             <ul>
                                 <t t-foreach="template.resume_line_ids" t-as="template2">
                                     <t t-if="template2.line_type_id.name == 'Internal Certification'">
-                                    <li><t t-esc="template2.name"/>, <t t-esc="template2.description"/>, <t t-esc="template2.date_start"/>-<t t-esc="template2.date_end"/></li>
+                                        <li><t t-esc="template2.name"/>,<t t-esc="template2.description"/>,<t
+                                                t-esc="template2.date_start"/>-
+                                            <t t-esc="template2.date_end"/>
+                                        </li>
                                     </t>
                                 </t>
                             </ul>
@@ -156,54 +153,56 @@
 
                         <section>
                             <p style="font-weight: 800;">Внутренние Тренинги</p>
-                            <hr style="color: black;"/>
-                            <div style="display: flex;">
-                            </div>
+                            <p style="border-bottom: 1px solid #d2d7da; margin-top:5px;"> </p>
                             <ul>
                                 <t t-foreach="template.resume_line_ids" t-as="template2">
                                     <t t-if="template2.line_type_id.name == 'Internal Training'">
-                                    <li><t t-esc="template2.name"/>, <t t-esc="template2.description"/>, <t t-esc="template2.date_start"/>-<t t-esc="template2.date_end"/></li>
+                                        <li><t t-esc="template2.name"/>,<t t-esc="template2.description"/>,<t
+                                                t-esc="template2.date_start"/>-
+                                            <t t-esc="template2.date_end"/>
+                                        </li>
                                     </t>
                                 </t>
                             </ul>
                         </section>
 
 
-
                         <section>
                             <p style="font-weight: 800;">Навыки</p>
-                            <hr style="color: black;"/>
-                            <div style="display: flex;">
-                            </div>
+                            <p style="border-bottom: 1px solid #d2d7da; margin-top:5px;"> </p>
+
                             <ul>
 
                                 <t t-foreach="template.employee_skill_ids" t-as="template2">
 
-                                    <li><t t-esc="template2.skill_id.name"/>(<t t-esc="template2.level_progress"/>/<t t-esc="template2.required_level_progress"/>), Уровень: <t t-esc="template2.skill_level_id.name"/></li>
+                                    <li><t t-esc="template2.skill_id.name"/>(<t t-esc="template2.level_progress"/>/<t
+                                            t-esc="template2.required_level_progress"/>), Уровень:
+                                        <t t-esc="template2.skill_level_id.name"/>
+                                    </li>
 
                                 </t>
                             </ul>
                         </section>
+
+
                         <section>
                             <p style="font-weight: 800;">Дисциплинарные Взыскания</p>
-                            <hr style="color: black;"/>
-                            <div style="display: flex;">
-                            </div>
+                            <p style="border-bottom: 1px solid #d2d7da; margin-top:5px;"> </p>
                             <ul>
                                 <t t-foreach="template.disciplinary_line_ids" t-as="template2">
 
-                                    <li>Причина: <t t-esc="template2.discipline_reason.name"/>(<t t-esc="template2.date_disciplinary"/>), Действия: <t t-esc="template2.action.name"/>(<t t-esc="template2.date_action"/>)</li>
+                                    <li>Причина:<t t-esc="template2.discipline_reason.name"/>(<t
+                                            t-esc="template2.date_disciplinary"/>), Действия:<t
+                                            t-esc="template2.action.name"/>(<t t-esc="template2.date_action"/>)
+                                    </li>
 
                                 </t>
-                                <div class="d-flex circle">
-                                    <div class="round"></div>
-                                </div>
-
                             </ul>
                         </section>
 
 
                     </div>
+                    </t>
                 </t>
             </div>
         </t>
