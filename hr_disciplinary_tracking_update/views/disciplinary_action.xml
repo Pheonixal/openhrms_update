@@ -6,7 +6,7 @@
             <field name="name">Disciplinary Actions</field>
             <field name="res_model">disciplinary.action</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('state','=','action'),('employee_name.id', '=', active_id)]</field>
+            <field name="domain">[('state','in',('explain', 'action')),('employee_name.id', '=', active_id)]</field>
         </record>
 
         <record id="hr_employee_view_form_qzhub" model="ir.ui.view">
