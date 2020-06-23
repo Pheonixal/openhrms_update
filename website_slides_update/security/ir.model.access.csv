@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_slide_channel_partners_system,slide.channel.users.system,model_slide_channel_employee,website.group_website_publisher,1,1,1,1
