@@ -7,8 +7,14 @@ class HrEmployee(models.Model):
     def _compute_employee_courses(self):
         res_user_id = self.env['res.users'].search([('id', '=', self.user_id.id)])
         slide_channels = self.env['slide.channel.partner'].search([('partner_id', '=', res_user_id.partner_id.id), ('completed', '=',False)])
-
-        self.course_count = len(slide_channels)
+        slide_channels_instruktash = []
+        for i in slide_channels:
+            tags = []
+            for j in i.channel_id.tag_ids:
+                tags.append(j.name)
+            if "Инструктаж" in tags:
+                slide_channels_instruktash.append(i)
+        self.course_count = len(slide_channels_instruktash)
 
     course_count = fields.Integer(string="Course Count", compute='_compute_employee_courses')
 
@@ -18,14 +24,57 @@ class HrEmployee(models.Model):
 
         res_user_id = self.env['res.users'].search([('id', '=', self.user_id.id)])
         # print(res_user_id)
-        slide_channels = self.env['slide.channel.partner'].search([('partner_id','=',res_user_id.partner_id.id), ('completed', '=',False)])
+        slide_channels = self.env['slide.channel.partner'].search([('partner_id','=',res_user_id.partner_id.id)])
         # print(slide_channels)
 
         for i in slide_channels:
-            channel_ids_in.append(i.channel_id.id)
+            tags = []
+            for j in i.channel_id.tag_ids:
+                tags.append(j.name)
+                print(j.name)
+            if "Инструктаж" in tags:
+                channel_ids_in.append(i.channel_id.id)
         # print(channel_ids_in)
 
-        action['domain'] = [('id', '=', channel_ids_in)]
+        action['domain'] = [('channel_id', '=', channel_ids_in), ('partner_id', '=', res_user_id.partner_id.id)]
         # print(self.id)
 
         return action
+
+
+class ChannelUsersRelation(models.Model):
+    _inherit = 'slide.channel.partner'
+
+
+
+
+    employee_department = fields.Char(compute="_get_employee_id")
+    employee_spec = fields.Char(compute='_get_employee_spec')
+    write_date_gen = fields.Char(compute='_get_write_date')
+
+
+    def _get_write_date(self):
+        for record in self:
+            if record.create_date != record.write_date:
+                record.write_date_gen = record.write_date
+            else:
+                record.write_date_gen = ""
+
+
+    def _get_employee_spec(self):
+        for record in self:
+            user = self.env['res.users'].search([('partner_id', '=', record.partner_id.id)])
+            if user.id:
+                employee = self.env['hr.employee'].search([('user_id', '=', user.id)])
+                record.employee_spec = employee.job_id.name
+            else:
+                record.employee_spec = ""
+    def _get_employee_id(self):
+        for record in self:
+            user = self.env['res.users'].search([('partner_id', '=', record.partner_id.id)])
+            if user.id:
+                employee = self.env['hr.employee'].search([('user_id', '=', user.id)])
+                record.employee_department = employee.department_id.name
+            else:
+                record.employee_department = ""
+

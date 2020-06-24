@@ -3,48 +3,65 @@
         <!-- explicit list view definition -->
 
 
-<!--        <record id="view_slide_channel_form_inherit" model="ir.ui.view">-->
-<!--            <field name="name">slide.channel.view.form.inherit</field>-->
-<!--            <field name="model">slide.channel</field>-->
-<!--            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <xpath expr="//button[@name='action_redirect_to_members']" position="after">-->
-<!--                    <button name="action_redirect_to_employees"-->
-<!--                            type="object"-->
-<!--                            icon="fa-users"-->
-<!--                            class="oe_stat_button"-->
-<!--                    >-->
-<!--                        <field name="employees_count" string="Attendees" widget="statinfo"/>-->
-<!--                    </button>-->
-<!--                </xpath>-->
+        <!--        <record id="view_slide_channel_form_inherit" model="ir.ui.view">-->
+        <!--            <field name="name">slide.channel.view.form.inherit</field>-->
+        <!--            <field name="model">slide.channel</field>-->
+        <!--            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//button[@name='action_redirect_to_members']" position="after">-->
+        <!--                    <button name="action_redirect_to_employees"-->
+        <!--                            type="object"-->
+        <!--                            icon="fa-users"-->
+        <!--                            class="oe_stat_button"-->
+        <!--                    >-->
+        <!--                        <field name="employees_count" string="Attendees" widget="statinfo"/>-->
+        <!--                    </button>-->
+        <!--                </xpath>-->
 
-<!--            </field>-->
-<!--        </record>-->
+        <!--            </field>-->
+        <!--        </record>-->
 
-<!--        <record id="slide_channel_partner_action" model="ir.actions.act_window">-->
-<!--            <field name="name">Attendees</field>-->
-<!--            <field name="res_model">slide.channel.employee</field>-->
-<!--            <field name="view_mode">tree,form</field>-->
-<!--        </record>-->
+        <!--        <record id="slide_channel_partner_action" model="ir.actions.act_window">-->
+        <!--            <field name="name">Attendees</field>-->
+        <!--            <field name="res_model">slide.channel.employee</field>-->
+        <!--            <field name="view_mode">tree,form</field>-->
+        <!--        </record>-->
 
-<!--        <record id="slide_channel_employee_tree" model="ir.ui.view">-->
-<!--            <field name="name">slide_channel_employee_tree</field>-->
-<!--            <field name="model">slide.channel.employee</field>-->
-<!--            <field name="type">tree</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <tree>-->
-<!--                    <field name="channel_id"/>-->
-<!--                    <field name="employee_id"/>-->
-<!--                    <field name="employee_email"/>-->
+        <!--        <record id="slide_channel_employee_tree" model="ir.ui.view">-->
+        <!--            <field name="name">slide_channel_employee_tree</field>-->
+        <!--            <field name="model">slide.channel.employee</field>-->
+        <!--            <field name="type">tree</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree>-->
+        <!--                    <field name="channel_id"/>-->
+        <!--                    <field name="employee_id"/>-->
+        <!--                    <field name="employee_email"/>-->
 
-<!--                </tree>-->
-<!--            </field>-->
-<!--        </record>-->
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+
+        <record id="slide_channel_partner_view_tree_inherited" model="ir.ui.view">
+            <field name="name">slide.channel.partner.tree.inherit</field>
+            <field name="model">slide.channel.partner</field>
+            <field name="inherit_id" ref="website_slides.slide_channel_partner_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='create_date']" position="replace">
+                    <field name="write_date_gen" string="Дата прохождения"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_email']" position="after">
+                    <field name="employee_department" string="Департамент"/>
+                    <field name="employee_spec" string="Должность"/>
+                    <field name="write_uid" string="ФИО назначающего"/>
+                </xpath>
+            </field>
+        </record>
 
 
         <record id="slide_channel_course" model="ir.actions.act_window">
             <field name="name">Courses</field>
-            <field name="res_model">slide.channel</field>
+            <field name="res_model">slide.channel.partner</field>
             <field name="view_mode">tree,form</field>
         </record>
 
@@ -64,8 +81,6 @@
                 </xpath>
             </field>
         </record>
-
-
 
 
         <!-- actions opening views on models -->
