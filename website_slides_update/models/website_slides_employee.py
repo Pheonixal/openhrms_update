@@ -12,7 +12,7 @@ class HrEmployee(models.Model):
             tags = []
             for j in i.channel_id.tag_ids:
                 tags.append(j.name)
-            if "Инструктаж" in tags:
+            if "Инструктаж" or "Instruction" in tags:
                 slide_channels_instruktash.append(i)
         self.course_count = len(slide_channels_instruktash)
 
@@ -32,7 +32,7 @@ class HrEmployee(models.Model):
             for j in i.channel_id.tag_ids:
                 tags.append(j.name)
                 print(j.name)
-            if "Инструктаж" in tags:
+            if "Инструктаж" or "Instruction" in tags:
                 channel_ids_in.append(i.channel_id.id)
         # print(channel_ids_in)
 
