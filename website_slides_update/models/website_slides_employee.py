@@ -51,7 +51,7 @@ class ChannelUsersRelation(models.Model):
     employee_department = fields.Char(compute="_get_employee_id")
     employee_spec = fields.Char(compute='_get_employee_spec')
     write_date_gen = fields.Char(compute='_get_write_date')
-
+    date_deadline = fields.Datetime(string="Deadline")
 
     def _get_write_date(self):
         for record in self:
