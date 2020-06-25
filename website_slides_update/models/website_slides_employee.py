@@ -9,10 +9,10 @@ class HrEmployee(models.Model):
         slide_channels = self.env['slide.channel.partner'].search([('partner_id', '=', res_user_id.partner_id.id), ('completed', '=',False)])
         slide_channels_instruktash = []
         for i in slide_channels:
-            tags = []
-            for j in i.channel_id.tag_ids:
-                tags.append(j.name)
-            if ("Инструктаж" or "Instruction") in tags:
+            # tags = []
+            # for j in i.channel_id.tag_ids:
+            #     tags.append(j.name)
+            if "instruction" == i.channel_id.category:
                 slide_channels_instruktash.append(i)
         self.course_count = len(slide_channels_instruktash)
 
@@ -29,9 +29,10 @@ class HrEmployee(models.Model):
 
         for i in slide_channels:
             tags = []
-            for j in i.channel_id.tag_ids:
-                tags.append(j.name)
-            if ("Инструктаж" or "Instruction") in tags:
+            # for j in i.channel_id.tag_ids:
+            #     tags.append(j.name)
+            print(i.channel_id.category)
+            if "instruction" == i.channel_id.category:
                 channel_ids_in.append(i.channel_id.id)
         # print(channel_ids_in)
 
@@ -77,3 +78,10 @@ class ChannelUsersRelation(models.Model):
             else:
                 record.employee_department = ""
 
+class WebsiteChannelSlide(models.Model):
+    _inherit = 'slide.channel'
+
+    category = fields.Selection([
+        ('instruction', 'Инструктаж'),
+        ('course', 'Курс'),
+    ])

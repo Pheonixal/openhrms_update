@@ -83,6 +83,36 @@
             </field>
         </record>
 
+        <record id="view_slide_channel_form_inherited" model="ir.ui.view">
+            <field name="name">slide.channel.view.form.inherit</field>
+            <field name="model">slide.channel</field>
+            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <div style="width:10%;">
+                        <field name="category"/>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="slide_channel_view_kanban_inherited" model="ir.ui.view">
+            <field name="name">slide.channel.view.kanban.inherit</field>
+            <field name="model">slide.channel</field>
+            <field name="inherit_id" ref="website_slides.slide_channel_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_kanban_card_header']/div/div[2]" position="replace">
+
+                    <div class="d-flex" style="width:80%;" name="category">
+                        <span class="mr-auto">
+                            <label for="category" class="mb0">Category</label>
+                        </span>
+                        <field name="category"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
 
         <!-- actions opening views on models -->
         <!--
