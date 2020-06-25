@@ -31,9 +31,7 @@ class HrEmployee(models.Model):
             tags = []
             for j in i.channel_id.tag_ids:
                 tags.append(j.name)
-                print(j.name)
             if ("Инструктаж" or "Instruction") in tags:
-                print("Tags: ",tags)
                 channel_ids_in.append(i.channel_id.id)
         # print(channel_ids_in)
 
