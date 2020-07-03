@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_lab_patient_form_inherit" model="ir.ui.view">
+            <field name="name">lab.patient.form.inherit</field>
+            <field name="model">lab.patient</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_patient_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="replace">
+
+
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <field name="patient_image" widget="image" class="oe_avatar"/>
+                        <group name="title_name" class="oe_title">
+                            <field name="patient"
+                                   required="1"
+                                   placeholder="FullName"
+                                   style="padding-right:10px"
+                                   domain="[('is_patient','=',True)]" context="{'search_default_is_patient':1, 'default_is_patient':1, 'default_customer':1}"
+                            />
+                            <field name="company_id"/>
+                            <field name="department_id"/>
+                            <field name="job_id"/>
+                            <field name="address_id"/>
+                        </group>
+                        <group>
+                            <group name="personal_info" string="Personal information">
+                                <field name="name" />
+                                <field name="iin" />
+                                <field name="dob" />
+                                <field name="gender" />
+                                <field name="age"/>
+                                <field name="nationality"/>
+                                <field name="country_id"/>
+                                <field name="address_home_id"/>
+                                <field name="marital"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                            <group name="med_info" string="Medical Information">
+                                <field name="blood_group"/>
+                                <field name="rhesus_factor"/>
+                                <field name="allergy"/>
+                                <field name="phys_condition"/>
+                                <field name="pathologies"/>
+                                <field name="bad_habits"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Note">
+                                <group>
+                                    <field name="note"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

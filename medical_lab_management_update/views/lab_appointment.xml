@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_lab_appointment_form_inherit" model="ir.ui.view">
+            <field name="name">lab.appointment.form.inherit</field>
+            <field name="model">lab.appointment</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_appointment_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='create_invoice']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='appointment_date']" position="after">
+                    <field name="type_of_appointment"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,request_lab,completed"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lab_medical_history,lab.medical.history,model_lab_medical_history,medical_lab_management.group_lab_management_user,1,1,1,1

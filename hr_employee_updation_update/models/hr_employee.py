@@ -12,6 +12,7 @@ class HrEmployee(models.Model):
     iic = fields.Char(string="Individual identification code")
     bic = fields.Char(string="Bank identification code")
     iban = fields.Char(string="IBAN")
+    nationality = fields.Char(string="Nationality")
 
     type_of_docs = fields.Selection([
         ('id_card', 'ID card'),
