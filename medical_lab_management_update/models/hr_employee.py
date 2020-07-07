@@ -23,7 +23,6 @@ class HrEmployee(models.Model):
          ('A-', 'A-ve'), ('B-', 'B-ve'), ('O-', 'O-ve'), ('AB-', 'AB-ve')],
         'Blood Group')
 
-
     def patient_view(self):
         for each1 in self:
             res_user_id = self.env['res.users'].search([('id', '=', each1.user_id.id)])

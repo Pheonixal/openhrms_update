@@ -7,6 +7,8 @@
             <field name="arch" type="xml">
                 <kanban>
                     <field name="name"/>
+                    <field name="patient"/>
+                    <field name="physician_id"/>
                     <templates>
                     <div t-name="kanban-box"
                          class="oe_kanban_card oe_kanban_global_click">
@@ -40,6 +42,9 @@
                             <!-- Kanban's us name -->
                             <div class="project__name-kanban  padding-name pr-1">
                                 <t t-esc="record.name.value"/>
+                                <t t-esc="record.patient.value"/>
+                                <t t-esc="record.patient.value"/>
+                                <t t-esc="record.physician_id.value"/>
                             </div>
 
 
@@ -63,6 +68,10 @@
                             </h1>
                         </div>
                         <group>
+                            <group>
+                                <field name="patient" domain="[('is_patient','=',True)]" context="{'search_default_is_patient':1, 'default_is_patient':1, 'default_customer':1}"/>
+                                <field name="physician_id" domain="[('is_physician','=',True)]" context="{'search_default_is_physician':1, 'default_is_physician':1}"/>
+                            </group>
                             <group>
                                 <field name="supervision_start"/>
                                 <field name="supervision_end"/>
