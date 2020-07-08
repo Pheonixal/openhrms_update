@@ -43,6 +43,10 @@ class LabPatient(models.Model):
     phys_condition = fields.Char(string="Physiological condition", help="Physiological condition of the patient")
     pathologies = fields.Char(strong="Hereditary pathologies")
     bad_habits = fields.Char(sring="Bad habits")
+    preventive_actions = fields.Char(string="Preventive actions", help="Vaccinations")
+    chronic_diseases = fields.Char(string="Chronic diseases")
+    contraindications = fields.Char(string="Contraindications", help="Specific situation in which a drug, procedure, or surgery should not be used because it may be harmful to the person.")
+    operating_pressure = fields.Char(string="Operating pressure", help="Blood pressure of employee")
 
     @api.depends("patient")
     def _compute_info(self):

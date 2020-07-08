@@ -25,6 +25,10 @@
                             <field name="phys_condition"/>
                             <field name="pathologies"/>
                             <field name="bad_habits"/>
+                            <field name="preventive_actions"/>
+                            <field name="chronic_diseases"/>
+                            <field name="contraindications"/>
+                            <field name="operating_pressure"/>
                         </group>
                     </page>
                 </xpath>
