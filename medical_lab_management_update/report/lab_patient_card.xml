@@ -23,13 +23,13 @@
                                 <div class="d-flex">
                                     <div>
                                         <span class="d-flex">ИИН:<p>030698350929</p></span>
-                                        <span class="d-flex">Дата рождения:<p>03 06 1998</p></span>
-                                        <span class="d-flex">Национальность:<p>Казах</p></span>
-                                        <span class="d-flex">Гражданство:<p>Казахстан</p></span>
+                                        <span class="d-flex">Дата рождения:<p t-field="o.dob"/></span>
+                                        <span class="d-flex">Национальность:<p t-field="o.nationality"/></span>
+                                        <span class="d-flex">Гражданство:<p t-field="o.country_id"/></span>
                                     </div>
                                     <div style="margin-left:200px;">
                                          <strong><span t-field="o.patient.name"/></strong>
-                                        <span class="d-flex">Адрес проживания:<p>Кенесары 69</p></span>
+                                        <span class="d-flex">Адрес проживания:<p t-field="o.address_home_id"/></span>
                                         <span class="d-flex">Место работы:<p>Qzhub</p></span>
                                         <span class="d-flex">Должность:<p>Разработчик</p></span>
                                         <span class="d-flex">Наименование страховой компании:<p>QZHUB</p></span>

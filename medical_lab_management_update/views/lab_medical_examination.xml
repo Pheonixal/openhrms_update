@@ -89,6 +89,9 @@
                                   string="Note">
                                 <field name="comment"/>
                             </page>
+                            <page name="health_code" string="Health Code">
+                                <field name="content" widget="html"/>
+                            </page>
                         </notebook>
                     </sheet>
 
@@ -101,10 +104,9 @@
             <field name="model">lab.medical.examination</field>
             <field name="arch" type="xml">
                 <tree string="Medical Examination">
-                    <field name="name"/>
+                    <field name="patient"/>
                     <field name="examination_date"/>
                     <field name="permission"/>
-                    <field name="patient"/>
                     <field name="physician_id"/>
                 </tree>
             </field>
@@ -127,7 +129,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">lab.medical.examination</field>
             <field name="binding_view_types">form</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     There is no examples click here to add new Medical Examination.

@@ -49,6 +49,9 @@ class LabPatient(models.Model):
     contraindications = fields.Char(string="Contraindications", help="Specific situation in which a drug, procedure, or surgery should not be used because it may be harmful to the person.")
     operating_pressure = fields.Char(string="Operating pressure", help="Blood pressure of employee")
 
+    blood_donor = fields.Boolean(string='Blood donor')
+    work_condition = fields.Boolean(string='Hazardous working conditions')
+
     @api.depends("patient")
     def _compute_info(self):
         for pat in self:
@@ -81,3 +84,17 @@ class LabPatient(models.Model):
                     pat.gender = emp.gender
                 if emp.work_phone:
                     pat.phone = emp.work_phone
+
+    @api.model
+    def create_medical_examination(self):
+        lab_patient = self.env["lab.patient"].search([])
+        for pat in lab_patient:
+            print(pat)
+            print(pat.work_condition)
+            if pat.work_condition:
+                new = self.env["lab.medical.examination"].sudo().create({
+                    'patient': pat.patient.id,
+                    'examination_date': fields.Datetime.now(),  # connecting new step to newly created task
+                    'type_of_appointment': 'daily',
+                })
+            print(new)
