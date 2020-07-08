@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="medical_lab_management.report_patient_label">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <style>
+
+                    </style>
+                    <header>
+                        <div class="d-flex">
+                            <div>
+                                <div>
+                                        <h2>Паспортные данные</h2>
+                                    <span class="d-flex">Patient ID :<p t-field="o.name"/></span>
+                                    <span class="d-flex">Sex :<t t-if="o.gender=='m'"><p>Male</p></t>
+                                        <t t-if="o.gender=='ot'"><p>Other</p></t>
+                                        <t t-if="o.gender=='f'"><p>Female</p></t></span>
+                                    <span class="d-flex">Age:<p t-field="o.age"/></span>
+                                </div>
+                                <hr/>
+                                <div class="d-flex">
+                                    <div>
+                                        <span class="d-flex">ИИН:<p>030698350929</p></span>
+                                        <span class="d-flex">Дата рождения:<p>03 06 1998</p></span>
+                                        <span class="d-flex">Национальность:<p>Казах</p></span>
+                                        <span class="d-flex">Гражданство:<p>Казахстан</p></span>
+                                    </div>
+                                    <div style="margin-left:200px;">
+                                         <strong><span t-field="o.patient.name"/></strong>
+                                        <span class="d-flex">Адрес проживания:<p>Кенесары 69</p></span>
+                                        <span class="d-flex">Место работы:<p>Qzhub</p></span>
+                                        <span class="d-flex">Должность:<p>Разработчик</p></span>
+                                        <span class="d-flex">Наименование страховой компании:<p>QZHUB</p></span>
+                                        <span class="d-flex">№ страхового полиса:<p>№ 234234</p></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-right:100px;">
+                                <img t-if="not o.patient_image" t-att-src="'/web/static/src/img/placeholder.png'" height="120" border="1" width="120"/>
+                                <img t-if="o.patient_image" t-att-src="'data:image/png;base64,%s' %o.patient_image" height="120" border="1" width="120"/>
+                            </div>
+                        </div>
+                        <h2>Минимальные медицинские данные:</h2>
+                        <span class="d-flex">Группа крови:<p> |||</p></span>
+                        <span class="d-flex">Резус - фактор:<p>B 2</p></span>
+                        <span class="d-flex">Аллергические реакции:<p> Имбирь</p></span>
+                        <span class="d-flex">Физиологическое состояние пациента:<p>Норма</p></span>
+                        <span class="d-flex">Наследственные патологии:<p>Скалиоз</p></span>
+                        <span class="d-flex">Вредные привычки:<p>Курение</p></span>
+                        <span class="d-flex">Профилактические мероприятия:<p> Прогулки</p></span>
+                        <span class="d-flex">Xронические заболевания:<p> Гайморит </p></span>
+                        <span class="d-flex">Противопоказания:<p>Алкоголь</p></span>
+                        <span class="d-flex">писок принимаемых в настоящее время лекарственных средств:<p>Парацетамол</p></span>
+                        <span class="d-flex" style="margin-top:5px;">ФИО врача:<p>Алмаз П</p></span>
+                        <span class="d-flex">ФИО  среднего медицинского работника:<p>Алмаз П</p></span>
+                    </header>
+                    </t>
+                 </t>
+            </t>
+        </template>
+    </data>
+</odoo>

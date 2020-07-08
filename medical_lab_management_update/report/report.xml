@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            string="Карточка пациента"
+            id="medical_lab_management.action_report_patient_label"
+            model="lab.patient"
+            report_type="qweb-pdf"
+            name="medical_lab_management.report_patient_label"
+            file="medical_lab_management.report_patient_label"
+        />
+    </data>
+</odoo>

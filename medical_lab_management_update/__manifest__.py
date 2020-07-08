@@ -28,6 +28,8 @@
         'views/lab_patient.xml',
         'views/lab_appointment.xml',
         'views/lab_medical_history.xml',
+        'report/report.xml',
+        'report/lab_patient_card.xml',
         'views/lab_medical_examination.xml',
         'security/ir.model.access.csv',
     ],
