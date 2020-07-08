@@ -52,6 +52,8 @@
                                 <field name="chronic_diseases"/>
                                 <field name="contraindications"/>
                                 <field name="operating_pressure"/>
+                                <field name="work_condition"/>
+                                <field name="blood_donor"/>
                             </group>
                         </group>
                         <notebook>

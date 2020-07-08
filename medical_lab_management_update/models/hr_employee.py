@@ -10,24 +10,25 @@ class HrEmployee(models.Model):
     appointments_count = fields.Char(string="Appointments")
 
     # Medical information of employee
-
     rhesus_factor = fields.Selection([
         ('rh_plus', 'Rh+'),
         ('rh_minus', 'Rh-')
     ], string="Rhesus factor")
     allergy = fields.Char(string="Allergic reactions")
     phys_condition = fields.Char(string="Physiological condition", help="Physiological condition of the patient")
-    pathologies = fields.Char(strong="Hereditary pathologies", related='')
-    bad_habits = fields.Char(sring="Bad habits",compute='_compute_info')
-    blood_group = fields.Char(sring="Blood group")
-    blood_data = fields.Boolean(string='Blood data')
-    work_condition = fields.Boolean(string='Hazardous working conditions')
+    pathologies = fields.Char(strong="Hereditary pathologies")
+    bad_habits = fields.Char(sring="Bad habits")
+    blood_group = fields.Selection(
+        [('A+', 'A+ve'), ('B+', 'B+ve'), ('O+', 'O+ve'), ('AB+', 'AB+ve'),
+         ('A-', 'A-ve'), ('B-', 'B-ve'), ('O-', 'O-ve'), ('AB-', 'AB-ve')],
+        'Blood Group')
     preventive_actions = fields.Char(string="Preventive actions", help="Vaccinations")
     chronic_diseases = fields.Char(string="Chronic diseases")
     contraindications = fields.Char(string="Contraindications",
                                     help="Specific situation in which a drug, procedure, or surgery should not be used because it may be harmful to the person.")
     operating_pressure = fields.Char(string="Operating pressure", help="Blood pressure of employee")
-
+    blood_donor = fields.Boolean(string='Blood donor')
+    work_condition = fields.Boolean(string='Hazardous working conditions')
 
     def patient_view(self):
         for each1 in self:
@@ -57,6 +58,8 @@ class HrEmployee(models.Model):
             if patient:
                 emp.bad_habits = patient.bad_habits
                 emp.blood_group = patient.blood_group
+                emp.blood_donor = patient.blood_donor
+                emp.work_condition = patient.work_condition
                 emp.allergy = patient.allergy
                 emp.rhesus_factor = patient.rhesus_factor
                 emp.phys_condition = patient.phys_condition

@@ -19,8 +19,8 @@
                 <xpath expr="//page[@name='personal_information']" position="after">
                     <page name="med_info_page" string="Medical Information" groups="hr.group_hr_user">
                         <group name="med_info" string="Medical Information">
-                            <field name="work_condition" string="Hazardous working conditions"/>
-                            <field name="blood_data" string="Blood data"/>
+                            <field name="work_condition"/>
+                            <field name="blood_donor"/>
                             <field name="blood_group"/>
                             <field name="rhesus_factor"/>
                             <field name="allergy"/>

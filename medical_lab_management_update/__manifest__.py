@@ -28,6 +28,7 @@
         'views/lab_patient.xml',
         'views/lab_appointment.xml',
         'views/lab_medical_history.xml',
+        'views/lab_medical_examination.xml',
         'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
