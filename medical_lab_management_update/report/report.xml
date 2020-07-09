@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <report
             string="Карточка пациента"
             id="medical_lab_management.action_report_patient_label"
@@ -10,5 +9,15 @@
             name="medical_lab_management.report_patient_label"
             file="medical_lab_management.report_patient_label"
         />
+
+        <report
+            string="Форма предсменных медицинских обследований"
+            id="medical_lab_management_update.action_pre_shift_med_form"
+            model="lab.patient"
+            report_type="qweb-pdf"
+            name="medical_lab_management_update.pre_shift_med_form"
+            file="medical_lab_management_update.pre_shift_med_form"
+        />
+
     </data>
 </odoo>

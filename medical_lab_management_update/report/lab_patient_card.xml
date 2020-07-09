@@ -7,11 +7,11 @@
                     <t t-foreach="docs" t-as="o">
                         <style>
                             span {
-                                white-space: nowrap;
+                            white-space: nowrap;
                             }
 
                             p{
-                                margin-left:5px;
+                            margin-left:5px;
                             }
                         </style>
                         <header>
@@ -23,7 +23,7 @@
                                             <p t-field="o.name"/>
                                         </span>
                                         <strong>
-                                                <span t-field="o.patient.name"/>
+                                            <span t-field="o.patient.name"/>
                                         </strong>
                                         <span class="d-flex">Sex :
                                             <t t-if="o.gender=='m'">
@@ -125,5 +125,146 @@
                 </t>
             </t>
         </template>
+
+        <template id="medical_lab_management_update.pre_shift_med_form">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <style>
+                            span {
+                            white-space: nowrap;
+                            }
+
+                            p{
+                            margin-left:5px;
+                            }
+                            table{
+                            width: 100%;
+                            border-collapse:collapse;
+                            border-spacing:0
+                            }
+                            table, td, th {
+                            border: 1px solid #595959;
+                            }
+                            td, th {
+                            padding: 3px;
+                            width: 30px;
+                            height: 35px;
+                            text-align:center;
+                            }
+                        </style>
+
+
+                        <header>
+                            <strong>
+                                <p>Форма предсменных медицинских обследований</p>
+                            </strong>
+                            <span class="d-flex">Наименование предприятия:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Наименование структурного подразделения:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Ф.И.О работника:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Дата и год рождения:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Место проживания:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Профессия или должность в настоящее время:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Общий стаж работы:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Весь профессиональный маршрут</span>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Месяц и год начала и окончания работы</td>
+                                        <td>Длительность работы</td>
+                                        <td>Предприятие</td>
+                                        <td>Профессия</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <span class="d-flex">Итоги предсменного медицинского осмотра</span>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>№ п/п</td>
+                                        <td>Осмотры</td>
+                                        <td>Результат</td>
+                                        <td>Дата выполнения</td>
+                                        <td>Заключение по результатам осмотра (допуск, недопуск)</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">1</td>
+                                        <td>Рабочее давление</td>
+                                        <td>мм рт. ст.</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Артериальное давление</td>
+                                        <td>мм рт. ст.</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Пульс</td>
+                                        <td>уд./мин</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Температура тела</td>
+                                        <td>°C</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Проба на наличие алкоголя</td>
+                                        <td>‰</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <span class="d-flex">Заключение</span>
+
+                            <span style="margin-left:10px; margin-top:5px;">Дата выдачи
+                                ______________________________________
+                            </span>
+                            <br/>
+                            <span style="margin-left:10px;"> Подпись врача _________________________________</span>
+
+
+                        </header>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
     </data>
 </odoo>
