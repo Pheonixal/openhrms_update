@@ -1,12 +1,13 @@
 import datetime
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 from odoo import fields, models, api, _
 
 
 class Examination(models.Model):
     _name = 'lab.medical.examination'
+    _rec_name = "patient"
 
-    name = fields.Char(string="Medical Examination")
+    # name = fields.Char(string="Medical Examination")
     type_of_appointment = fields.Selection(
         [('daily', 'Daily'),
          ('monthly', 'Monthly'),
@@ -15,7 +16,7 @@ class Examination(models.Model):
     )
 
     patient = fields.Many2one('res.partner', string='Patient', required=True)
-    physician_id = fields.Many2one('res.partner', string='Referred By', select=True)
+    physician_id = fields.Many2one('res.partner', string='Physician', select=True)
 
     examination_date = fields.Datetime(string="Examination date")
     permission = fields.Selection([
@@ -39,7 +40,51 @@ class Examination(models.Model):
     test_types = fields.One2many('lab.test.type', 'test_types_reverse', string="Test Lines")
     comment = fields.Html(string='Comments')
 
+    operating_pressure = fields.Char(string="Normal blood pressure", help="Blood pressure of employee", compute="_compute_operating_pressure")
+    arterial_pressure = fields.Char(string="Blood pressure", help="If blood pressure is greater or less than normal, this is a trigger to deny accesss to work")
+    pulse = fields.Integer(string="Pulse", help="Normal heart rate is between 60 - 100 bpm")
+    temperature = fields.Float(string="Temperature", help="Normal body temperature is between 35.5 to 37.2 ° C")
+    alcohol_ppm = fields.Float(string="Alcohol level", help="Normal alcohol rate = up to 0.5 ‰")
+    conclusion = fields.Char(string="Conclusion")
 
+    @api.depends("patient")
+    def _compute_operating_pressure(self):
+        for pat in self:
+            patient = self.env['lab.patient'].search([('patient', '=', pat.patient.id)])
+            pat.operating_pressure = ""
+            if patient:
+                pat.operating_pressure = patient.operating_pressure
+
+    def confirm_examination(self):
+        self.write({'state': 'confirm'})
+
+    def cancel_examination(self):
+        self.write({'state': 'cancel'})
+
+    def test_examination(self):
+        alcohol_is_normal = float(self.alcohol_ppm) < 0.5
+        pulse_is_normal = 60 < int(self.pulse) < 100
+        temperature_is_normal = 35.5 < float(self.temperature) < 37.2
+        pressure_is_normal = self.operating_pressure == self.arterial_pressure
+        if alcohol_is_normal and pulse_is_normal and temperature_is_normal and pressure_is_normal:
+            self.permission = 'granted'
+        else:
+            self.permission = 'denied'
+
+        self.write({'state': 'completed'})
+
+    # @api.constrains('alcohol_ppm', 'temperature', 'pulse', 'arterial_pressure')
+    # def check_use_document(self):
+    #     for rec in self:
+    #         if rec.state == 'confirm':
+    #             if isinstance(rec.alcohol_ppm, int) or isinstance(rec.alcohol_ppm, float):
+    #                 raise ValidationError(_('You must set value of Alcohol level as float number'))
+    #             if not isinstance(int(rec.temperature), int):
+    #                 raise ValidationError(_('You must set value of Temperature as integer'))
+    #             if not isinstance(int(rec.pulse), int):
+    #                 raise ValidationError(_('You must set value of Pulse as integer'))
+                # if isinstance(rec.arterial_pressure, str):
+                #     raise ValidationError(_('You must set valid value for Arterial Pressure'))
 
 
 class LabTestType(models.Model):

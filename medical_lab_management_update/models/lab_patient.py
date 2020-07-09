@@ -8,6 +8,7 @@ class LabPatient(models.Model):
     _inherit = 'lab.patient'
 
     # Personal information get from hr.employee of connected res.partner
+    patient = fields.Many2one('res.partner', string='Patient name', required=True)
 
     company_id = fields.Many2one('res.company', string='Company', compute="_compute_info")
     department_id = fields.Many2one('hr.department', string='Department', domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
@@ -47,16 +48,24 @@ class LabPatient(models.Model):
     preventive_actions = fields.Char(string="Preventive actions", help="Vaccinations")
     chronic_diseases = fields.Char(string="Chronic diseases")
     contraindications = fields.Char(string="Contraindications", help="Specific situation in which a drug, procedure, or surgery should not be used because it may be harmful to the person.")
-    operating_pressure = fields.Char(string="Operating pressure", help="Blood pressure of employee")
+    operating_pressure = fields.Char(string="Normal blood pressure", help="Blood pressure of employee")
 
     blood_donor = fields.Boolean(string='Blood donor')
     work_condition = fields.Boolean(string='Hazardous working conditions')
+
+    medical_history_count = fields.Integer(string="Medical History count", compute="_compute_history_count", copy=False, default=0)
+
+    def _compute_history_count(self):
+        for obj in self:
+            obj.medical_history_count = self.env['lab.medical.history'].search_count([('patient', '=', obj.patient.id)])
+
 
     @api.depends("patient")
     def _compute_info(self):
         for pat in self:
             res_user_id = self.env['res.users'].search([('partner_id', '=', pat.patient.id)])
             emp = self.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
+            pat.company_id = ''
             if emp:
                 if emp.company_id:
                     pat.company_id = emp.company_id

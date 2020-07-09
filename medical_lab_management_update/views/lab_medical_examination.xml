@@ -6,7 +6,6 @@
             <field name="model">lab.medical.examination</field>
             <field name="arch" type="xml">
                 <kanban>
-                    <field name="name"/>
                     <field name="patient"/>
                     <field name="physician_id"/>
                     <field name="permission"/>
@@ -43,7 +42,6 @@
 
                             <!-- Kanban's us name -->
                             <div class="project__name-kanban  padding-name pr-1">
-                                <t t-esc="record.name.value"/>
                                 <t t-esc="record.patient.value"/>
                                 <t t-esc="record.permission.value"/>
                                 <t t-esc="record.physician_id.value"/>
@@ -61,11 +59,16 @@
             <field name="model">lab.medical.examination</field>
             <field name="arch" type="xml">
                 <form string="Medical Examination">
+                    <header>
+                        <button name="confirm_examination" states="draft" string="Confirm" type="object" class="oe_highlight" />
+                        <button name="test_examination" states="confirm" string="Test" type="object" class="oe_highlight" />
+<!--                        <button name="create_invoice" states="completed" string="Create Invoice" type="object" class="oe_highlight"/>-->
+                        <button name="cancel_examination" states="draft,confirm" string="Cancel" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,test,completed"/>
+                    </header>
                     <sheet>
-                        <div class="oe_title">
-                            <label for="name"/>
-                            <field name="name" placeholder="Title"/>
-                        </div>
+                        <widget name="web_ribbon" title="Granted" bg_color="bg-success" attrs="{'invisible': [('permission', '!=', 'granted')]}"/>
+                        <widget name="web_ribbon" title="Denied" bg_color="bg-danger" attrs="{'invisible': [('permission', '!=', 'denied')]}"/>
                         <group>
                             <group>
                                 <field name="patient" domain="[('is_patient','=',True)]" context="{'search_default_is_patient':1, 'default_is_patient':1, 'default_customer':1}"/>
@@ -73,17 +76,19 @@
                             </group>
                             <group>
                                 <field name="examination_date"/>
+                                <field name="permission" invisible="0"/>
                             </group>
                         </group>
                         <notebook colspan="4">
-                            <page string="Test lines">
-                                <field name="test_types">
-                                    <tree string="Test lines" editable="bottom">
-                                        <field name="name"/>
-                                        <field name="interval"/>
-                                        <field name="result"/>
-                                    </tree>
-                                </field>
+                            <page string="Test lines" attrs="{'invisible': [('state', 'in', ['draft'])]}">
+                                <group name="test" string="Testing">
+                                    <field name="operating_pressure" attrs="{'required':[('state', 'not in', ['draft'])]}"/>
+                                    <field name="arterial_pressure" attrs="{'required':[('state', 'not in', ['draft'])]}"/>
+                                    <field name="pulse" attrs="{'required':[('state', 'not in', ['draft'])]}"/>
+                                    <field name="temperature" attrs="{'required':[('state', 'not in', ['draft'])]}"/>
+                                    <field name="alcohol_ppm" attrs="{'required':[('state', 'not in', ['draft'])]}"/>
+                                    <field name="conclusion"/>
+                                </group>
                             </page>
                             <page name="Note"
                                   string="Note">
@@ -105,24 +110,35 @@
             <field name="arch" type="xml">
                 <tree string="Medical Examination">
                     <field name="patient"/>
+                    <field name="physician_id"/>
                     <field name="examination_date"/>
                     <field name="permission"/>
-                    <field name="physician_id"/>
                 </tree>
             </field>
         </record>
 
-<!--        <record id="lab_medical_examination_search_view" model="ir.ui.view">-->
-<!--            <field name="name">ProjectName.lab_medical_examination.search</field>-->
-<!--            <field name="model">lab.medical.examination</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <search string="ModelTitle">-->
-<!--                    <group expand="1" string="Group By">-->
-<!--                        <filter string="Example Field" name="example_field" domain="[]" context="{'group_by':'example_field'}"/>-->
-<!--                    </group>-->
-<!--                </search>-->
-<!--            </field>-->
-<!--        </record>-->
+        <record id="lab_medical_examination_search_view" model="ir.ui.view">
+            <field name="name">lab.medical.examination.search</field>
+            <field name="model">lab.medical.examination</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <field name="patient" />
+                    <field name="examination_date"/>
+                    <field name="permission"/>
+                    <field name="physician_id"/>
+                    <group expand="1" string="Group By">
+                        <filter name="patient" string="Patient"
+                            domain="[]" context="{'group_by':'patient'}" />
+                        <filter name="examination_date" string="Examination Date"
+                            domain="[]" context="{'group_by':'examination_date'}" />
+                        <filter name="permission" string="Permission"
+                            domain="[]" context="{'group_by':'permission'}" />
+                        <filter name="physician_id" string="Physician"
+                            domain="[]" context="{'group_by':'physician_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
 
         <record id="lab_medical_examination_act_window" model="ir.actions.act_window">
             <field name="name">Medical Examination</field>
@@ -130,6 +146,7 @@
             <field name="res_model">lab.medical.examination</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="lab_medical_examination_search_view"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     There is no examples click here to add new Medical Examination.

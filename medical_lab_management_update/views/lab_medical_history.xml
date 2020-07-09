@@ -9,6 +9,8 @@
                     <field name="name"/>
                     <field name="patient"/>
                     <field name="physician_id"/>
+                    <field name="supervision_start"/>
+                    <field name="supervision_end"/>
                     <templates>
                     <div t-name="kanban-box"
                          class="oe_kanban_card oe_kanban_global_click">
@@ -42,11 +44,19 @@
                             <!-- Kanban's us name -->
                             <div class="project__name-kanban  padding-name pr-1">
                                 <t t-esc="record.name.value"/>
+                            </div>
+                            <div>
                                 <t t-esc="record.patient.value"/>
-                                <t t-esc="record.patient.value"/>
+                            </div>
+                            <div>
                                 <t t-esc="record.physician_id.value"/>
                             </div>
-
+                            <div>
+                                <t t-esc="record.supervision_start.value"/>
+                            </div>
+                            <div>
+                                <t t-esc="record.supervision_end.value"/>
+                            </div>
 
                         </div>
                     </div>
@@ -75,6 +85,9 @@
                             <group>
                                 <field name="supervision_start"/>
                                 <field name="supervision_end"/>
+                            </group>
+                            <group>
+                                <field name="prescribed_drugs"/>
                             </group>
                         </group>
                     </sheet>

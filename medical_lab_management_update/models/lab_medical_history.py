@@ -12,3 +12,5 @@ class MedicalHistory(models.Model):
 
     supervision_start = fields.Date(string="Beginning of Supervision")
     supervision_end = fields.Date(string="End of Supervision")
+
+    prescribed_drugs = fields.Char(string="Prescribed drugs")

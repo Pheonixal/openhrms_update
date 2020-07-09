@@ -14,7 +14,7 @@ class HrEmployee(models.Model):
         ('rh_plus', 'Rh+'),
         ('rh_minus', 'Rh-')
     ], string="Rhesus factor")
-    allergy = fields.Char(string="Allergic reactions")
+    allergy = fields.Char(string="Allergic reactions", compute="_compute_info")
     phys_condition = fields.Char(string="Physiological condition", help="Physiological condition of the patient")
     pathologies = fields.Char(strong="Hereditary pathologies")
     bad_habits = fields.Char(sring="Bad habits")
@@ -26,7 +26,7 @@ class HrEmployee(models.Model):
     chronic_diseases = fields.Char(string="Chronic diseases")
     contraindications = fields.Char(string="Contraindications",
                                     help="Specific situation in which a drug, procedure, or surgery should not be used because it may be harmful to the person.")
-    operating_pressure = fields.Char(string="Operating pressure", help="Blood pressure of employee")
+    operating_pressure = fields.Char(string="Normal blood pressure", help="Blood pressure of employee")
     blood_donor = fields.Boolean(string='Blood donor')
     work_condition = fields.Boolean(string='Hazardous working conditions')
 
@@ -55,6 +55,7 @@ class HrEmployee(models.Model):
     def _compute_info(self):
         for emp in self:
             patient = self.env['lab.patient'].search([('patient', '=', emp.address_home_id.id)])
+            emp.allergy = ''
             if patient:
                 emp.bad_habits = patient.bad_habits
                 emp.blood_group = patient.blood_group
