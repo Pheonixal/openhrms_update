@@ -22,7 +22,7 @@
                                 <hr/>
                                 <div class="d-flex">
                                     <div>
-                                        <span class="d-flex">ИИН:<p>030698350929</p></span>
+                                        <span class="d-flex">ИИН:<p t-field="o.iin"/></span>
                                         <span class="d-flex">Дата рождения:<p t-field="o.dob"/></span>
                                         <span class="d-flex">Национальность:<p t-field="o.nationality"/></span>
                                         <span class="d-flex">Гражданство:<p t-field="o.country_id"/></span>
@@ -30,28 +30,29 @@
                                     <div style="margin-left:200px;">
                                          <strong><span t-field="o.patient.name"/></strong>
                                         <span class="d-flex">Адрес проживания:<p t-field="o.address_home_id"/></span>
-                                        <span class="d-flex">Место работы:<p>Qzhub</p></span>
-                                        <span class="d-flex">Должность:<p>Разработчик</p></span>
+                                        <span class="d-flex">Место работы:<p t-field="o.company_id"/></span>
+                                        <span class="d-flex">Должность:<p t-field="o.job_id"/></span>
                                         <span class="d-flex">Наименование страховой компании:<p>QZHUB</p></span>
                                         <span class="d-flex">№ страхового полиса:<p>№ 234234</p></span>
                                     </div>
                                 </div>
                             </div>
-                            <div style="margin-right:100px;">
+                            <div style="margin-right:150px;">
                                 <img t-if="not o.patient_image" t-att-src="'/web/static/src/img/placeholder.png'" height="120" border="1" width="120"/>
                                 <img t-if="o.patient_image" t-att-src="'data:image/png;base64,%s' %o.patient_image" height="120" border="1" width="120"/>
                             </div>
                         </div>
                         <h2>Минимальные медицинские данные:</h2>
-                        <span class="d-flex">Группа крови:<p> |||</p></span>
-                        <span class="d-flex">Резус - фактор:<p>B 2</p></span>
-                        <span class="d-flex">Аллергические реакции:<p> Имбирь</p></span>
-                        <span class="d-flex">Физиологическое состояние пациента:<p>Норма</p></span>
-                        <span class="d-flex">Наследственные патологии:<p>Скалиоз</p></span>
-                        <span class="d-flex">Вредные привычки:<p>Курение</p></span>
-                        <span class="d-flex">Профилактические мероприятия:<p> Прогулки</p></span>
-                        <span class="d-flex">Xронические заболевания:<p> Гайморит </p></span>
-                        <span class="d-flex">Противопоказания:<p>Алкоголь</p></span>
+                        <span class="d-flex">Группа крови:<p t-field="o.blood_group"/> </span>
+                        <span class="d-flex">Рабочее давление:<p t-field="o.operating_pressure"/> </span>
+                        <span class="d-flex">Резус - фактор:<p t-field="o.rhesus_factor"/> </span>
+                        <span class="d-flex">Аллергические реакции:<p t-field="o.allergy"/> </span>
+                        <span class="d-flex">Физиологическое состояние пациента:<p t-field="o.phys_condition"/> </span>
+                        <span class="d-flex">Наследственные патологии:<p t-field="o.pathologies"/> </span>
+                        <span class="d-flex">Вредные привычки:<p t-field="o.bad_habits"/></span>
+                        <span class="d-flex">Профилактические мероприятия:<p t-field="o.preventive_actions"/></span>
+                        <span class="d-flex">Xронические заболевания:<p t-field="o.chronic_diseases"/></span>
+                        <span class="d-flex">Противопоказания:<p t-field="o.contraindications"/></span>
                         <span class="d-flex">писок принимаемых в настоящее время лекарственных средств:<p>Парацетамол</p></span>
                         <span class="d-flex" style="margin-top:5px;">ФИО врача:<p>Алмаз П</p></span>
                         <span class="d-flex">ФИО  среднего медицинского работника:<p>Алмаз П</p></span>
