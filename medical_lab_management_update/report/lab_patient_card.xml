@@ -4,61 +4,125 @@
         <template id="medical_lab_management.report_patient_label">
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
-                <t t-foreach="docs" t-as="o">
-                    <style>
+                    <t t-foreach="docs" t-as="o">
+                        <style>
+                            span {
+                                white-space: nowrap;
+                            }
 
-                    </style>
-                    <header>
-                        <div class="d-flex">
-                            <div>
+                            p{
+                                margin-left:5px;
+                            }
+                        </style>
+                        <header>
+                            <div class="d-flex">
                                 <div>
-                                        <h2>Паспортные данные</h2>
-                                    <span class="d-flex">Patient ID :<p t-field="o.name"/></span>
-                                    <span class="d-flex">Sex :<t t-if="o.gender=='m'"><p>Male</p></t>
-                                        <t t-if="o.gender=='ot'"><p>Other</p></t>
-                                        <t t-if="o.gender=='f'"><p>Female</p></t></span>
-                                    <span class="d-flex">Age:<p t-field="o.age"/></span>
-                                </div>
-                                <hr/>
-                                <div class="d-flex">
                                     <div>
-                                        <span class="d-flex">ИИН:<p t-field="o.iin"/></span>
-                                        <span class="d-flex">Дата рождения:<p t-field="o.dob"/></span>
-                                        <span class="d-flex">Национальность:<p t-field="o.nationality"/></span>
-                                        <span class="d-flex">Гражданство:<p t-field="o.country_id"/></span>
+                                        <h2>Паспортные данные</h2>
+                                        <span class="d-flex">Patient ID :
+                                            <p t-field="o.name"/>
+                                        </span>
+                                        <strong>
+                                                <span t-field="o.patient.name"/>
+                                        </strong>
+                                        <span class="d-flex">Sex :
+                                            <t t-if="o.gender=='m'">
+                                                <p>Male</p>
+                                            </t>
+                                            <t t-if="o.gender=='ot'">
+                                                <p>Other</p>
+                                            </t>
+                                            <t t-if="o.gender=='f'">
+                                                <p>Female</p>
+                                            </t>
+                                        </span>
+                                        <span class="d-flex">Age:
+                                            <p t-field="o.age"/>
+                                        </span>
                                     </div>
-                                    <div style="margin-left:200px;">
-                                         <strong><span t-field="o.patient.name"/></strong>
-                                        <span class="d-flex">Адрес проживания:<p t-field="o.address_home_id"/></span>
-                                        <span class="d-flex">Место работы:<p t-field="o.company_id"/></span>
-                                        <span class="d-flex">Должность:<p t-field="o.job_id"/></span>
-                                        <span class="d-flex">Наименование страховой компании:<p>QZHUB</p></span>
-                                        <span class="d-flex">№ страхового полиса:<p>№ 234234</p></span>
+                                    <hr/>
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="d-flex">ИИН:
+                                                <p t-field="o.iin"/>
+                                            </span>
+                                            <span class="d-flex">Дата рождения:
+                                                <p t-field="o.dob"/>
+                                            </span>
+                                            <span class="d-flex">Национальность:
+                                                <p t-field="o.nationality"/>
+                                            </span>
+                                            <span class="d-flex">Гражданство:
+                                                <p t-field="o.country_id"/>
+                                            </span>
+                                        </div>
+                                        <div style="margin-left:200px;">
+                                            <span class="d-flex">Адрес проживания:
+                                                <p t-field="o.address_home_id"/>
+                                            </span>
+                                            <span class="d-flex">Место работы:
+                                                <p t-field="o.company_id"/>
+                                            </span>
+                                            <span class="d-flex">Должность:
+                                                <p t-field="o.job_id"/>
+                                            </span>
+                                            <span class="d-flex">Наименование страховой компании:
+                                                <p>QZHUB</p>
+                                            </span>
+                                            <span class="d-flex">№ страхового полиса:
+                                                <p>№ 234234</p>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
+                                <div style="margin-right:150px;">
+                                    <img style="max-height: 145px;"
+                                         t-attf-src="data:image/*;base64,{{o.patient_image}}"/>
+                                </div>
                             </div>
-                            <div style="margin-right:150px;">
-                                <img t-if="not o.patient_image" t-att-src="'/web/static/src/img/placeholder.png'" height="120" border="1" width="120"/>
-                                <img t-if="o.patient_image" t-att-src="'data:image/png;base64,%s' %o.patient_image" height="120" border="1" width="120"/>
-                            </div>
-                        </div>
-                        <h2>Минимальные медицинские данные:</h2>
-                        <span class="d-flex">Группа крови:<p t-field="o.blood_group"/> </span>
-                        <span class="d-flex">Рабочее давление:<p t-field="o.operating_pressure"/> </span>
-                        <span class="d-flex">Резус - фактор:<p t-field="o.rhesus_factor"/> </span>
-                        <span class="d-flex">Аллергические реакции:<p t-field="o.allergy"/> </span>
-                        <span class="d-flex">Физиологическое состояние пациента:<p t-field="o.phys_condition"/> </span>
-                        <span class="d-flex">Наследственные патологии:<p t-field="o.pathologies"/> </span>
-                        <span class="d-flex">Вредные привычки:<p t-field="o.bad_habits"/></span>
-                        <span class="d-flex">Профилактические мероприятия:<p t-field="o.preventive_actions"/></span>
-                        <span class="d-flex">Xронические заболевания:<p t-field="o.chronic_diseases"/></span>
-                        <span class="d-flex">Противопоказания:<p t-field="o.contraindications"/></span>
-                        <span class="d-flex">писок принимаемых в настоящее время лекарственных средств:<p>Парацетамол</p></span>
-                        <span class="d-flex" style="margin-top:5px;">ФИО врача:<p>Алмаз П</p></span>
-                        <span class="d-flex">ФИО  среднего медицинского работника:<p>Алмаз П</p></span>
-                    </header>
+                            <h2>Минимальные медицинские данные:</h2>
+                            <span class="d-flex">Группа крови:
+                                <p t-field="o.blood_group"/>
+                            </span>
+                            <span class="d-flex">Рабочее давление:
+                                <p t-field="o.operating_pressure"/>
+                            </span>
+                            <span class="d-flex">Резус - фактор:
+                                <p t-field="o.rhesus_factor"/>
+                            </span>
+                            <span class="d-flex">Аллергические реакции:
+                                <p t-field="o.allergy"/>
+                            </span>
+                            <span class="d-flex">Физиологическое состояние пациента:
+                                <p t-field="o.phys_condition"/>
+                            </span>
+                            <span class="d-flex">Наследственные патологии:
+                                <p t-field="o.pathologies"/>
+                            </span>
+                            <span class="d-flex">Вредные привычки:
+                                <p t-field="o.bad_habits"/>
+                            </span>
+                            <span class="d-flex">Профилактические мероприятия:
+                                <p t-field="o.preventive_actions"/>
+                            </span>
+                            <span class="d-flex">Xронические заболевания:
+                                <p t-field="o.chronic_diseases"/>
+                            </span>
+                            <span class="d-flex">Противопоказания:
+                                <p t-field="o.contraindications"/>
+                            </span>
+                            <span class="d-flex">писок принимаемых в настоящее время лекарственных средств:
+                                <p>Парацетамол</p>
+                            </span>
+                            <span class="d-flex" style="margin-top:5px;">ФИО врача:
+                                <p>Алмаз П</p>
+                            </span>
+                            <span class="d-flex">ФИО среднего медицинского работника:
+                                <p>Алмаз П</p>
+                            </span>
+                        </header>
                     </t>
-                 </t>
+                </t>
             </t>
         </template>
     </data>
