@@ -160,22 +160,22 @@
                                 <p>Форма предсменных медицинских обследований</p>
                             </strong>
                             <span class="d-flex">Наименование предприятия:
-                                <p></p>
+                                <p t-field="o.company_id"/>
                             </span>
                             <span class="d-flex">Наименование структурного подразделения:
-                                <p></p>
+                                <p t-field="o.department_id"/>
                             </span>
                             <span class="d-flex">Ф.И.О работника:
-                                <p></p>
+                                <p t-field="o.patient"/>
                             </span>
                             <span class="d-flex">Дата и год рождения:
-                                <p></p>
+                                <p t-field="o.dob"/>
                             </span>
                             <span class="d-flex">Место проживания:
-                                <p></p>
+                                <p t-field="o.address_home_id"/>
                             </span>
                             <span class="d-flex">Профессия или должность в настоящее время:
-                                <p></p>
+                                <p t-field="o.job_id"/>
                             </span>
                             <span class="d-flex">Общий стаж работы:
                                 <p></p>
