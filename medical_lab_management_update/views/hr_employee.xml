@@ -9,11 +9,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='button_box']" position="inside">
                     <button name="patient_view"
+                            string="Medical card"
                             type="object"
                             class="oe_stat_button"
                             icon="fa-stethoscope"
                             groups="hr.group_hr_manager,hr.group_hr_user">
-                        <field name="appointments_count" widget="statinfo"/>
                     </button>
                 </xpath>
                 <xpath expr="//page[@name='personal_information']" position="after">

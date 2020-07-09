@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <menuitem id="medical_lab_management.menu_root_lab" name="Laboratory" sequence="40"
+                  groups="medical_lab_management.group_lab_management_user,medical_lab_management.group_lab_management_technician" web_icon="medical_lab_management_update,static/description/icon.png"/>
 
         <record id="view_lab_patient_form_inherit" model="ir.ui.view">
             <field name="name">lab.patient.form.inherit</field>
@@ -9,7 +11,6 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet" position="replace">
-
 
                     <sheet>
                         <div class="oe_button_box" name="button_box">
@@ -80,11 +81,45 @@
                                 class="oe_stat_button"
                                 icon="fa-building-o"
                                 context = "{'search_default_patient_id': [active_id], 'default_patient_id':[active_id]}" >
-                                <field name="medical_history_count" widget="statinfo" string="Examinations"/>
+                                <field name="medical_history_count" widget="statinfo" string="Medical History"/>
 
                             </button>
                     </xpath>
                 </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="kanban_view_patient_inherit">
+            <field name="name">Patient Kanban</field>
+            <field name="model">lab.patient</field>
+            <field name="inherit_id" ref="medical_lab_management.kanban_view_patient"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div" position="inside">
+                    <div class=" userStory__header-kanban">
+                        <!--Button here-->
+                        <div class="o_dropdown_kanban dropdown">
+                            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                               href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                <span class="fa fa-ellipsis-v"/>
+                            </a>
+                            <div class="dropdown-menu" role="menu">
+                                <a name="%(portal.portal_share_action)d" role="menuitem" type="action"
+                                   class="dropdown-item fa fa-share">
+                                    <span class="ml-3">Share</span>
+                                </a>
+                                <a t-if="widget.editable" role="menuitem" type="edit"
+                                   class="dropdown-item fa fa-pencil-square-o">
+                                    <span class="ml-3">Edit</span>
+                                </a>
+                                <a t-if="widget.editable" role="menuitem" type="delete"
+                                   class="dropdown-item fa fa-times">
+                                    <span class="ml-3">Delete</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End header -->
+                    </div>
+                </xpath>
             </field>
         </record>
     </data>

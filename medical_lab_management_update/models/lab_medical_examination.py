@@ -41,7 +41,7 @@ class Examination(models.Model):
     comment = fields.Html(string='Comments')
 
     operating_pressure = fields.Char(string="Normal blood pressure", help="Blood pressure of employee", compute="_compute_operating_pressure")
-    arterial_pressure = fields.Char(string="Blood pressure", help="If blood pressure is greater or less than normal, this is a trigger to deny accesss to work")
+    arterial_pressure = fields.Char(string="Blood pressure", help="If blood pressure is greater or less than normal, this is a trigger to deny access to work")
     pulse = fields.Integer(string="Pulse", help="Normal heart rate is between 60 - 100 bpm")
     temperature = fields.Float(string="Temperature", help="Normal body temperature is between 35.5 to 37.2 ° C")
     alcohol_ppm = fields.Float(string="Alcohol level", help="Normal alcohol rate = up to 0.5 ‰")
