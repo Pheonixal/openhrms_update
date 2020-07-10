@@ -73,47 +73,49 @@ class LabPatient(models.Model):
     def _compute_info(self):
         for pat in self:
             res_user_id = pat.env['res.users'].search([('partner_id', '=', pat.patient.id)])
-            empl = pat.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
-            print("empl",empl)
+            if res_user_id:
+                empl = pat.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
+                if empl:
+                    for emp in empl:
+                        if emp:
+                            _logger.error('Employee: %s' % str(empl))
+                            _logger.error('res_user_id: %s' % str(res_user_id))
+                            _logger.error('pat.patient.id: %s' % str(pat.patient.id))
+                            # _logger.error('Employee name: %s' % str(emp.name))
+                            # _logger.error('company_id: %s' % str(emp.company_id))
+                            # _logger.error('department_id: %s' % str(emp.department_id))
+                            if emp.company_id:
+                                pat.company_id = emp.company_id
+                            if emp.department_id:
+                                pat.department_id = emp.department_id.id
+                            if emp.job_id:
+                                pat.job_id = emp.job_id.id
+                            if emp.address_id:
+                                pat.address_id = emp.address_id.id
+                            if emp.image_1920:
+                                pat.patient_image = emp.image_1920
+                            if emp.iin:
+                                pat.iin = emp.iin
+                            if emp.nationality:
+                                pat.nationality = emp.nationality
+                            if emp.country_id:
+                                pat.country_id = emp.country_id.id
+                            if emp.address_home_id:
+                                pat.address_home_id = emp.address_home_id
+                            if emp.marital:
+                                pat.marital = emp.marital
+                            if emp.birthday:
+                                pat.dob = emp.birthday
+                            if emp.gender:
+                                pat.gender = emp.gender
+                            if emp.work_phone:
+                                pat.phone = emp.work_phone
+                print("empl",empl)
             print("res_user_id",res_user_id)
             new_employe = self.env['hr.employee'].search([('user_id', '=', '')])
             print('newempl',new_employe)
             pat.company_id = ''
-            if empl:
-                for emp in empl:
-                    if emp:
-                        _logger.error('Employee: %s' % str(empl))
-                        _logger.error('res_user_id: %s' % str(res_user_id))
-                        _logger.error('pat.patient.id: %s' % str(pat.patient.id))
-                        # _logger.error('Employee name: %s' % str(emp.name))
-                        # _logger.error('company_id: %s' % str(emp.company_id))
-                        # _logger.error('department_id: %s' % str(emp.department_id))
-                        if emp.company_id:
-                            pat.company_id = emp.company_id
-                        if emp.department_id:
-                            pat.department_id = emp.department_id.id
-                        if emp.job_id:
-                            pat.job_id = emp.job_id.id
-                        if emp.address_id:
-                            pat.address_id = emp.address_id.id
-                        if emp.image_1920:
-                            pat.patient_image = emp.image_1920
-                        if emp.iin:
-                            pat.iin = emp.iin
-                        if emp.nationality:
-                            pat.nationality = emp.nationality
-                        if emp.country_id:
-                            pat.country_id = emp.country_id.id
-                        if emp.address_home_id:
-                            pat.address_home_id = emp.address_home_id
-                        if emp.marital:
-                            pat.marital = emp.marital
-                        if emp.birthday:
-                            pat.dob = emp.birthday
-                        if emp.gender:
-                            pat.gender = emp.gender
-                        if emp.work_phone:
-                            pat.phone = emp.work_phone
+
 
     @api.model
     def create_medical_examination(self):

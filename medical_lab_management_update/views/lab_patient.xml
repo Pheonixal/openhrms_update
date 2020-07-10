@@ -120,6 +120,9 @@
                         <!-- End header -->
                     </div>
                 </xpath>
+                <xpath expr="//img" position="attributes">
+                    <attribute name="alt">kanban_image</attribute>
+                </xpath>
             </field>
         </record>
     </data>
