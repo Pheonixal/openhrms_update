@@ -72,6 +72,17 @@ class LabPatient(models.Model):
             if emp:
                 empl = emp[0]
                 print(empl)
+                _logger.warning('USer:', res_user_id)
+                _logger.warning('employee:', empl)
+                _logger.warning('company_id:', empl.company_id)
+                _logger.warning('department_id:', empl.department_id)
+                _logger.warning('job_id:', empl.job_id)
+                _logger.warning('address_id:', empl.address_id)
+                _logger.warning('patient_image:', empl.patient_image)
+                _logger.warning('iin:', empl.iin)
+                _logger.warning('nationality:', empl.nationality)
+                _logger.warning('country_id:', empl.country_id)
+                _logger.warning('address_home_id:', empl.address_home_id)
                 if empl.company_id:
                     pat.company_id = empl.company_id
                 if empl.department_id:
