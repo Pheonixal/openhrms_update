@@ -101,14 +101,14 @@ class LabPatient(models.Model):
                             pat.department_id = emp.department_id.id if emp.department_id else False
                             pat.job_id = emp.job_id.id if emp.job_id else False
                             pat.address_id = emp.address_id.id if emp.address_id else False
-                            pat.patient_image = emp.image_1920 if emp.image_1920 else False
-                            pat.nationality = emp.nationality if emp.nationality else False
+                            pat.patient_image = emp.image_1920 if emp.image_1920 else ''
+                            pat.nationality = emp.nationality if emp.nationality else ''
                             pat.country_id = emp.country_id.id if emp.country_id else False
                             pat.address_home_id = emp.address_home_id.id if emp.address_home_id else False
-                            pat.marital = emp.marital if emp.marital else False
-                            pat.dob = emp.birthday if emp.birthday else False
-                            pat.gender = emp.gender if emp.gender else False
-                            pat.phone = emp.work_phone if emp.work_phone else False
+                            pat.marital = emp.marital if emp.marital else ''
+                            pat.dob = emp.birthday if emp.birthday else ''
+                            pat.gender = emp.gender if emp.gender else ''
+                            pat.phone = emp.work_phone if emp.work_phone else ''
 
                             # if emp.department_id:
                             #     pat.department_id = emp.department_id.id
