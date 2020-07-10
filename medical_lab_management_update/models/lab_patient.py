@@ -78,7 +78,7 @@ class LabPatient(models.Model):
                 _logger.warning('department_id:', empl.department_id)
                 _logger.warning('job_id:', empl.job_id)
                 _logger.warning('address_id:', empl.address_id)
-                _logger.warning('patient_image:', empl.patient_image)
+                _logger.warning('patient_image:', empl.image_1920)
                 _logger.warning('iin:', empl.iin)
                 _logger.warning('nationality:', empl.nationality)
                 _logger.warning('country_id:', empl.country_id)
