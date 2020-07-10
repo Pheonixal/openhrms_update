@@ -74,14 +74,20 @@ class LabPatient(models.Model):
         for pat in self:
             res_user_id = pat.env['res.users'].search([('partner_id', '=', pat.patient.id)])
             empl = pat.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
+            print("empl",empl)
+            print("res_user_id",res_user_id)
+            new_employe = self.env['hr.employee'].search([('user_id', '=', '')])
+            print('newempl',new_employe)
             pat.company_id = ''
             if empl:
                 for emp in empl:
                     if emp:
-                        _logger.error('Employee: %s' % str(emp))
-                        _logger.error('Employee name: %s' % str(emp.name))
-                        _logger.error('company_id: %s' % str(emp.company_id))
-                        _logger.error('department_id: %s' % str(emp.department_id))
+                        _logger.error('Employee: %s' % str(empl))
+                        _logger.error('res_user_id: %s' % str(res_user_id))
+                        _logger.error('pat.patient.id: %s' % str(pat.patient.id))
+                        # _logger.error('Employee name: %s' % str(emp.name))
+                        # _logger.error('company_id: %s' % str(emp.company_id))
+                        # _logger.error('department_id: %s' % str(emp.department_id))
                         if emp.company_id:
                             pat.company_id = emp.company_id
                         if emp.department_id:
