@@ -73,9 +73,7 @@ class LabPatient(models.Model):
     def _compute_info(self):
         for pat in self:
             res_user_id = pat.env['res.users'].search([('partner_id', '=', pat.patient.id)])
-            print('Res user', res_user_id)
             empl = pat.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
-            print('Employee', emp)
             pat.company_id = ''
             for emp in empl:
                 if emp:
