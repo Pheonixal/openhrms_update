@@ -77,32 +77,33 @@ class LabPatient(models.Model):
             pat.company_id = ''
             if empl:
                 for emp in empl:
-                    if emp.company_id:
-                        pat.company_id = emp.company_id
-                    if emp.department_id:
-                        pat.department_id = emp.department_id.id
-                    if emp.job_id:
-                        pat.job_id = emp.job_id.id
-                    if emp.address_id:
-                        pat.address_id = emp.address_id.id
-                    if emp.image_1920:
-                        pat.patient_image = emp.image_1920
-                    if emp.iin:
-                        pat.iin = emp.iin
-                    if emp.nationality:
-                        pat.nationality = emp.nationality
-                    if emp.country_id:
-                        pat.country_id = emp.country_id.id
-                    if emp.address_home_id:
-                        pat.address_home_id = emp.address_home_id
-                    if emp.marital:
-                        pat.marital = emp.marital
-                    if emp.birthday:
-                        pat.dob = emp.birthday
-                    if emp.gender:
-                        pat.gender = emp.gender
-                    if emp.work_phone:
-                        pat.phone = emp.work_phone
+                    if emp:
+                        if emp.company_id:
+                            pat.company_id = emp.company_id
+                        if emp.department_id:
+                            pat.department_id = emp.department_id.id
+                        if emp.job_id:
+                            pat.job_id = emp.job_id.id
+                        if emp.address_id:
+                            pat.address_id = emp.address_id.id
+                        if emp.image_1920:
+                            pat.patient_image = emp.image_1920
+                        if emp.iin:
+                            pat.iin = emp.iin
+                        if emp.nationality:
+                            pat.nationality = emp.nationality
+                        if emp.country_id:
+                            pat.country_id = emp.country_id.id
+                        if emp.address_home_id:
+                            pat.address_home_id = emp.address_home_id
+                        if emp.marital:
+                            pat.marital = emp.marital
+                        if emp.birthday:
+                            pat.dob = emp.birthday
+                        if emp.gender:
+                            pat.gender = emp.gender
+                        if emp.work_phone:
+                            pat.phone = emp.work_phone
 
     @api.model
     def create_medical_examination(self):
