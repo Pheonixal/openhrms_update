@@ -30,11 +30,7 @@ class LabPatient(models.Model):
         ('widower', 'Widower'),
         ('divorced', 'Divorced')
     ], string='Marital Status', groups="hr.group_hr_user", default='single', tracking=True)
-    gender = fields.Selection([
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('other', 'Other')
-    ], groups="hr.group_hr_user", default="male", tracking=True)
+    gender = fields.Char(required=False, tracking=True)
 
     phone = fields.Char(string="Phone", required=False)
 
@@ -56,6 +52,7 @@ class LabPatient(models.Model):
     work_condition = fields.Boolean(string='Hazardous working conditions')
 
     medical_history_count = fields.Integer(string="Medical History count", compute="_compute_history_count", copy=False, default=0)
+    dob = fields.Date(string='Date Of Birth', required=False)
 
     def _compute_history_count(self):
         for obj in self:
@@ -63,16 +60,28 @@ class LabPatient(models.Model):
 
     def compute_age(self):
         for data in self:
+            data.age = ''
             if data.dob:
                 dob = fields.Datetime.from_string(data.dob)
                 date = fields.Datetime.from_string(data.date)
                 delta = relativedelta(date, dob)
-            data.age = str(delta.years)
+                data.age = str(delta.years)
 
     @api.depends("patient")
     def _compute_info(self):
         for pat in self:
             res_user_id = pat.env['res.users'].search([('partner_id', '=', pat.patient.id)])
+            pat.company_id = ''
+            # pat.department_id = ''
+            # pat.job_id = ''
+            # pat.address_id = ''
+            # pat.patient_image = ''
+            # pat.iin = ''
+            # pat.address_home_id = ''
+            # pat.marital = ''
+            # pat.dob = ''
+            # pat.gender = ''
+            # pat.work_phone = ''
             if res_user_id:
                 empl = pat.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
                 if empl:
@@ -84,38 +93,44 @@ class LabPatient(models.Model):
                             # _logger.error('Employee name: %s' % str(emp.name))
                             # _logger.error('company_id: %s' % str(emp.company_id))
                             # _logger.error('department_id: %s' % str(emp.department_id))
-                            if emp.company_id:
-                                pat.company_id = emp.company_id
-                            if emp.department_id:
-                                pat.department_id = emp.department_id.id
-                            if emp.job_id:
-                                pat.job_id = emp.job_id.id
-                            if emp.address_id:
-                                pat.address_id = emp.address_id.id
-                            if emp.image_1920:
-                                pat.patient_image = emp.image_1920
-                            if emp.iin:
-                                pat.iin = emp.iin
-                            if emp.nationality:
-                                pat.nationality = emp.nationality
-                            if emp.country_id:
-                                pat.country_id = emp.country_id.id
-                            if emp.address_home_id:
-                                pat.address_home_id = emp.address_home_id
-                            if emp.marital:
-                                pat.marital = emp.marital
-                            if emp.birthday:
-                                pat.dob = emp.birthday
-                            if emp.gender:
-                                pat.gender = emp.gender
-                            if emp.work_phone:
-                                pat.phone = emp.work_phone
-                print("empl",empl)
-            print("res_user_id",res_user_id)
-            new_employe = self.env['hr.employee'].search([('user_id', '=', '')])
-            print('newempl',new_employe)
-            pat.company_id = ''
+                            pat.company_id = emp.company_id.id if emp.company_id else False
+                            pat.department_id = emp.department_id.id if emp.department_id else False
+                            pat.job_id = emp.job_id.id if emp.job_id else False
+                            pat.address_id = emp.address_id.id if emp.address_id else False
+                            pat.patient_image = emp.image_1920
+                            pat.nationality = emp.nationality
+                            pat.country_id = emp.country_id.id if emp.country_id else False
+                            pat.address_home_id = emp.address_home_id.id if emp.address_home_id else False
+                            pat.address_home_id = emp.address_home_id.id if emp.address_home_id else False
+                            pat.marital = emp.marital
+                            pat.dob = emp.birthday
+                            pat.gender = (emp.gender).capitalize()
+                            pat.phone = emp.work_phone
 
+                            # if emp.department_id:
+                            #     pat.department_id = emp.department_id.id
+                            # if emp.job_id:
+                            #     pat.job_id = emp.job_id.id
+                            # if emp.address_id:
+                            #     pat.address_id = emp.address_id.id
+                            # if emp.image_1920:
+                            #     pat.patient_image = emp.image_1920
+                            # if emp.iin:
+                            #     pat.iin = emp.iin
+                            # if emp.nationality:
+                            #     pat.nationality = emp.nationality
+                            # if emp.country_id:
+                            #     pat.country_id = emp.country_id.id
+                            # if emp.address_home_id:
+                            #     pat.address_home_id = emp.address_home_id
+                            # if emp.marital:
+                            #     pat.marital = emp.marital
+                            # if emp.birthday:
+                            #     pat.dob = emp.birthday
+                            # if emp.gender:
+                            #     pat.gender = emp.gender
+                            # if emp.work_phone:
+                            #     pat.phone = emp.work_phone
 
     @api.model
     def create_medical_examination(self):
