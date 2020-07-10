@@ -30,7 +30,11 @@ class LabPatient(models.Model):
         ('widower', 'Widower'),
         ('divorced', 'Divorced')
     ], string='Marital Status', groups="hr.group_hr_user", default='single', tracking=True)
-    gender = fields.Char(required=False, tracking=True)
+    gender = fields.Selection([
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other')
+    ], groups="hr.group_hr_user", required=False, tracking=True)
 
     phone = fields.Char(string="Phone", required=False)
 
@@ -97,15 +101,14 @@ class LabPatient(models.Model):
                             pat.department_id = emp.department_id.id if emp.department_id else False
                             pat.job_id = emp.job_id.id if emp.job_id else False
                             pat.address_id = emp.address_id.id if emp.address_id else False
-                            pat.patient_image = emp.image_1920
-                            pat.nationality = emp.nationality
+                            pat.patient_image = emp.image_1920 if emp.image_1920 else False
+                            pat.nationality = emp.nationality if emp.nationality else False
                             pat.country_id = emp.country_id.id if emp.country_id else False
                             pat.address_home_id = emp.address_home_id.id if emp.address_home_id else False
-                            pat.address_home_id = emp.address_home_id.id if emp.address_home_id else False
-                            pat.marital = emp.marital
-                            pat.dob = emp.birthday
-                            pat.gender = (emp.gender).capitalize()
-                            pat.phone = emp.work_phone
+                            pat.marital = emp.marital if emp.marital else False
+                            pat.dob = emp.birthday if emp.birthday else False
+                            pat.gender = emp.gender if emp.gender else False
+                            pat.phone = emp.work_phone if emp.work_phone else False
 
                             # if emp.department_id:
                             #     pat.department_id = emp.department_id.id
