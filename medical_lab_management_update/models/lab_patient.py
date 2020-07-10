@@ -2,6 +2,7 @@
 
 from odoo import api, fields, models, _
 from odoo.osv import expression
+from dateutil.relativedelta import relativedelta
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -60,6 +61,13 @@ class LabPatient(models.Model):
         for obj in self:
             obj.medical_history_count = self.env['lab.medical.history'].search_count([('patient', '=', obj.patient.id)])
 
+    def compute_age(self):
+        for data in self:
+            if data.dob:
+                dob = fields.Datetime.from_string(data.dob)
+                date = fields.Datetime.from_string(data.date)
+                delta = relativedelta(date, dob)
+            data.age = str(delta.years)
 
     @api.depends("patient")
     def _compute_info(self):
@@ -70,44 +78,32 @@ class LabPatient(models.Model):
             print('Employee', emp)
             pat.company_id = ''
             if emp:
-                empl = emp[0]
-                print(empl)
-                _logger.warning('USer:', res_user_id)
-                _logger.warning('employee:', empl)
-                _logger.warning('company_id:', empl.company_id)
-                _logger.warning('department_id:', empl.department_id)
-                _logger.warning('job_id:', empl.job_id)
-                _logger.warning('address_id:', empl.address_id)
-                _logger.warning('patient_image:', empl.image_1920)
-                _logger.warning('iin:', empl.iin)
-                _logger.warning('nationality:', empl.nationality)
-                _logger.warning('country_id:', empl.country_id)
-                _logger.warning('address_home_id:', empl.address_home_id)
-                if empl.company_id:
-                    pat.company_id = empl.company_id
-                if empl.department_id:
-                    pat.department_id = empl.department_id.id
-                if empl.job_id:
-                    pat.job_id = empl.job_id.id
-                if empl.address_id:
-                    pat.address_id = empl.address_id.id
-                pat.patient_image = empl.image_1920
-                if empl.iin:
-                    pat.iin = empl.iin
-                if empl.nationality:
-                    pat.nationality = empl.nationality
-                if empl.country_id:
-                    pat.country_id = empl.country_id.id
-                if empl.address_home_id:
-                    pat.address_home_id = empl.address_home_id
-                if empl.marital:
-                    pat.marital = empl.marital
-                if empl.birthday:
-                    pat.dob = empl.birthday
-                if empl.gender:
-                    pat.gender = empl.gender
-                if empl.work_phone:
-                    pat.phone = empl.work_phone
+                if emp.company_id:
+                    pat.company_id = emp.company_id
+                if emp.department_id:
+                    pat.department_id = emp.department_id.id
+                if emp.job_id:
+                    pat.job_id = emp.job_id.id
+                if emp.address_id:
+                    pat.address_id = emp.address_id.id
+                if emp.image_1920:
+                    pat.patient_image = emp.image_1920
+                if emp.iin:
+                    pat.iin = emp.iin
+                if emp.nationality:
+                    pat.nationality = emp.nationality
+                if emp.country_id:
+                    pat.country_id = emp.country_id.id
+                if emp.address_home_id:
+                    pat.address_home_id = emp.address_home_id
+                if emp.marital:
+                    pat.marital = emp.marital
+                if emp.birthday:
+                    pat.dob = emp.birthday
+                if emp.gender:
+                    pat.gender = emp.gender
+                if emp.work_phone:
+                    pat.phone = emp.work_phone
 
     @api.model
     def create_medical_examination(self):

@@ -88,7 +88,7 @@ msgstr "Адрес"
 #. module: medical_lab_management_update
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_examination__alcohol_ppm
 msgid "Alcohol level"
-msgstr "Уровень алкоголя"
+msgstr "Уровень алкоголя (Промилле ‰)"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__allergy
@@ -583,7 +583,7 @@ msgstr "Профилактические мероприятия"
 #. module: medical_lab_management_update
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_examination__pulse
 msgid "Pulse"
-msgstr "Пульс"
+msgstr "Пульс (Удар в минуту)"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__type_of_appointment__quarter
@@ -652,7 +652,7 @@ msgstr "Статус"
 #. module: medical_lab_management_update
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_examination__temperature
 msgid "Temperature"
-msgstr "Температура"
+msgstr "Температура (°C)"
 
 #. module: medical_lab_management_update
 #: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_examination_form_view

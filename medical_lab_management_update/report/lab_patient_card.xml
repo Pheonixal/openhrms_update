@@ -66,12 +66,12 @@
                                             <span class="d-flex">Должность:
                                                 <p t-field="o.job_id"/>
                                             </span>
-                                            <span class="d-flex">Наименование страховой компании:
-                                                <p>QZHUB</p>
-                                            </span>
-                                            <span class="d-flex">№ страхового полиса:
-                                                <p>№ 234234</p>
-                                            </span>
+<!--                                            <span class="d-flex">Наименование страховой компании:-->
+<!--                                                <p>QZHUB</p>-->
+<!--                                            </span>-->
+<!--                                            <span class="d-flex">№ страхового полиса:-->
+<!--                                                <p>№ 234234</p>-->
+<!--                                            </span>-->
                                         </div>
                                     </div>
                                 </div>
@@ -111,15 +111,15 @@
                             <span class="d-flex">Противопоказания:
                                 <p t-field="o.contraindications"/>
                             </span>
-                            <span class="d-flex">писок принимаемых в настоящее время лекарственных средств:
+                            <span class="d-flex">Список принимаемых в настоящее время лекарственных средств:
                                 <p>Парацетамол</p>
                             </span>
-                            <span class="d-flex" style="margin-top:5px;">ФИО врача:
-                                <p>Алмаз П</p>
-                            </span>
-                            <span class="d-flex">ФИО среднего медицинского работника:
-                                <p>Алмаз П</p>
-                            </span>
+<!--                            <span class="d-flex" style="margin-top:5px;">ФИО врача:-->
+<!--                                <p>Алмаз П</p>-->
+<!--                            </span>-->
+<!--                            <span class="d-flex">ФИО среднего медицинского работника:-->
+<!--                                <p>Алмаз П</p>-->
+<!--                            </span>-->
                         </header>
                     </t>
                 </t>

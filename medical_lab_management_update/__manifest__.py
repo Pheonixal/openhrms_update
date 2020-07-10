@@ -24,6 +24,8 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
+        'security/security.xml',
         'views/hr_employee.xml',
         'views/lab_medical_history.xml',
         'views/lab_patient.xml',
@@ -32,7 +34,6 @@
         'report/lab_patient_card.xml',
         'views/lab_medical_examination.xml',
         'views/examination_cron.xml',
-        'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
     'demo': [
