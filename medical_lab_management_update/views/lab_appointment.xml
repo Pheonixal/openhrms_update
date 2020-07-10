@@ -27,6 +27,9 @@
         <record model="ir.ui.menu" id="medical_lab_management.configuration_id">
             <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
         </record>
+        <record model="ir.ui.menu" id="medical_lab_management.menu_lab_request">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
 
 
     </data>

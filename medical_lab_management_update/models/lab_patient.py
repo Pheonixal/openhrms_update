@@ -78,6 +78,10 @@ class LabPatient(models.Model):
             if empl:
                 for emp in empl:
                     if emp:
+                        _logger.error('Employee: %s' % str(emp))
+                        _logger.error('Employee name: %s' % str(emp.name))
+                        _logger.error('company_id: %s' % str(emp.company_id))
+                        _logger.error('department_id: %s' % str(emp.department_id))
                         if emp.company_id:
                             pat.company_id = emp.company_id
                         if emp.department_id:
