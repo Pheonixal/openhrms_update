@@ -75,8 +75,7 @@ class LabPatient(models.Model):
                     pat.job_id = emp.job_id.id
                 if emp.address_id:
                     pat.address_id = emp.address_id.id
-                if emp.image_1920:
-                    pat.patient_image = emp.image_1920
+                pat.patient_image = emp.image_1920
                 if emp.iin:
                     pat.iin = emp.iin
                 if emp.nationality:
