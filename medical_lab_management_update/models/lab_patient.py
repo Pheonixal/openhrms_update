@@ -75,8 +75,8 @@ class LabPatient(models.Model):
             res_user_id = pat.env['res.users'].search([('partner_id', '=', pat.patient.id)])
             empl = pat.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
             pat.company_id = ''
-            for emp in empl:
-                if emp:
+            if empl:
+                for emp in empl:
                     if emp.company_id:
                         pat.company_id = emp.company_id
                     if emp.department_id:
