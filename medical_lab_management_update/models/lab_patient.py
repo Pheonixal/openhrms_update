@@ -2,7 +2,8 @@
 
 from odoo import api, fields, models, _
 from odoo.osv import expression
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class LabPatient(models.Model):
     _inherit = 'lab.patient'
@@ -66,6 +67,17 @@ class LabPatient(models.Model):
             res_user_id = self.env['res.users'].search([('partner_id', '=', pat.patient.id)])
             emp = self.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
             pat.company_id = ''
+            _logger.warning('USer:', res_user_id)
+            _logger.warning('employee:',emp)
+            _logger.warning('company_id:',emp.company_id)
+            _logger.warning('department_id:',emp.department_id)
+            _logger.warning('job_id:',emp.job_id)
+            _logger.warning('address_id:',emp.address_id)
+            _logger.warning('patient_image:',emp.patient_image)
+            _logger.warning('iin:',emp.iin)
+            _logger.warning('nationality:',emp.nationality)
+            _logger.warning('country_id:',emp.country_id)
+            _logger.warning('address_home_id:',emp.address_home_id)
             if emp:
                 if emp.company_id:
                     pat.company_id = emp.company_id
