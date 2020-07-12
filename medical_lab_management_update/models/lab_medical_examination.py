@@ -15,7 +15,7 @@ class Examination(models.Model):
          ]
     )
 
-    patient = fields.Many2one('res.partner', string='Patient', required=True)
+    patient = fields.Many2one('hr.employee', string='Patient', required=True)
     physician_id = fields.Many2one('res.partner', string='Physician', select=True)
 
     examination_date = fields.Datetime(string="Examination date")
