@@ -10,9 +10,9 @@ class LabPatient(models.Model):
     _inherit = 'lab.patient'
 
     # Personal information get from hr.employee of connected res.partner
-    patient = fields.Many2one('res.partner', string='Patient name', required=True)
+    patient = fields.Many2one('hr.employee', string='Patient name', required=True)
 
-    company_id = fields.Many2one('res.company', string='Company', compute="_compute_info")
+    company_id = fields.Many2one('res.company', string='Company')
     department_id = fields.Many2one('hr.department', string='Department', domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     job_id = fields.Many2one('hr.job', string='Job Position', domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     address_id = fields.Many2one('res.partner', string='Work Address', domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
@@ -71,69 +71,22 @@ class LabPatient(models.Model):
                 delta = relativedelta(date, dob)
                 data.age = str(delta.years)
 
-    @api.depends("patient")
-    def _compute_info(self):
-        for pat in self:
-            res_user_id = pat.env['res.users'].search([('partner_id', '=', pat.patient.id)])
-            pat.company_id = ''
-            # pat.department_id = ''
-            # pat.job_id = ''
-            # pat.address_id = ''
-            # pat.patient_image = ''
-            # pat.iin = ''
-            # pat.address_home_id = ''
-            # pat.marital = ''
-            # pat.dob = ''
-            # pat.gender = ''
-            # pat.work_phone = ''
-            if res_user_id:
-                empl = pat.env['hr.employee'].search([('user_id', '=', res_user_id.id)])
-                if empl:
-                    for emp in empl:
-                        if emp:
-                            _logger.error('Employee: %s' % str(empl))
-                            _logger.error('res_user_id: %s' % str(res_user_id))
-                            _logger.error('pat.patient.id: %s' % str(pat.patient.id))
-                            # _logger.error('Employee name: %s' % str(emp.name))
-                            # _logger.error('company_id: %s' % str(emp.company_id))
-                            # _logger.error('department_id: %s' % str(emp.department_id))
-                            pat.company_id = emp.company_id.id if emp.company_id else False
-                            pat.department_id = emp.department_id.id if emp.department_id else False
-                            pat.job_id = emp.job_id.id if emp.job_id else False
-                            pat.address_id = emp.address_id.id if emp.address_id else False
-                            pat.patient_image = emp.image_1920 if emp.image_1920 else ''
-                            pat.nationality = emp.nationality if emp.nationality else ''
-                            pat.country_id = emp.country_id.id if emp.country_id else False
-                            pat.address_home_id = emp.address_home_id.id if emp.address_home_id else False
-                            pat.marital = emp.marital if emp.marital else ''
-                            pat.dob = emp.birthday if emp.birthday else ''
-                            pat.gender = emp.gender if emp.gender else ''
-                            pat.phone = emp.work_phone if emp.work_phone else ''
-
-                            # if emp.department_id:
-                            #     pat.department_id = emp.department_id.id
-                            # if emp.job_id:
-                            #     pat.job_id = emp.job_id.id
-                            # if emp.address_id:
-                            #     pat.address_id = emp.address_id.id
-                            # if emp.image_1920:
-                            #     pat.patient_image = emp.image_1920
-                            # if emp.iin:
-                            #     pat.iin = emp.iin
-                            # if emp.nationality:
-                            #     pat.nationality = emp.nationality
-                            # if emp.country_id:
-                            #     pat.country_id = emp.country_id.id
-                            # if emp.address_home_id:
-                            #     pat.address_home_id = emp.address_home_id
-                            # if emp.marital:
-                            #     pat.marital = emp.marital
-                            # if emp.birthday:
-                            #     pat.dob = emp.birthday
-                            # if emp.gender:
-                            #     pat.gender = emp.gender
-                            # if emp.work_phone:
-                            #     pat.phone = emp.work_phone
+    @api.onchange('patient')
+    def detail_get(self):
+        self.phone = self.patient.phone
+        self.email = self.patient.private_email
+        self.company_id = self.patient.company_id.id
+        self.department_id = self.patient.department_id.id
+        self.job_id = self.patient.job_id.id
+        self.address_id = self.patient.address_id.id
+        self.patient_image = self.patient.image_1920
+        self.nationality = self.patient.nationality
+        self.country_id = self.patient.country_id.id
+        self.address_home_id = self.patient.address_home_id.id
+        self.marital = self.patient.marital
+        self.dob = self.patient.birthday
+        self.gender = self.patient.gender
+        self.phone = self.patient.work_phone
 
     @api.model
     def create_medical_examination(self):

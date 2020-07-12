@@ -29,6 +29,7 @@ class HrEmployee(models.Model):
     operating_pressure = fields.Char(string="Normal blood pressure", help="Blood pressure of employee")
     blood_donor = fields.Boolean(string='Blood donor')
     work_condition = fields.Boolean(string='Hazardous working conditions')
+    is_patient = fields.Boolean(string='Is Patient')
 
     def patient_view(self):
         for each1 in self:
