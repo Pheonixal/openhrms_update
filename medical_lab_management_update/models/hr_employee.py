@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models, _
+from datetime import timedelta, datetime, date
 from odoo.osv import expression
 
 
@@ -71,10 +72,17 @@ class HrEmployee(models.Model):
                 emp.contraindications = patient.contraindications
                 emp.operating_pressure = patient.operating_pressure
 
-
-
-
-
+    @api.model
+    def get_dept_employee(self):
+        examination = self.env['lab.medical.examination'].search([])
+        data = []
+        for exam in examination:
+            if exam.examination_date and exam.examination_date.date() == datetime.now().date():
+                data.append({
+                    'label': exam.patient.name,
+                    'value': exam.permission.capitalize() if exam.permission else 'TBA'
+                })
+        return data
 
 
 

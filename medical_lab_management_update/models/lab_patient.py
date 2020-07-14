@@ -4,6 +4,7 @@ from odoo import api, fields, models, _
 from odoo.osv import expression
 from dateutil.relativedelta import relativedelta
 import logging
+import datetime
 _logger = logging.getLogger(__name__)
 
 class LabPatient(models.Model):
@@ -34,7 +35,7 @@ class LabPatient(models.Model):
         ('male', 'Male'),
         ('female', 'Female'),
         ('other', 'Other')
-    ], groups="hr.group_hr_user", required=False, tracking=True)
+    ], groups="hr.group_hr_user", default='', tracking=True)
 
     phone = fields.Char(string="Phone", required=False)
 
@@ -92,12 +93,14 @@ class LabPatient(models.Model):
     def create_medical_examination(self):
         lab_patient = self.env["lab.patient"].search([])
         for pat in lab_patient:
+            employee_leaves = self.env['hr.leave'].search([['employee_id', '=', pat.patient.id]])
+            print(employee_leaves)
             print(pat)
             print(pat.work_condition)
-            if pat.work_condition:
-                new = self.env["lab.medical.examination"].sudo().create({
-                    'patient': pat.patient.id,
-                    'examination_date': fields.Datetime.now(),  # connecting new step to newly created task
-                    'type_of_appointment': 'daily',
-                })
-            print(new)
+            # if pat.work_condition:
+            #     new = self.env["lab.medical.examination"].sudo().create({
+            #         'patient': pat.patient.id,
+            #         'examination_date': fields.Datetime.now() + datetime.timedelta(days=1),
+            #         'type_of_appointment': 'daily',
+            #     })
+            # print(new)

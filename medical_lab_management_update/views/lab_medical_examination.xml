@@ -71,7 +71,7 @@
                         <widget name="web_ribbon" title="Denied" bg_color="bg-danger" attrs="{'invisible': [('permission', '!=', 'denied')]}"/>
                         <group>
                             <group>
-                                <field name="patient" domain="[('is_patient','=',True)]" context="{'search_default_is_patient':1, 'default_is_patient':1, 'default_customer':1}"/>
+                                <field name="patient" options="{'no_create':True}"/>
                                 <field name="physician_id" domain="[('is_physician','=',True)]" context="{'search_default_is_physician':1, 'default_is_physician':1}"/>
                             </group>
                             <group>
