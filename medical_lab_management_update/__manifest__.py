@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'medical_lab_management'],
+    'depends': ['base', 'medical_lab_management', 'hr'],
 
     # always loaded
     'data': [
@@ -34,7 +34,6 @@
         'views/lab_test_type.xml',
         'report/report.xml',
         'report/lab_patient_card.xml',
-        # 'views/lab_medical_examination.xml',
         'views/examination_cron.xml',
     ],
     # only loaded in demonstration mode

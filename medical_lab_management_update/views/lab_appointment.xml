@@ -12,9 +12,6 @@
                     <field name="type_of_appointment"/>
                     <field name="permission"/>
                 </xpath>
-                <xpath expr="//field[@name='state']" position="replace">
-                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,request_lab,completed"/>
-                </xpath>
                 <xpath expr="//page[@name='Note']" position="after">
                     <page name="health_code" string="Health Code">
                         <field name="content" widget="html"/>

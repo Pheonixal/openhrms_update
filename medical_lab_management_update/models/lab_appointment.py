@@ -12,14 +12,6 @@ class Appointment(models.Model):
          ('quarter', 'Quarter')
          ]
     )
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('confirm', 'Confirmed'),
-        ('request_lab', 'Lab Requested'),
-        ('completed', 'Test Result'),
-        ('cancel', 'Cancelled'),
-    ], string='Status', readonly=True, copy=False, index=True, track_visibility='onchange', default='draft',
-    )
     permission = fields.Selection([
         ('granted', 'Granted'),
         ('denied', 'Denied'),
@@ -44,9 +36,10 @@ class Appointment(models.Model):
                 for dat in data.test_lines:
                     request_line_new = self.env['lab.test.attribute'].create({
                         'interval': dat.interval,
+                        'interval_max': dat.interval_max,
                         'test_content': dat.test_content.id,
                         'test_request_reverse': lab_request_new.id,
-                        'unit': dat.interval
+                        'unit': dat.unit.id
                     })
             self.state = 'request_lab'
         else:
