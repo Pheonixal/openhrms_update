@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_lab_test_form_inherit" model="ir.ui.view">
+            <field name="name">lab.test.form.inherit</field>
+            <field name="model">lab.test</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_reques_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='interval']" position="after">
+                        <field name="interval_max"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_lab_test_attribute_form_inherit" model="ir.ui.view">
+            <field name="name">lab.test.attribute.form.inherit</field>
+            <field name="model">lab.test.attribute</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_test_attribute_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='interval']" position="after">
+                        <field name="interval_max"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

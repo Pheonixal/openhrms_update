@@ -92,5 +92,30 @@
     <menuitem name="Server to list" id="medical_lab_management_update" parent="medical_lab_management_update.menu_2"
               action="medical_lab_management_update.action_server"/>
 -->
+
+      <template id="dashboard_update" name="Hr Dashboard update inherit" inherit_id="web.assets_backend">
+          <xpath expr="." position="inside">
+              <script type="text/javascript" src="/medical_lab_management_update/static/src/js/hrms_dashboard_update.js"/>
+          </xpath>
+      </template>
+
+<!--      <template id="assets_backend_dashboard_update" name="Hr Dashboard assets inherit" inherit_id="web.assets_backend">-->
+<!--        <xpath expr="." position="inside">-->
+<!--            <link rel="stylesheet" href="/hrms_dashboard/static/src/css/hrms_dashboard.css"/>-->
+<!--            <script type="text/javascript" src="/hrms_dashboard/static/src/js/hrms_dashboard.js"/>-->
+<!--            <link rel="stylesheet" href="/hrms_dashboard/static/src/css/lib/nv.d3.css"/>-->
+<!--            <script type="text/javascript" src="/hrms_dashboard/static/src/js/lib/d3.min.js"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+<!--    <templates xml:space="preserve">-->
+<!--        <t t-extend="ListView.buttons">-->
+<!--            <t t-jquery="button.o_list_export_xlsx" t-operation="after">-->
+<!--                <button type="button" accesskey="f" t-if='widget.modelName == "asset.asset"'-->
+<!--                        class="btn btn-primary oe_action_button">Report-->
+<!--                </button>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </templates>-->
   </data>
 </odoo>

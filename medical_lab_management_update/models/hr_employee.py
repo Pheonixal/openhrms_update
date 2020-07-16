@@ -34,11 +34,11 @@ class HrEmployee(models.Model):
 
     def patient_view(self):
         for each1 in self:
-            res_user_id = self.env['res.users'].search([('id', '=', each1.user_id.id)])
-            lab_patient = self.env['lab.patient'].search([('patient', '=', res_user_id.partner_id.id)])
+            # res_user_id = self.env['res.users'].search([('id', '=', each1.user_id.id)])
+            # lab_patient = self.env['lab.patient'].search([('patient', '=', res_user_id.partner_id.id)])
 
             lab_ids = []
-            for each in lab_patient:
+            for each in each1:
                 lab_ids.append(each.id)
             view_id = self.env.ref('medical_lab_management.view_lab_patient_form').id
             if lab_ids:
@@ -72,17 +72,17 @@ class HrEmployee(models.Model):
                 emp.contraindications = patient.contraindications
                 emp.operating_pressure = patient.operating_pressure
 
-    @api.model
-    def get_dept_employee(self):
-        examination = self.env['lab.medical.examination'].search([])
-        data = []
-        for exam in examination:
-            if exam.examination_date and exam.examination_date.date() == datetime.now().date():
-                data.append({
-                    'label': exam.patient.name,
-                    'value': exam.permission.capitalize() if exam.permission else 'TBA'
-                })
-        return data
+    # @api.model
+    # def get_dept_employee(self):
+    #     examination = self.env['lab.medical.examination'].search([])
+    #     data = []
+    #     for exam in examination:
+    #         if exam.examination_date and exam.examination_date.date() == datetime.now().date():
+    #             data.append({
+    #                 'label': exam.patient.name,
+    #                 'value': exam.permission.capitalize() if exam.permission else 'TBA'
+    #             })
+    #     return data
 
 
 

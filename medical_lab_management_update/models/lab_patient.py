@@ -7,6 +7,7 @@ import logging
 import datetime
 _logger = logging.getLogger(__name__)
 
+
 class LabPatient(models.Model):
     _inherit = 'lab.patient'
 

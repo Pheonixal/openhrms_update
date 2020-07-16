@@ -75,15 +75,15 @@
             <field name="inherit_id" ref="medical_lab_management.view_lab_patient_form_inherit" />
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//button[@name='%(medical_lab_management.act_open_lab_appointment_view)d']" position="replace">
+                    <xpath expr="//button[@name='%(medical_lab_management.act_open_lab_appointment_view)d']"
+                           position="after">
                         <button name="%(lab_medical_history_act_window)d"
-                                type="action"
-                                class="oe_stat_button"
-                                icon="fa-building-o"
-                                context = "{'search_default_patient_id': [active_id], 'default_patient_id':[active_id]}" >
-                                <field name="medical_history_count" widget="statinfo" string="Medical History"/>
-
-                            </button>
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-building-o"
+                            context="{'search_default_patient_id': [active_id], 'default_patient_id':[active_id]}">
+                            <field name="medical_history_count" widget="statinfo" string="Medical History"/>
+                        </button>
                     </xpath>
                 </data>
             </field>

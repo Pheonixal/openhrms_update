@@ -65,7 +65,7 @@ class Examination(models.Model):
         pulse_is_normal = 60 < int(self.pulse) < 100
         temperature_is_normal = 35.5 < float(self.temperature) < 37.2
         pressure_is_normal = self.operating_pressure == self.arterial_pressure
-        if alcohol_is_normal and pulse_is_normal and temperature_is_normal and pressure_is_normal:
+        if all([alcohol_is_normal, pulse_is_normal, temperature_is_normal, pressure_is_normal]):
             self.permission = 'granted'
         else:
             self.permission = 'denied'

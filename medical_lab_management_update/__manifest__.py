@@ -30,9 +30,11 @@
         'views/lab_medical_history.xml',
         'views/lab_patient.xml',
         'views/lab_appointment.xml',
+        'views/lab_request.xml',
+        'views/lab_test_type.xml',
         'report/report.xml',
         'report/lab_patient_card.xml',
-        'views/lab_medical_examination.xml',
+        # 'views/lab_medical_examination.xml',
         'views/examination_cron.xml',
     ],
     # only loaded in demonstration mode
