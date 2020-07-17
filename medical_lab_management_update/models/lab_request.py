@@ -25,17 +25,17 @@ class LabRequest(models.Model):
                 if attribute.interval and attribute.interval_max:
                     check = attribute.interval < attribute.result < attribute.interval_max
                     if not check:
-                        note += f"Content :'{attribute.test_content.content_type_name}' result:'{attribute.result} {attribute.unit.unit}' is not between referred intervals of from '{attribute.interval}' to '{attribute.interval_max} {attribute.unit.unit}'\n"
+                        note += f"Content :'{attribute.test_content.content_type_name}' result:'{attribute.result} {attribute.unit.unit}' is not between referred intervals of from '{attribute.interval}' to '{attribute.interval_max} {attribute.unit}'\n"
                     permiss.append(check)
                 elif attribute.interval:
                     check = attribute.interval < attribute.result
                     if not check:
-                        note += f"Content: '{attribute.test_content.content_type_name}' result:'{attribute.result} {attribute.unit.unit}' is less than referred min value of '{attribute.interval} {attribute.unit.unit}'\n"
+                        note += f"Content: '{attribute.test_content.content_type_name}' result:'{attribute.result} {attribute.unit.unit}' is less than referred min value of '{attribute.interval} {attribute.unit}'\n"
                     permiss.append(check)
                 elif attribute.interval_max:
                     check = attribute.result < attribute.interval_max
                     if not check:
-                        note += f"Content {attribute.test_content.content_type_name} result:'{attribute.result} {attribute.unit.unit}' is more than referred max value of '{attribute.interval_max} {attribute.unit.unit}'\n"
+                        note += f"Content {attribute.test_content.content_type_name} result:'{attribute.result} {attribute.unit.unit}' is more than referred max value of '{attribute.interval_max} {attribute.unit}'\n"
                     permiss.append(check)
         self.app_id.comment = note
         if all(permiss):
