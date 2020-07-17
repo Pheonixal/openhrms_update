@@ -89,7 +89,8 @@ class LabPatient(models.Model):
         self.address_home_id = self.patient.address_home_id.id
         self.marital = self.patient.marital
         self.dob = self.patient.birthday
-        self.gender = self.patient.gender.capitalize()
+        if self.patient.gender:
+            self.gender = self.patient.gender.capitalize()
         self.phone = self.patient.work_phone
 
     @api.model
