@@ -73,22 +73,22 @@ class LabPatient(models.Model):
                 delta = relativedelta(date, dob)
                 data.age = str(delta.years)
 
-    @api.onchange('patient')
-    def detail_get(self):
-        self.phone = self.patient.phone
-        self.email = self.patient.private_email
-        self.company_id = self.patient.company_id.id
-        self.department_id = self.patient.department_id.id
-        self.job_id = self.patient.job_id.id
-        self.address_id = self.patient.address_id.id
-        self.patient_image = self.patient.image_1920
-        self.nationality = self.patient.nationality
-        self.country_id = self.patient.country_id.id
-        self.address_home_id = self.patient.address_home_id.id
-        self.marital = self.patient.marital
-        self.dob = self.patient.birthday
-        self.gender = self.patient.gender
-        self.phone = self.patient.work_phone
+    # @api.onchange('patient')
+    # def detail_get(self):
+    #     self.phone = self.patient.phone
+    #     self.email = self.patient.private_email
+    #     self.company_id = self.patient.company_id.id
+    #     self.department_id = self.patient.department_id.id
+    #     self.job_id = self.patient.job_id.id
+    #     self.address_id = self.patient.address_id.id
+    #     self.patient_image = self.patient.image_1920
+    #     self.nationality = self.patient.nationality
+    #     self.country_id = self.patient.country_id.id
+    #     self.address_home_id = self.patient.address_home_id.id
+    #     self.marital = self.patient.marital
+    #     self.dob = self.patient.birthday
+    #     self.gender = self.patient.gender
+    #     self.phone = self.patient.work_phone
 
     @api.model
     def create_medical_examination(self):

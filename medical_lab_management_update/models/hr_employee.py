@@ -53,24 +53,24 @@ class HrEmployee(models.Model):
 
                 return value
 
-    @api.depends('address_home_id')
-    def _compute_info(self):
-        for emp in self:
-            patient = self.env['lab.patient'].search([('patient', '=', emp.address_home_id.id)])
-            emp.allergy = ''
-            if patient:
-                emp.bad_habits = patient.bad_habits
-                emp.blood_group = patient.blood_group
-                emp.blood_donor = patient.blood_donor
-                emp.work_condition = patient.work_condition
-                emp.allergy = patient.allergy
-                emp.rhesus_factor = patient.rhesus_factor
-                emp.phys_condition = patient.phys_condition
-                emp.pathologies = patient.pathologies
-                emp.preventive_actions = patient.preventive_actions
-                emp.chronic_diseases = patient.chronic_diseases
-                emp.contraindications = patient.contraindications
-                emp.operating_pressure = patient.operating_pressure
+    # @api.depends('address_home_id')
+    # def _compute_info(self):
+    #     for emp in self:
+    #         patient = self.env['lab.patient'].search([('patient', '=', emp.address_home_id.id)])
+    #         emp.allergy = ''
+    #         if patient:
+    #             emp.bad_habits = patient.bad_habits
+    #             emp.blood_group = patient.blood_group
+    #             emp.blood_donor = patient.blood_donor
+    #             emp.work_condition = patient.work_condition
+    #             emp.allergy = patient.allergy
+    #             emp.rhesus_factor = patient.rhesus_factor
+    #             emp.phys_condition = patient.phys_condition
+    #             emp.pathologies = patient.pathologies
+    #             emp.preventive_actions = patient.preventive_actions
+    #             emp.chronic_diseases = patient.chronic_diseases
+    #             emp.contraindications = patient.contraindications
+    #             emp.operating_pressure = patient.operating_pressure
 
     # @api.model
     # def get_dept_employee(self):
