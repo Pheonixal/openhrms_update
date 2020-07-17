@@ -12,7 +12,7 @@ class LabPatient(models.Model):
     _inherit = 'lab.patient'
 
     # Personal information get from hr.employee of connected res.partner
-    patient = fields.Many2one('hr.employee', string='Patient name', required=True)
+    patient = fields.Many2one('res.partner', string='Patient name', required=True)
 
     company_id = fields.Many2one('res.company', string='Company')
     department_id = fields.Many2one('hr.department', string='Department', domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
