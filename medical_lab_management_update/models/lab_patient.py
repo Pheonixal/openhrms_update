@@ -64,6 +64,10 @@ class LabPatient(models.Model):
         for obj in self:
             obj.medical_history_count = self.env['lab.medical.history'].search_count([('patient', '=', obj.patient.id)])
 
+    def _compute_state(self):
+        for obj in self:
+            obj.app_count = self.env['lab.appointment'].search_count([('patient_id', '=', obj.id), ('state', 'not in', ('cancel', 'invoiced'))])
+
     def compute_age(self):
         for data in self:
             data.age = ''
@@ -91,17 +95,22 @@ class LabPatient(models.Model):
         self.phone = self.patient.work_phone
 
     @api.model
-    def create_medical_examination(self):
+    def create_medical_appointment(self):
         lab_patient = self.env["lab.patient"].search([])
+        lab_test = self.env["lab.test"].search([('type_of_appointment', '=', 'daily')])
+        print(lab_test)
         for pat in lab_patient:
-            employee_leaves = self.env['hr.leave'].search([['employee_id', '=', pat.patient.id]])
-            print(employee_leaves)
             print(pat)
-            print(pat.work_condition)
-            # if pat.work_condition:
-            #     new = self.env["lab.medical.examination"].sudo().create({
-            #         'patient': pat.patient.id,
-            #         'examination_date': fields.Datetime.now() + datetime.timedelta(days=1),
-            #         'type_of_appointment': 'daily',
-            #     })
-            # print(new)
+            print(pat.patient)
+            # employee_leaves = self.env['hr.leave'].search([['employee_id', '=', pat.patient.id]])
+            # print(employee_leaves)
+            # print(pat)
+            # print(pat.work_condition)
+            if pat.patient.work_condition:
+                new = self.env["lab.appointment"].sudo().create({
+                    'patient_id': pat.patient.id,
+                    'appointment_date': fields.Datetime.now() + datetime.timedelta(days=1),
+                    'type_of_appointment': 'daily',
+                    'appointment_lines': [(6, 0, 2)],
+                })
+            print(new)

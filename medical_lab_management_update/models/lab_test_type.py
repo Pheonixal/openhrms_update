@@ -1,6 +1,17 @@
 from odoo import models, fields
 
 
+class LabTestType(models.Model):
+    _inherit = 'lab.test'
+
+    type_of_appointment = fields.Selection(
+        [('daily', 'Daily'),
+         ('monthly', 'Monthly'),
+         ('quarter', 'Quarter')
+         ]
+    )
+
+
 class LabTestAttribute(models.Model):
     _inherit = 'lab.test.attribute'
 

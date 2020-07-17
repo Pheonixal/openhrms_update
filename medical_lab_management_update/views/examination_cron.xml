@@ -2,10 +2,10 @@
 <odoo>
     <data>
         <record id ="examination_cron" model="ir.cron">
-        <field name="name">Cron for medical examinations</field>
+        <field name="name">Cron for medical appointment</field>
         <field name="model_id" ref="model_lab_patient"></field>
         <field name="state">code</field>
-        <field name="code">model.create_medical_examination()</field>
+        <field name="code">model.create_medical_appointment()</field>
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
         <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 23:59:59')" />

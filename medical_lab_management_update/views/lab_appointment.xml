@@ -26,5 +26,17 @@
             </field>
         </record>
 
+        <record id="view_lab_appointment_tree_inherit" model="ir.ui.view">
+            <field name="name">lab.appointment.tree.inherit</field>
+            <field name="model">lab.appointment</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_appointment_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="permission"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>
