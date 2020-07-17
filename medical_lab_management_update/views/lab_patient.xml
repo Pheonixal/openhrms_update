@@ -18,10 +18,11 @@
                         <field name="patient_image" widget="image" class="oe_avatar"/>
                         <group name="title_name" class="oe_title">
                             <field name="patient"
+
                                    required="1"
                                    placeholder="FullName"
                                    style="padding-right:10px"
-                                   domain="[('is_patient','=',True)]" context="{'search_default_is_patient':1, 'default_is_patient':1, 'default_customer':1}"
+                                   domain="[('is_patient','=',True),('patient_id', '=', False)]" context="{'search_default_is_patient':1, 'default_is_patient':1, 'default_customer':1}"
                             />
                             <field name="company_id"/>
                             <field name="department_id"/>

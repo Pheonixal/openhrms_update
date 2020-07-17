@@ -31,6 +31,7 @@ class HrEmployee(models.Model):
     blood_donor = fields.Boolean(string='Blood donor')
     work_condition = fields.Boolean(string='Hazardous working conditions')
     is_patient = fields.Boolean(string='Is Patient')
+    patient_id = fields.One2many('lab.patient', 'patient', string="Lab Patient")
 
     def patient_view(self):
         for each1 in self:
@@ -55,8 +56,12 @@ class HrEmployee(models.Model):
 
     @api.depends('address_home_id')
     def _compute_info(self):
+        """ Function to get info from medical card to employee passprort
+        :return:
+        :rtype:
+        """
         for emp in self:
-            patient = self.env['lab.patient'].search([('patient', '=', emp.address_home_id.id)])
+            patient = self.env['lab.patient'].search([('patient', '=', emp.id)])
             emp.allergy = ''
             if patient:
                 emp.bad_habits = patient.bad_habits

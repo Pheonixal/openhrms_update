@@ -32,11 +32,7 @@ class LabPatient(models.Model):
         ('widower', 'Widower'),
         ('divorced', 'Divorced')
     ], string='Marital Status', groups="hr.group_hr_user", default='single', tracking=True)
-    gender = fields.Selection([
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('other', 'Other')
-    ], groups="hr.group_hr_user", default='', tracking=True)
+    gender = fields.Char(strring="Gender")
 
     phone = fields.Char(string="Phone", required=False)
 
@@ -79,6 +75,8 @@ class LabPatient(models.Model):
 
     @api.onchange('patient')
     def detail_get(self):
+        """ Function to get info from employee
+        """
         self.phone = self.patient.phone
         self.email = self.patient.private_email
         self.company_id = self.patient.company_id.id
@@ -91,7 +89,7 @@ class LabPatient(models.Model):
         self.address_home_id = self.patient.address_home_id.id
         self.marital = self.patient.marital
         self.dob = self.patient.birthday
-        self.gender = self.patient.gender
+        self.gender = self.patient.gender.capitalize()
         self.phone = self.patient.work_phone
 
     @api.model
