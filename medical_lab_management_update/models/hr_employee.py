@@ -89,54 +89,46 @@ class HrEmployee(models.Model):
     #             })
     #     return data
 
-    # def check_leaves(self):
-    #     if len(self.env.user.employee_ids):
-    #         today = datetime.strftime(datetime.today(), '%Y-%m-%d')
-    #         query = """
-    #                 SELECT id
-    #                 FROM hr_leave
-    #                 WHERE (hr_leave.date_from::DATE,hr_leave.date_to::DATE) OVERLAPS ('%s', '%s')
-    #                 AND state='validate' AND employee_id='%d'
-    #                 """ % (today, today, self.env.user.employee_ids[0].id)
-    #         self.env.search([['date_from', '<=', today], ['to', '>=', today], ['state', '=', 'validate']])
-    #         cr = self._cr
-    #         cr.execute(query)
-    #         res = cr.fetchall()
-    #         self.leaves_today = len(res)
-
     @api.model
     def create_medical_appointment(self):
         """ Function for automated appointment creation from cron
         """
-        tomorrow = fields.Datetime.now() + timedelta(days=1)
+        app_date = self.env["lab.appointment.specification"].search([])[0]
+        app_date_start = app_date.daily_app_time_from
+        duration = app_date.daily_app_time_to - app_date_start
+
+        tomorrow = datetime.combine(date.today(), datetime.min.time()) + timedelta(days=1) + timedelta(hours=app_date_start) - timedelta(hours=6)
         # Search for all employees which are patients
         employees = self.env["hr.employee"].search([('is_patient', '=', True)])
         # Search for patients cards from employees list
-        lab_patient = self.env["lab.patient"].search([('patient', '=', employees.ids)])
+        lab_patient = self.env["lab.patient"].search([('patient', 'in', employees.ids)])
         # Search lab tests which is set as daily
         lab_test = self.env["lab.test"].search([('type_of_appointment', '=', 'daily')])
-        for pat in lab_patient:
-            # Search if patient have leaves for tomorrow
-            employee_leaves = self.env['hr.leave'].search([('employee_id', '=', pat.patient.id),
-                                                           ('state', '=', 'validate'),
-                                                           ('date_from', '<=', 'tomorrow'),
-                                                           ('date_to', '>=', 'tomorrow')])
-            # Search if patient have regularization request
-            employee_request = self.env['attendance.regular'].search([('employee_id', '=', pat.patient.id),
-                                                                      ('state_select', '=', 'approved'),
-                                                                      ('from_date', '<=', 'tomorrow'),
-                                                                      ('to_date', '>=', 'tomorrow')])
-            # Check before creation of appointment.
-            if pat.work_condition and not employee_leaves and not employee_request:
-                new_app = self.env["lab.appointment"].sudo().create(
-                    {  # Creating and storing new appointment if variable to further use
-                        'patient_id': pat.patient.id,
-                        'appointment_date': tomorrow,
-                        'type_of_appointment': 'daily',
-                    })
-                for lab in lab_test:
-                    new_lab_test = self.env["lab.appointment.lines"].sudo().create({
-                        'lab_test': lab.id,
-                        'test_line_appointment': new_app.id,  # Create link to appointment
-                        'cost': lab.test_cost
-                    })
+        if lab_patient:
+            for pat in lab_patient:
+                # Search if patient have leaves for tomorrow
+                employee_leaves = self.env['hr.leave'].search([('employee_id', '=', pat.patient.id),
+                                                               ('state', '=', 'validate'),
+                                                               ('date_from', '<=', 'tomorrow'),
+                                                               ('date_to', '>=', 'tomorrow')])
+                # Search if patient have regularization request
+                employee_request = self.env['attendance.regular'].search([('employee_id', '=', pat.patient.id),
+                                                                          ('state_select', '=', 'approved'),
+                                                                          ('from_date', '<=', 'tomorrow'),
+                                                                          ('to_date', '>=', 'tomorrow')])
+                # Check before creation of appointment.
+                if pat.work_condition and not employee_leaves:
+                    new_app = self.env["lab.appointment"].sudo().create(
+                        {  # Creating and storing new appointment if variable to further use
+                            'patient_id': pat.patient.id,
+                            'appointment_date': tomorrow,
+                            'duration': duration,
+                            'type_of_appointment': 'daily',
+                        })
+                    if lab_test:
+                        for lab in lab_test:
+                            new_lab_test = self.env["lab.appointment.lines"].sudo().create({
+                                'lab_test': lab.id,
+                                'test_line_appointment': new_app.id,  # Create link to appointment
+                                'cost': lab.test_cost
+                            })

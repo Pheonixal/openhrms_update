@@ -16,7 +16,9 @@ class Appointment(models.Model):
         ('granted', 'Granted'),
         ('denied', 'Denied'),
     ], string="Permission", index=True)
-    
+
+    duration = fields.Float(string="Duration")
+
     content = fields.Html('Content', readonly=True, default="""<p id="z1" style="margin-bottom: 1.5em; padding: 0px; border: 0px; outline: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: 19px; font-family: monospace; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; letter-spacing: 0.1px; color: rgb(0, 0, 0); overflow: visible; text-shadow: none;">Об утверждении Правил проведения обязательных медицинских осмотров
             Приказ и.о. Министра национальной экономики Республики Казахстан от 24 февраля
             2015 года № 128. Зарегистрирован в Министерстве юстиции Республики Казахстан 8

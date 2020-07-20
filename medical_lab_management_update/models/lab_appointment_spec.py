@@ -10,7 +10,7 @@ class AppointmentSpec(models.Model):
     physician_id = fields.Many2one('res.partner', string='Referred By', select=True)
 
     daily_app_time_from = fields.Float(string="Daily Appointment start time")
-    daily_app_time_to = fields.Datetime(string="Daily Appointment end time")
+    daily_app_time_to = fields.Float(string="Daily Appointment end time")
 
     # def appointment_spec(self):
     #     for each1 in self:
