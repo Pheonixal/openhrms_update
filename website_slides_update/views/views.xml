@@ -69,7 +69,7 @@
         <record id="view_employee_form_inherit_courses" model="ir.ui.view">
             <field name="name">hr.employee.form_inherit.courses</field>
             <field name="model">hr.employee</field>
-            <field name="inherit_id" ref="ohrms_loan.view_employee_form_loan_inherit"/>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//button[@class='oe_stat_button']" position="after">
                     <button name="get_slide_channels"
