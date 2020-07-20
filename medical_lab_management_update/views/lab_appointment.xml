@@ -17,7 +17,7 @@
                         <field name="content" widget="html"/>
                     </page>
                 </xpath>
-                <xpath expr="//div" position="before">
+                <xpath expr="//div" position="after">
                     <widget name="web_ribbon" title="Granted" bg_color="bg-success"
                             attrs="{'invisible': [('permission', '!=', 'granted')]}"/>
                     <widget name="web_ribbon" title="Denied" bg_color="bg-danger"

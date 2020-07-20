@@ -3,7 +3,7 @@
     <data>
         <record id ="examination_cron" model="ir.cron">
         <field name="name">Cron for medical appointment</field>
-        <field name="model_id" ref="model_lab_patient"></field>
+        <field name="model_id" ref="model_hr_employee"></field>
         <field name="state">code</field>
         <field name="code">model.create_medical_appointment()</field>
         <field name="interval_number">1</field>

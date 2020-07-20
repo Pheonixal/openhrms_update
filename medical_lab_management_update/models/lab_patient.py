@@ -92,24 +92,3 @@ class LabPatient(models.Model):
         if self.patient.gender:
             self.gender = self.patient.gender.capitalize()
         self.phone = self.patient.work_phone
-
-    @api.model
-    def create_medical_appointment(self):
-        lab_patient = self.env["lab.patient"].search([])
-        lab_test = self.env["lab.test"].search([('type_of_appointment', '=', 'daily')])
-        print(lab_test)
-        for pat in lab_patient:
-            print(pat)
-            print(pat.patient)
-            # employee_leaves = self.env['hr.leave'].search([['employee_id', '=', pat.patient.id]])
-            # print(employee_leaves)
-            # print(pat)
-            # print(pat.work_condition)
-            if pat.patient.work_condition:
-                new = self.env["lab.appointment"].sudo().create({
-                    'patient_id': pat.patient.id,
-                    'appointment_date': fields.Datetime.now() + datetime.timedelta(days=1),
-                    'type_of_appointment': 'daily',
-                    'appointment_lines': [(6, 0, 2)],
-                })
-            print(new)
