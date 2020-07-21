@@ -11,7 +11,7 @@
                 <xpath expr="//field[@name='appointment_date']" position="after">
                     <field name="type_of_appointment"/>
                     <field name="duration" widget="float_time"/>
-                    <field name="permission"/>
+                    <field name="permission" attrs="{'invisible': [('state', 'not in', ['completed','to_invoice', 'invoiced'])]}"/>
                 </xpath>
                 <xpath expr="//page[@name='Note']" position="after">
                     <page name="health_code" string="Health Code">

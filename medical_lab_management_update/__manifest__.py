@@ -31,6 +31,7 @@
         'views/lab_patient.xml',
         'views/lab_appointment.xml',
         'views/lab_appointment_spec.xml',
+        'views/physician_details.xml',
         'views/lab_request.xml',
         'views/lab_test_type.xml',
         'report/report.xml',

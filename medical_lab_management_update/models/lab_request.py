@@ -38,7 +38,7 @@ class LabRequest(models.Model):
                         note += f"Content {attribute.test_content.content_type_name} result:'{attribute.result} {attribute.unit.unit}' is more than referred max value of '{attribute.interval_max} {attribute.unit.unit}'\n"
                     permiss.append(check)
         self.app_id.comment = note
-        if all(permiss):
+        if permiss and all(permiss):
             self.app_id.permission = 'granted'
         else:
             self.app_id.permission = 'denied'

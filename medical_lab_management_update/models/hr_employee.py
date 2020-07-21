@@ -93,9 +93,9 @@ class HrEmployee(models.Model):
     def create_medical_appointment(self):
         """ Function for automated appointment creation from cron
         """
-        app_date = self.env["lab.appointment.specification"].search([])[0]
-        app_date_start = app_date.daily_app_time_from
-        duration = app_date.daily_app_time_to - app_date_start
+        app_spec = self.env["lab.appointment.specification"].search([])[0]
+        app_date_start = app_spec.daily_app_time_from
+        duration = app_spec.daily_app_time_to - app_date_start
 
         tomorrow = datetime.combine(date.today(), datetime.min.time()) + timedelta(days=1) + timedelta(hours=app_date_start) - timedelta(hours=6)
         # Search for all employees which are patients
@@ -121,6 +121,7 @@ class HrEmployee(models.Model):
                     new_app = self.env["lab.appointment"].sudo().create(
                         {  # Creating and storing new appointment if variable to further use
                             'patient_id': pat.id,
+                            'physician_id': app_spec.physician_id.id,
                             'appointment_date': tomorrow,
                             'duration': duration,
                             'type_of_appointment': 'daily',
