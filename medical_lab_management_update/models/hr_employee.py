@@ -117,7 +117,7 @@ class HrEmployee(models.Model):
                                                                           ('from_date', '<=', 'tomorrow'),
                                                                           ('to_date', '>=', 'tomorrow')])
                 # Check before creation of appointment.
-                if pat.work_condition and not employee_leaves:
+                if pat.work_condition and not employee_leaves and not employee_request:
                     new_app = self.env["lab.appointment"].sudo().create(
                         {  # Creating and storing new appointment if variable to further use
                             'patient_id': pat.id,
