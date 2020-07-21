@@ -28,7 +28,7 @@ class Appointment(models.Model):
         """ Updating write function to be able to add corresponding lab test when we choose appointment type
         """
         for app in self:
-            type_of_appointment = values['type_of_appointment'] if 'type_of_appointment' in values else app.type_of_appointment
+            type_of_appointment = values['type_of_appointment'] if values['type_of_appointment'] else app.type_of_appointment
             lab_test = self.env["lab.test"].search([('type_of_appointment', '=', type_of_appointment)])
             for app_line in app.appointment_lines:
                 app_line.test_line_appointment = False
