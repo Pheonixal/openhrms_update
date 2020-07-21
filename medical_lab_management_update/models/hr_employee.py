@@ -90,7 +90,7 @@ class HrEmployee(models.Model):
     #     return data
 
     @api.model
-    def _create_medical_appointment(self):
+    def create_medical_appointment(self):
         """ Function for automated appointment creation from cron
         """
         app_date = self.env["lab.appointment.specification"].search([])[0]

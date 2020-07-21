@@ -3,9 +3,9 @@
     <data noupdate="1">
         <record id ="examination_cron" model="ir.cron">
         <field name="name">Cron for medical appointment</field>
-        <field name="model_id" ref="model_hr_employee"></field>
+        <field name="model_id" ref="model_hr_employee"/>
         <field name="state">code</field>
-        <field name="code">model._create_medical_appointment()</field>
+        <field name="code">model.create_medical_appointment()</field>
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
         <field name="nextcall" eval="(DateTime.now() + timedelta(days=0)).strftime('%Y-%m-%d 16:59:59')" />
