@@ -36,6 +36,7 @@
         'report/report.xml',
         'report/lab_patient_card.xml',
         'views/examination_cron.xml',
+        'data/daily_appointment_spec.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

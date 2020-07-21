@@ -58,7 +58,7 @@
             <field name="name">lab.appointment.specification.form</field>
             <field name="model">lab.appointment.specification</field>
             <field name="arch" type="xml">
-                <form string="Medical Examination">
+                <form string="Medical Examination" create="false" delete="false">
                     <sheet>
                         <group>
                             <group>
@@ -76,59 +76,59 @@
             </field>
         </record>
 
-        <record id="lab_medical_specification_tree_view" model="ir.ui.view">
-            <field name="name">lab.appointment.specification.tree</field>
-            <field name="model">lab.appointment.specification</field>
-            <field name="arch" type="xml">
-                <tree string="Medical Specification">
-                    <field name="physician_id"/>
-                    <field name="daily_app_time_from"/>
-                    <field name="daily_app_time_to"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="lab_medical_specification_search_view" model="ir.ui.view">
-            <field name="name">lab.appointment.specification.search</field>
-            <field name="model">lab.appointment.specification</field>
-            <field name="arch" type="xml">
-                <search string="ModelTitle">
-                    <field name="physician_id" />
-                    <group expand="1" string="Group By">
-                        <filter name="physician_id" string="Physician"
-                            domain="[]" context="{'group_by':'physician_id'}" />
-                    </group>
-                </search>
-            </field>
-        </record>
-
-        <record id="lab_medical_appointment_spec_act_window" model="ir.actions.act_window">
-            <field name="name">Daily Appointment Specification</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">lab.appointment.specification</field>
-            <field name="view_mode">tree,form</field>
-            <field name="binding_view_types">form</field>
-            <field name="search_view_id" ref="lab_medical_specification_search_view"/>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    There is no examples click here to add new Daily Appointment Specification.
-                </p>
-            </field>
-        </record>
-
-<!--        <record id="qzh_custody_python_action" model="ir.actions.server">-->
-<!--            <field name="name">Daily Appointment</field>-->
-<!--            <field name="model_id" ref="medical_lab_management_update.model_lab_appointment_specification"/>-->
-<!--            <field name="state">code</field>-->
-<!--            <field name="code">-->
-<!--                action = model.appointment_spec()-->
+<!--        <record id="lab_medical_specification_tree_view" model="ir.ui.view">-->
+<!--            <field name="name">lab.appointment.specification.tree</field>-->
+<!--            <field name="model">lab.appointment.specification</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree string="Medical Specification">-->
+<!--                    <field name="physician_id"/>-->
+<!--                    <field name="daily_app_time_from"/>-->
+<!--                    <field name="daily_app_time_to"/>-->
+<!--                </tree>-->
 <!--            </field>-->
 <!--        </record>-->
 
+<!--        <record id="lab_medical_specification_search_view" model="ir.ui.view">-->
+<!--            <field name="name">lab.appointment.specification.search</field>-->
+<!--            <field name="model">lab.appointment.specification</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="ModelTitle">-->
+<!--                    <field name="physician_id" />-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter name="physician_id" string="Physician"-->
+<!--                            domain="[]" context="{'group_by':'physician_id'}" />-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="lab_medical_appointment_spec_act_window" model="ir.actions.act_window">-->
+<!--            <field name="name">Daily Appointment Specification</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">lab.appointment.specification</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="binding_view_types">form</field>-->
+<!--            <field name="search_view_id" ref="lab_medical_specification_search_view"/>-->
+<!--            <field name="help" type="html">-->
+<!--                <p class="oe_view_nocontent_create">-->
+<!--                    There is no examples click here to add new Daily Appointment Specification.-->
+<!--                </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="qzh_app_spec_python_action" model="ir.actions.server">
+            <field name="name">Daily Appointment</field>
+            <field name="model_id" ref="medical_lab_management_update.model_lab_appointment_specification"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.appointment_spec()
+            </field>
+        </record>
+
         <menuitem id="menu_lab_medical_appointment_spec"
                   name="Daily Appointment Specification"
-                  parent="medical_lab_management.configuration_id"
-                  action="lab_medical_appointment_spec_act_window"
+                  parent="hr.menu_human_resources_configuration"
+                  action="qzh_app_spec_python_action"
                   groups="medical_lab_management.group_lab_management_user,medical_lab_management.group_lab_management_technician"
                   sequence="15"/>
 

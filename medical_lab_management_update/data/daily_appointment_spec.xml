@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="daily_appointment_spec" model="lab.appointment.specification">
+            <field name="name">Daily Appointment Specification</field>
+        </record>
+
+    </data>
+</odoo>

@@ -32,7 +32,7 @@ class LabPatient(models.Model):
         ('widower', 'Widower'),
         ('divorced', 'Divorced')
     ], string='Marital Status', groups="hr.group_hr_user", default='single', tracking=True)
-    gender = fields.Char(strring="Gender")
+    gender = fields.Char(strring="Gender", compute="_compute_detail")
 
     phone = fields.Char(string="Phone", required=False)
 
@@ -73,22 +73,29 @@ class LabPatient(models.Model):
                 delta = relativedelta(date, dob)
                 data.age = str(delta.years)
 
-    @api.onchange('patient')
-    def detail_get(self):
+    @api.depends('patient')
+    def _compute_detail(self):
         """ Function to get info from employee
         """
-        self.phone = self.patient.phone
-        self.email = self.patient.private_email
-        self.company_id = self.patient.company_id.id
-        self.department_id = self.patient.department_id.id
-        self.job_id = self.patient.job_id.id
-        self.address_id = self.patient.address_id.id
+        for rec in self:
+            rec.gender = ''
+            rec.phone = rec.patient.phone
+            rec.email = rec.patient.work_email
+            rec.company_id = rec.patient.company_id.id
+            rec.department_id = rec.patient.department_id.id
+            rec.job_id = rec.patient.job_id.id
+            rec.address_id = rec.patient.address_id.id
+            rec.nationality = rec.patient.nationality
+            rec.country_id = rec.patient.country_id.id
+            rec.address_home_id = rec.patient.address_home_id.id
+            rec.marital = rec.patient.marital
+            rec.dob = rec.patient.birthday
+            if rec.patient.gender:
+                rec.gender = rec.patient.gender.capitalize()
+            rec.phone = rec.patient.work_phone
+
+    @api.onchange('patient')
+    def detail_get(self):
+        """ Function to get image from employee
+        """
         self.patient_image = self.patient.image_1920
-        self.nationality = self.patient.nationality
-        self.country_id = self.patient.country_id.id
-        self.address_home_id = self.patient.address_home_id.id
-        self.marital = self.patient.marital
-        self.dob = self.patient.birthday
-        if self.patient.gender:
-            self.gender = self.patient.gender.capitalize()
-        self.phone = self.patient.work_phone

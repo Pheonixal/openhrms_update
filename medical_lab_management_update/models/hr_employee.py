@@ -90,7 +90,7 @@ class HrEmployee(models.Model):
     #     return data
 
     @api.model
-    def create_medical_appointment(self):
+    def _create_medical_appointment(self):
         """ Function for automated appointment creation from cron
         """
         app_date = self.env["lab.appointment.specification"].search([])[0]
@@ -120,7 +120,7 @@ class HrEmployee(models.Model):
                 if pat.work_condition and not employee_leaves:
                     new_app = self.env["lab.appointment"].sudo().create(
                         {  # Creating and storing new appointment if variable to further use
-                            'patient_id': pat.patient.id,
+                            'patient_id': pat.id,
                             'appointment_date': tomorrow,
                             'duration': duration,
                             'type_of_appointment': 'daily',
