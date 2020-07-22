@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'medical_lab_management', 'hr'],
+    'depends': ['base', 'medical_lab_management', 'hr', 'hr_employee_updation_update','attendance_regularization'],
 
     # always loaded
     'data': [
