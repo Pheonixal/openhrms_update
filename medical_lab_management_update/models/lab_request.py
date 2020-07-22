@@ -23,22 +23,22 @@ class LabRequest(models.Model):
         for attribute in self.request_line:
             if attribute.result:
                 if attribute.interval and attribute.interval_max:
-                    check = attribute.interval < attribute.result < attribute.interval_max
+                    check = float(attribute.interval) <= float(attribute.result) <= float(attribute.interval_max)
                     if not check:
                         note += f"Content :'{attribute.test_content.content_type_name}' result:'{attribute.result} {attribute.unit.unit}' is not between referred intervals of from '{attribute.interval}' to '{attribute.interval_max} {attribute.unit.unit}'\n"
                     permiss.append(check)
                 elif attribute.interval:
-                    check = attribute.interval < attribute.result
+                    check = float(attribute.interval) <= float(attribute.result)
                     if not check:
                         note += f"Content: '{attribute.test_content.content_type_name}' result:'{attribute.result} {attribute.unit.unit}' is less than referred min value of '{attribute.interval} {attribute.unit.unit}'\n"
                     permiss.append(check)
                 elif attribute.interval_max:
-                    check = attribute.result < attribute.interval_max
+                    check = float(attribute.result) <= float(attribute.interval_max)
                     if not check:
                         note += f"Content {attribute.test_content.content_type_name} result:'{attribute.result} {attribute.unit.unit}' is more than referred max value of '{attribute.interval_max} {attribute.unit.unit}'\n"
                     permiss.append(check)
         self.app_id.comment = note
-        if permiss and all(permiss):
+        if len(permiss) and all(permiss):
             self.app_id.permission = 'granted'
         else:
             self.app_id.permission = 'denied'

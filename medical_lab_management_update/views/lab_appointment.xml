@@ -11,7 +11,7 @@
                 <xpath expr="//field[@name='appointment_date']" position="after">
                     <field name="type_of_appointment"/>
                     <field name="duration" widget="float_time"/>
-                    <field name="permission" attrs="{'invisible': [('state', 'not in', ['completed','to_invoice', 'invoiced'])]}"/>
+                    <field name="permission" attrs="{'invisible': [('state', 'not in', ['completed','to_invoice', 'invoiced','cancel'])]}"/>
                 </xpath>
                 <xpath expr="//page[@name='Note']" position="after">
                     <page name="health_code" string="Health Code">
@@ -23,6 +23,8 @@
                             attrs="{'invisible': [('permission', '!=', 'granted')]}"/>
                     <widget name="web_ribbon" title="Denied" bg_color="bg-danger"
                             attrs="{'invisible': [('permission', '!=', 'denied')]}"/>
+                    <widget name="web_ribbon" title="Absent" bg_color="bg-warning"
+                            attrs="{'invisible': [('permission', '!=', 'absent')]}"/>
                 </xpath>
                 <xpath expr="//form" position="attributes">
                     <attribute name="create">0</attribute>

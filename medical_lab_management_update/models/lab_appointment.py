@@ -15,6 +15,7 @@ class Appointment(models.Model):
     permission = fields.Selection([
         ('granted', 'Granted'),
         ('denied', 'Denied'),
+        ('absent', 'Absent')
     ], string="Permission", index=True)
 
     duration = fields.Float(string="Duration")
@@ -40,6 +41,9 @@ class Appointment(models.Model):
     #                     'cost': lab.test_cost
     #                 })
     #     return super(Appointment, self).write(values)
+
+    def cancel_appointment(self):
+        return self.write({'state': 'cancel', 'permission': 'absent'})
 
     def action_request(self):
         if self.appointment_lines:
