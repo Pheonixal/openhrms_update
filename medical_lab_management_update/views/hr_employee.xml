@@ -93,11 +93,11 @@
               action="medical_lab_management_update.action_server"/>
 -->
 
-      <template id="dashboard_update" name="Hr Dashboard update inherit" inherit_id="web.assets_backend">
-          <xpath expr="." position="inside">
-              <script type="text/javascript" src="/medical_lab_management_update/static/src/js/hrms_dashboard_update.js"/>
-          </xpath>
-      </template>
+<!--      <template id="dashboard_update" name="Hr Dashboard update inherit" inherit_id="web.assets_backend">-->
+<!--          <xpath expr="." position="inside">-->
+<!--              <script type="text/javascript" src="/medical_lab_management_update/static/src/js/hrms_dashboard_update.js"/>-->
+<!--          </xpath>-->
+<!--      </template>-->
 
 <!--      <template id="assets_backend_dashboard_update" name="Hr Dashboard assets inherit" inherit_id="web.assets_backend">-->
 <!--        <xpath expr="." position="inside">-->
