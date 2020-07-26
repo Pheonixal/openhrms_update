@@ -120,7 +120,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__bad_habits
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__bad_habits
 msgid "Bad Habits"
-msgstr "Плохие привычки"
+msgstr "Вредные привычки"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__supervision_start

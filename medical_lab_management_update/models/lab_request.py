@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 
 class LabRequest(models.Model):
     _inherit = 'lab.request'
+    _order = 'lab_requesting_date desc'
 
     def set_to_test_completed(self):
         if not self.request_line:

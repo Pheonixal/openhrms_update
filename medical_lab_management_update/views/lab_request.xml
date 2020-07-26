@@ -13,5 +13,16 @@
                 </data>
             </field>
         </record>
+
+        <record id="view_lab_request_tree_inherit" model="ir.ui.view">
+            <field name="name">lab.request.tree.inherit</field>
+            <field name="model">lab.request</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_request_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lab_requestor']" position="after">
+                    <field name="lab_requesting_date"/>
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>
