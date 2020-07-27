@@ -52,17 +52,13 @@ class LabRequest(models.Model):
         attachment = self.env['ir.attachment']
         for app in self:
             app.doc_count = attachment.search_count([
-                '|',
                 '&', ('res_model', '=', 'lab.request'), ('res_id', 'in', self.ids),
-                '&', ('res_model', '=', 'lab.appointment'), ('res_id', 'in', self.app_id.ids),
             ])
 
     def attachment_tree_view(self):
         self.ensure_one()
         domain = [
-            '|',
             '&', ('res_model', '=', 'lab.request'), ('res_id', 'in', self.ids),
-            '&', ('res_model', '=', 'lab.appointment'), ('res_id', 'in', self.app_id.ids),
         ]
         return {
             'name': _('Attachments'),
