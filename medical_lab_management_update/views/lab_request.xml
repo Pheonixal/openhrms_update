@@ -10,6 +10,13 @@
                     <xpath expr="//field[@name='interval']" position="after">
                         <field name="interval_max"/>
                     </xpath>
+                    <xpath expr="//div[@class='oe_left']" position="before">
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                                <field string="Documents" name="doc_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                    </xpath>
                 </data>
             </field>
         </record>

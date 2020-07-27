@@ -856,3 +856,1220 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
 msgid "№ п/п"
 msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_appointment_child_2
+msgid " Today's Appointments"
+msgstr "Сегодняшние назначения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__app_count
+msgid "# of Appointments"
+msgstr "Количество назначений"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__inv_count
+msgid "# of Invoices"
+msgstr "Количество счетов"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__request_count
+msgid "# of Requests"
+msgstr "Количество запросов"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+msgid "<b>Lab Test Report</b>"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+msgid "<span>Date: </span>"
+msgstr "<span>Дата:</ span>"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+msgid "<span>Patient: </span>"
+msgstr "<span>Пациент:</ span>"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+msgid "<span>Test  : </span>"
+msgstr "<span>Тест: </ span>"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__a+
+msgid "A+ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__a-
+msgid "A-ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__ab+
+msgid "AB+ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__ab-
+msgid "AB-ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_needaction
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_needaction
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_needaction
+msgid "Action Needed"
+msgstr "Требуется действие"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__age
+msgid "Age"
+msgstr "Возраст"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Age:"
+msgstr "Возраст:"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_lab_appointment
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__test_line_appointment
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__app_id
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.lab_invoice_cust_invoice_filter_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_search
+msgid "Appointment"
+msgstr "Назначение"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__appointment_date
+msgid "Appointment Date"
+msgstr "Дата назначения"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.kanban_view_lab_appointment
+msgid "Appointment Date :"
+msgstr "Дата назначения:"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__lab_request_id
+msgid "Appointment ID"
+msgstr "ID назначения"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_search
+msgid "Appointment date"
+msgstr "Дата назначения"
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.act_open_lab_appointment_view
+#: model:ir.actions.act_window,name:medical_lab_management.act_open_lab_appointment_view_2
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_appointment
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_appointment_child
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_tree
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_form_inherit
+msgid "Appointments"
+msgstr "Назначения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_attachment_count
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_attachment_count
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_attachment_count
+msgid "Attachment Count"
+msgstr "Количество приложений"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__test_lines
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__test_line_reverse
+msgid "Attribute"
+msgstr "Аттрибут"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__b+
+msgid "B+ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__b-
+msgid "B-ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__blood_group
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_test_unit_search
+msgid "Blood Group"
+msgstr "Группа крови"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+msgid "Cancel"
+msgstr "Отмена"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__cancel
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_request__state__cancel
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+msgid "Cancelled"
+msgstr "Отменен"
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.action_physician
+msgid "Click to add physician."
+msgstr "Нажмите чтобы добавить врача."
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__content_type_code
+msgid "Code"
+msgstr "Код"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__comment
+msgid "Comment"
+msgstr "Комментарий"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__comment
+msgid "Comments"
+msgstr "Комментарии"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+msgid "Complete Test"
+msgstr "Завершить Тест"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_request__state__completed
+msgid "Completed"
+msgstr "Завершен"
+
+#. module: medical_lab_management
+#: model:ir.ui.menu,name:medical_lab_management.configuration_id
+msgid "Configuration"
+msgstr "Настройки"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+msgid "Confirm"
+msgstr "Подтверждение"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__confirm
+msgid "Confirmed"
+msgstr "Подтвержден"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_lab_test_content_type
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__test_content
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_content_search
+msgid "Content"
+msgstr "Содержание"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_content_search
+msgid "Content Code"
+msgstr "Код  содержания"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test_content_type__content_type_name
+msgid "Content type name"
+msgstr "Название типа контента"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_content_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_content_tree
+msgid "Contents"
+msgstr "Содержания"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__cost
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__test_cost
+msgid "Cost"
+msgstr "Стоимость"
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.act_open_lab_appointment_view
+#: model_terms:ir.actions.act_window,help:medical_lab_management.act_open_lab_appointment_view_2
+msgid "Create Appointments."
+msgstr "Создать назначения."
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+msgid "Create Invoice"
+msgstr "Создать счет"
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.lab_invoice_action
+msgid "Create Invoices."
+msgstr "Создать счета."
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.act_open_lab_test_view
+msgid "Create Lab Tests."
+msgstr "Создать лабораторные тесты."
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.act_open_lab_request_view
+msgid "Create Lab request."
+msgstr "Создать лабораторный запрос."
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.act_open_lab_patient_view
+msgid "Create Patients."
+msgstr "Создать пациентов."
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.act_open_lab_content_view
+msgid "Create Test Contents."
+msgstr "Создать тестовое содержание."
+
+#. module: medical_lab_management
+#: model_terms:ir.actions.act_window,help:medical_lab_management.act_open_test_unit_view
+msgid "Create Testing Units."
+msgstr "Создать единицы тестирования."
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__create_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__create_date
+msgid "Created on"
+msgstr "Создано на"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__requesting_date
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_requester_search
+msgid "Date"
+msgstr "Дата"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__dob
+msgid "Date Of Birth"
+msgstr "Дата рождения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__date
+msgid "Date Requested"
+msgstr "Дата запроса"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__display_name
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__invoiced
+msgid "Done"
+msgstr "Завершен"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__draft
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_request__state__draft
+msgid "Draft"
+msgstr "Черновик"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__email
+msgid "Email"
+msgstr "Почта"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__emergency_contact
+msgid "Emergency Contact"
+msgstr "Экстренный контакт"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__gender__f
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Female"
+msgstr "Женский"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_follower_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_follower_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_follower_ids
+msgid "Followers"
+msgstr "Следят"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_channel_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_channel_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Следят (Каналы)"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_partner_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_partner_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Следят (Партнеры)"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_form
+msgid "FullName"
+msgstr "ФИО"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__gender
+msgid "Gender"
+msgstr "Пол"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_content_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_requester_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_test_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_test_unit_search
+msgid "Group By..."
+msgstr "Группировать по..."
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__priority__2
+msgid "High"
+msgstr "Высокий"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_partner__hospital
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_users__hospital
+msgid "Hospital"
+msgstr "Больница"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__code
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__id
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__id
+msgid "ID"
+msgstr "Идентификатор"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__id_proof_number
+msgid "ID Proof Number"
+msgstr "Идентификационный номер"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__message_needaction
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__message_unread
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__message_needaction
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__message_unread
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__message_needaction
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Если отмечено, новые сообщения требуют вашего внимания."
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__message_has_error
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__message_has_sms_error
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__message_has_error
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__message_has_sms_error
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__message_has_error
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Если флажок установлен, некоторые сообщения имеют ошибку доставки."
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.lab_invoice_action
+msgid "Invoices"
+msgstr "Счета-фактуры"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_is_follower
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_is_follower
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_is_follower
+msgid "Is Follower"
+msgstr "Последователь"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_account_move__is_lab_invoice
+msgid "Is Lab Invoice"
+msgstr "Является ли лабораторный счетом"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_partner__is_patient
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_users__is_patient
+msgid "Is Patient"
+msgstr "Пациент"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_partner__is_physician
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_users__is_physician
+msgid "Is Physician"
+msgstr "Врач"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_account_move
+msgid "Journal Entries"
+msgstr "Записи журнала"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_res_partner_inherit
+msgid "Lab"
+msgstr "Лабаратория"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_account_move__lab_request
+msgid "Lab Appointment"
+msgstr "Назначение"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+msgid "Lab Invoice"
+msgstr "Лабораторный счет"
+
+#. module: medical_lab_management
+#: code:addons/medical_lab_management/models/lab_appointment.py:0
+#, python-format
+msgid "Lab Invoices"
+msgstr "Лабораторные счета"
+
+#. module: medical_lab_management
+#: model:ir.module.category,name:medical_lab_management.module_category_lab_management
+msgid "Lab Management"
+msgstr "Управление лабораторией"
+
+#. module: medical_lab_management
+#: model:res.groups,name:medical_lab_management.group_lab_management_technician
+msgid "Lab Manager"
+msgstr "Заведующий лабораторией"
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.act_open_lab_request_view
+#: model:ir.model,name:medical_lab_management.model_lab_request
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_request
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_request_child
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_request_tree
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_requester_search
+msgid "Lab Request"
+msgstr "Запрос лаборатории"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.kanban_view_lab_appointment
+msgid "Lab Request ID :"
+msgstr "ID лабораторного запроса:"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__request_lab
+msgid "Lab Requested"
+msgstr "Лаборатория запрошена"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+msgid "Lab Requests"
+msgstr "Лабораторные Запросы"
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.act_open_lab_test_view
+#: model:ir.model,name:medical_lab_management.model_lab_test
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__name
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_test
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_test_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_test_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_test_tree
+msgid "Lab Test"
+msgstr "Лабораторный тест"
+
+#. module: medical_lab_management
+#: model:ir.actions.report,name:medical_lab_management.print_lab_test
+msgid "Lab Test Result"
+msgstr "Результат лабораторного теста"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_test_form
+msgid "Lab Test Type"
+msgstr "Тип лабораторного теста"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_test_attribute_form
+msgid "Lab Test Type Attribute"
+msgstr "Атрибут Типа лабораторного теста"
+
+#. module: medical_lab_management
+#: model:res.groups,name:medical_lab_management.group_lab_management_user
+msgid "Lab User"
+msgstr "Пользователь лаборатории"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__lab_request_id
+msgid "Lab appointment ID"
+msgstr "ID Лабораторного назначения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__name
+msgid "Lab result ID"
+msgstr "ID результата лаборатории"
+
+#. module: medical_lab_management
+#: model:ir.ui.menu,name:medical_lab_management.menu_root_lab
+msgid "Laboratory"
+msgstr "Медицина"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality____last_update
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение на"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновление"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__write_date
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__priority__0
+msgid "Low"
+msgstr "Низкий"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_main_attachment_id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_main_attachment_id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Главное приложение"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__gender__m
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Male"
+msgstr "Мужской"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_physician_speciality
+msgid "Medical Specialty"
+msgstr "Медицинская специальность"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_has_error
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_has_error
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_has_error
+msgid "Message Delivery error"
+msgstr "Ошибка доставки сообщения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_ids
+msgid "Messages"
+msgstr "Сообщения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__interval
+msgid "Min Value"
+msgstr "Минимальное значение"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__title__ms
+msgid "Miss"
+msgstr "Мисс"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__title__mister
+msgid "Mister"
+msgstr "Мистер"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__title__mrs
+msgid "Mrs"
+msgstr "Миссис"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__content_type_name
+msgid "Name"
+msgstr "Имя"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.kanban_view_lab_appointment
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.kanban_view_patient
+msgid "Name :"
+msgstr "Имя:"
+
+#. module: medical_lab_management
+#: model:ir.model.constraint,message:medical_lab_management.constraint_physician_speciality_name_uniq
+msgid "Name must be unique!"
+msgstr "Имя должно быть уникальным!"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__lab_test
+msgid "Name of lab test "
+msgstr "Название лабораторного теста"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_physician_speciality__name
+msgid "Name of the specialty"
+msgstr "Наименование специальности"
+
+#. module: medical_lab_management
+#: code:addons/medical_lab_management/models/lab_appointment.py:0
+#: code:addons/medical_lab_management/models/lab_patient.py:0
+#, python-format
+msgid "New"
+msgstr "Новый"
+
+#. module: medical_lab_management
+#: code:addons/medical_lab_management/models/lab_request.py:0
+#, python-format
+msgid "No Result Lines Entered !"
+msgstr "Строки результата не введены!"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__priority__1
+msgid "Normal"
+msgstr "Нормальный"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+msgid "Normal Range"
+msgstr "Нормальный диапазон"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__note
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+msgid "Note"
+msgstr "Заметка"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_needaction_counter
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_needaction_counter
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Количество действий"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_has_error_counter
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_has_error_counter
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_has_error_counter
+msgid "Number of errors"
+msgstr "Количество ошибок"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__message_needaction_counter
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__message_needaction_counter
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Количество сообщений, требующих действия"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__message_has_error_counter
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__message_has_error_counter
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Количество сообщений с ошибкой доставки"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__message_unread_counter
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__message_unread_counter
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Количество непрочитанных сообщений"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__o+
+msgid "O+ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__o-
+msgid "O-ve"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__gender__ot
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Other"
+msgstr "Другой"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_lab_patient
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__patient_id
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__lab_requestor
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_patient
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_patient_child
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_search
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_tree
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_requester_search
+msgid "Patient"
+msgstr "Пациент"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__name
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__patient_id
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_patient_search
+msgid "Patient ID"
+msgstr "ID Пациента"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.kanban_view_patient
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Patient ID :"
+msgstr "ID Пациента:"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__patient_id
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__lab_requestor
+msgid "Patient Name"
+msgstr "Имя пациента"
+
+#. module: medical_lab_management
+#: model:ir.actions.report,name:medical_lab_management.action_report_patient_label
+msgid "Patient card"
+msgstr "Карта пациента"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__patient
+msgid "Patient name"
+msgstr "Имя пациента"
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.act_open_lab_patient_view
+msgid "Patients"
+msgstr "Пациенты"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__patient_image
+msgid "Photo"
+msgstr "Фото"
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.action_physician
+#: model:ir.ui.menu,name:medical_lab_management.menu_physician_child
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_search
+msgid "Physician"
+msgstr "Врач"
+
+#. module: medical_lab_management
+#: code:addons/medical_lab_management/models/lab_appointment.py:0
+#, python-format
+msgid "Please Select Lab Test."
+msgstr "Пожалуйста, выберите лабораторный тест."
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+msgid "Print Lab Test"
+msgstr "Печать результата теста"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__priority
+msgid "Priority"
+msgstr "Приоритет"
+
+#. module: medical_lab_management
+#: model:ir.ui.menu,name:medical_lab_management.menu_physician
+msgid "Referrals From"
+msgstr "Врачи"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__physician_id
+msgid "Referred By"
+msgstr "Врач"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__test_request_reverse
+msgid "Request"
+msgstr "Запрос"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_appointment_form
+msgid "Request Lab"
+msgstr "Запрос лабораторий"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__date
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__lab_requesting_date
+msgid "Requested Date"
+msgstr "Запрашиваемая дата"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__user_id
+msgid "Responsible"
+msgstr "Ответственный"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__result
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+msgid "Result"
+msgstr "Результат"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_has_sms_error
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_has_sms_error
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Ошибка доставки SMS"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_request__state__sample_collection
+msgid "Sample Collected"
+msgstr "Образец собран"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+msgid "Sample Collection"
+msgstr "Сбор образцов"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Sex :"
+msgstr "Пол:"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_account_move__lab_request
+msgid "Source Document"
+msgstr "Исходный документ"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_partner__speciality
+#: model:ir.model.fields,field_description:medical_lab_management.field_res_users__speciality
+msgid "Speciality"
+msgstr "Специальность"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_physician_speciality__name
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.physician_speciality_view_form
+msgid "Specialty"
+msgstr "Специальность"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__state
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__state
+msgid "Status"
+msgstr "Статус"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment_lines__lab_test
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__test_request
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_test_search
+msgid "Test"
+msgstr "Тест"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_content_type__parent_test
+msgid "Test Category"
+msgstr "Категория теста"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__lab_test_code
+msgid "Test Code"
+msgstr "Код теста"
+
+#. module: medical_lab_management
+#: model:ir.ui.menu,name:medical_lab_management.menu_lab_content
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_content_search
+msgid "Test Content"
+msgstr "Контент теста"
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.act_open_lab_content_view
+msgid "Test Contents"
+msgstr "Содержание тестов"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_request__state__test_in_progress
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+msgid "Test In Progress"
+msgstr "Контенты тестов"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__request_line
+msgid "Test Lines"
+msgstr "Тестовые линии"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__lab_test
+msgid "Test Name"
+msgstr "Название теста"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__appointment_lines
+msgid "Test Request"
+msgstr "Тестовый запрос"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__completed
+msgid "Test Result"
+msgstr "Результат теста"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_test_unit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_test_unit_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_test_unit_tree
+msgid "Test Unit"
+msgstr "Тестовый блок"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
+msgid "Test lines"
+msgstr "Тестовые линии"
+
+#. module: medical_lab_management
+#: model:ir.ui.menu,name:medical_lab_management.test_unit_conf
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.view_test_unit_search
+msgid "Testing Unit"
+msgstr "Блок тестирования"
+
+#. module: medical_lab_management
+#: model:ir.actions.act_window,name:medical_lab_management.act_open_test_unit_view
+msgid "Testing Units"
+msgstr "Блоки тестирования"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__appointment_date
+msgid "This is the appointment date"
+msgstr "Это дата назначения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__date
+msgid "This is the date in which patient appointment is noted"
+msgstr "Это дата, в которую отмечается назначение пациента"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__title
+msgid "Title"
+msgstr "Заглавие"
+
+#. module: medical_lab_management
+#: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__to_invoice
+msgid "To Invoice"
+msgstr "На счет"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test_attribute__unit
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__unit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
+msgid "Unit"
+msgstr "Ед. изм"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_unread
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_unread
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_unread
+msgid "Unread Messages"
+msgstr "Непрочитанные сообщения"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__message_unread_counter
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__message_unread_counter
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Счетчик непрочитанных сообщений"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_patient__visa_info
+msgid "Visa Info"
+msgstr "Визовая информация"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_appointment__website_message_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__website_message_ids
+#: model:ir.model.fields,field_description:medical_lab_management.field_lab_test__website_message_ids
+msgid "Website Messages"
+msgstr "Сообщения на сайте"
+
+#. module: medical_lab_management
+#: model:ir.model.fields,help:medical_lab_management.field_lab_appointment__website_message_ids
+#: model:ir.model.fields,help:medical_lab_management.field_lab_request__website_message_ids
+#: model:ir.model.fields,help:medical_lab_management.field_lab_test__website_message_ids
+msgid "Website communication history"
+msgstr "История общения на сайте"
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Xронические заболевания:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model.fields,field_description:medical_lab_management.field_test_unit__code
+msgid "code"
+msgstr "код"
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_lab_appointment_lines
+msgid "lab.appointment.lines"
+msgstr ""
+
+#. module: medical_lab_management
+#: model:ir.model,name:medical_lab_management.model_lab_test_attribute
+msgid "lab.test.attribute"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Адрес проживания:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Аллергические реакции:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Вредные привычки:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Гражданство:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Группа крови:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Дата рождения:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Должность:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "ИИН:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Место работы:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Минимальные медицинские данные:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Наследственные патологии:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Национальность:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Парацетамол"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Паспортные данные"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Противопоказания:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Профилактические мероприятия:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Рабочее давление:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Резус - фактор:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Список принимаемых в настоящее время лекарственных средств:"
+msgstr ""
+
+#. module: medical_lab_management
+#: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
+msgid "Физиологическое состояние пациента:"
+msgstr ""

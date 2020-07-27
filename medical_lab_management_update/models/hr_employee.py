@@ -33,24 +33,53 @@ class HrEmployee(models.Model):
     is_patient = fields.Boolean(string='Is Patient', default=True)
     patient_id = fields.One2many('lab.patient', 'patient', string="Lab Patient")
 
-    def patient_view(self):
-        for each1 in self:
-            # res_user_id = self.env['res.users'].search([('id', '=', each1.user_id.id)])
-            # lab_patient = self.env['lab.patient'].search([('patient', '=', res_user_id.partner_id.id)])
+    # def patient_view(self):
+    #     """ Function to open medical card of employee from button
+    #     """
+    #     lab_ids = []
+    #     for each in self:
+    #         lab_ids.append(each.id)
+    #     view_id = self.env.ref('medical_lab_management.view_lab_patient_form').id
+    #     if lab_ids:
+    #         value = {
+    #             'view_mode': 'form',
+    #             'res_model': 'lab.patient',
+    #             'view_id': view_id,
+    #             'type': 'ir.actions.act_window',
+    #             'name': _('Medical Card'),
+    #             'res_id': lab_ids and lab_ids[0]
+    #         }
+    #
+    #         return value
 
-            lab_ids = []
-            for each in each1:
-                lab_ids.append(each.id)
-            view_id = self.env.ref('medical_lab_management.view_lab_patient_form').id
-            if lab_ids:
-                value = {
-                    'view_mode': 'form',
-                    'res_model': 'lab.patient',
-                    'view_id': view_id,
-                    'type': 'ir.actions.act_window',
-                    'name': _('Custody'),
-                    'res_id': lab_ids and lab_ids[0]
-                }
+    def appointment_view(self):
+        for each1 in self:
+            lab_patient = self.env['lab.patient'].search([('patient', '=', each1.id)])
+            appointment_obj = self.env['lab.appointment'].search([('patient_id', '=', lab_patient.id)])
+            appointment_ids = []
+            for each in appointment_obj:
+                appointment_ids.append(each.id)
+            view_id = self.env.ref('medical_lab_management.view_lab_appointment_form').id
+            if appointment_ids:
+                if len(appointment_ids) <= 1:
+                    value = {
+                        'view_mode': 'form',
+                        'res_model': 'lab.appointment',
+                        'view_id': view_id,
+                        'type': 'ir.actions.act_window',
+                        'name': _('Custody'),
+                        'res_id': appointment_ids and appointment_ids[0]
+                    }
+                else:
+                    value = {
+                        'domain': str([('id', 'in', appointment_ids)]),
+                        'view_mode': 'tree,form',
+                        'res_model': 'lab.appointment',
+                        'view_id': False,
+                        'type': 'ir.actions.act_window',
+                        'name': _('Appointments'),
+                        'res_id': appointment_ids
+                    }
 
                 return value
 

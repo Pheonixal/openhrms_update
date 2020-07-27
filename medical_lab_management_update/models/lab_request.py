@@ -7,6 +7,8 @@ class LabRequest(models.Model):
     _inherit = 'lab.request'
     _order = 'lab_requesting_date desc'
 
+    doc_count = fields.Integer(compute='_compute_attached_docs_count', string="Number of documents attached")
+
     def set_to_test_completed(self):
         if not self.request_line:
             raise ValidationError(_("No Result Lines Entered !"))
@@ -44,3 +46,37 @@ class LabRequest(models.Model):
         else:
             self.app_id.permission = 'denied'
         return self.write({'state': 'completed'})
+
+
+    def _compute_attached_docs_count(self):
+        attachment = self.env['ir.attachment']
+        for app in self:
+            app.doc_count = attachment.search_count([
+                '|',
+                '&', ('res_model', '=', 'lab.request'), ('res_id', 'in', self.ids),
+                '&', ('res_model', '=', 'lab.appointment'), ('res_id', 'in', self.app_id.ids),
+            ])
+
+    def attachment_tree_view(self):
+        self.ensure_one()
+        domain = [
+            '|',
+            '&', ('res_model', '=', 'lab.request'), ('res_id', 'in', self.ids),
+            '&', ('res_model', '=', 'lab.appointment'), ('res_id', 'in', self.app_id.ids),
+        ]
+        return {
+            'name': _('Attachments'),
+            'domain': domain,
+            'res_model': 'ir.attachment',
+            'type': 'ir.actions.act_window',
+            'view_id': False,
+            'view_mode': 'kanban,tree,form',
+            'view_type': 'form',
+            'help': _('''<p class="o_view_nocontent_smiling_face">
+                                Documents are attached to the tasks and issues of your project.</p><p>
+                                Send messages or log internal notes with attachments to link
+                                documents to your project.
+                            </p>'''),
+            'limit': 80,
+            'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
+        }
