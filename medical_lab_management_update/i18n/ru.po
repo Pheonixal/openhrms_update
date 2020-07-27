@@ -244,9 +244,29 @@ msgstr "Страна"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__type_of_appointment__daily
-#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_medical_examination__type_of_appointment__daily
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_test__type_of_appointment__daily
 msgid "Daily"
 msgstr "Ежедневный"
+
+#. module: medical_lab_management_update
+#: model:ir.actions.server,name:medical_lab_management_update.qzh_app_spec_python_action
+msgid "Daily Appointment"
+msgstr "Ежедневное назначение"
+
+#. module: medical_lab_management_update
+#: model:ir.ui.menu,name:medical_lab_management_update.menu_lab_medical_appointment_spec
+msgid "Daily Appointment Specification"
+msgstr "Настройка ежедневного назначения"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__daily_app_time_to
+msgid "Daily Appointment end time"
+msgstr "Время окончания ежедневного приема"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__daily_app_time_from
+msgid "Daily Appointment start time"
+msgstr "Время начала ежедневной встречи"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_medical_examination__permission__denied
@@ -288,6 +308,11 @@ msgstr "Черновой вариант"
 #: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_kanban_view
 msgid "Dropdown menu"
 msgstr "Выпадающее меню"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__duration
+msgid "Duration"
+msgstr "Продолжительность"
 
 #. module: medical_lab_management_update
 #: model:ir.model,name:medical_lab_management_update.model_hr_employee
@@ -347,7 +372,7 @@ msgid "Hazardous working conditions"
 msgstr "Опасные условия труда"
 
 #. module: medical_lab_management_update
-#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_examination_form_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_appointment_form_inherit
 msgid "Health Code"
 msgstr "Кодекс здоровья"
 
@@ -459,7 +484,7 @@ msgstr ""
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__type_of_appointment__monthly
-#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_medical_examination__type_of_appointment__monthly
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_test__type_of_appointment__monthly
 msgid "Monthly"
 msgstr "Ежемесячный"
 
@@ -536,10 +561,9 @@ msgid "Patient name"
 msgstr "Имя пациента"
 
 #. module: medical_lab_management_update
-#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_examination__permission
-#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_examination_search_view
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__permission
 msgid "Permission"
-msgstr "Разрешения"
+msgstr "Разрешение"
 
 #. module: medical_lab_management_update
 #: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_patient_form_inherit
@@ -587,7 +611,7 @@ msgstr "Пульс (Удар в минуту)"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__type_of_appointment__quarter
-#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_medical_examination__type_of_appointment__quarter
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_test__type_of_appointment__quarter
 msgid "Quarter"
 msgstr "Четверть"
 
@@ -600,6 +624,12 @@ msgstr "Контрольные интервалы"
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__physician_id
 msgid "Referred By"
 msgstr "По рекомендации"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__physician_id
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__physician_id
+msgid "Referred By"
+msgstr "Врач"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_test_type__test_types_reverse
@@ -696,7 +726,7 @@ msgstr "Заглавие"
 
 #. module: medical_lab_management_update
 #: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__type_of_appointment
-#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_examination__type_of_appointment
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_test__type_of_appointment
 msgid "Type Of Appointment"
 msgstr "Тип Назначения"
 
@@ -846,6 +876,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
 msgid "мм рт. ст."
 msgstr ""
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/lab_appointment_spec.py:0
+#, python-format
+msgid "Appointment Daily"
+msgstr "Ежедневное назначение"
 
 #. module: medical_lab_management_update
 #: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
@@ -1194,6 +1230,12 @@ msgstr "Дата запроса"
 msgid "Display Name"
 msgstr "Отображаемое имя"
 
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_appointment_form_inherit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_reques_form_inherit
+msgid "Documents"
+msgstr "Документы"
+
 #. module: medical_lab_management
 #: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_appointment__state__invoiced
 msgid "Done"
@@ -1506,6 +1548,11 @@ msgstr "Главное приложение"
 #: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_label
 msgid "Male"
 msgstr "Мужской"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_test_attribute__interval_max
+msgid "Max Value"
+msgstr "Максимальное значение"
 
 #. module: medical_lab_management
 #: model:ir.model,name:medical_lab_management.model_physician_speciality
@@ -1838,7 +1885,7 @@ msgstr "Код теста"
 #: model:ir.ui.menu,name:medical_lab_management.menu_lab_content
 #: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_content_search
 msgid "Test Content"
-msgstr "Контент теста"
+msgstr "Содержание теста"
 
 #. module: medical_lab_management
 #: model:ir.actions.act_window,name:medical_lab_management.act_open_lab_content_view
@@ -1849,7 +1896,7 @@ msgstr "Содержание тестов"
 #: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_request__state__test_in_progress
 #: model_terms:ir.ui.view,arch_db:medical_lab_management.view_lab_reques_form
 msgid "Test In Progress"
-msgstr "Контенты тестов"
+msgstr "Тестируется"
 
 #. module: medical_lab_management
 #: model:ir.model.fields,field_description:medical_lab_management.field_lab_request__request_line

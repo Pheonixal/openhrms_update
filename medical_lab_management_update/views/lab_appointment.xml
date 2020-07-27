@@ -55,16 +55,16 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="kanban_view_lab_appointment_inherit">
-            <field name="name">Appointment Kanban</field>
-            <field name="model">lab.appointment</field>
-            <field name="inherit_id" ref="medical_lab_management.kanban_view_lab_appointment"/>
-            <field name="arch" type="xml">
-                <xpath expr="//kanban" position="attributes">
-                    <attribute name="create">0</attribute>
-                </xpath>
-            </field>
-        </record>
+<!--        <record model="ir.ui.view" id="kanban_view_lab_appointment_inherit">-->
+<!--            <field name="name">Appointment Kanban</field>-->
+<!--            <field name="model">lab.appointment</field>-->
+<!--            <field name="inherit_id" ref="medical_lab_management.kanban_view_lab_appointment"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//kanban" position="attributes">-->
+<!--                    <attribute name="create">0</attribute>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
 
     </data>
 </odoo>

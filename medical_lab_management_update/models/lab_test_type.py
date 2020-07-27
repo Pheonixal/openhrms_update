@@ -10,6 +10,7 @@ class LabTestType(models.Model):
          ('quarter', 'Quarter')
          ]
     )
+    lab_test = fields.Char(string="Test Name", required=True, help="Name of lab test ", translate=True)
 
 
 class LabTestAttribute(models.Model):
