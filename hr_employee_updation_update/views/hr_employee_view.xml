@@ -12,7 +12,7 @@
                 </xpath>
                 <xpath expr="//page[@name='hr_settings']" position="after">
                     <page name="bank_details" string="Bank details" groups="hr.group_hr_user">
-                        <group string="Bank details">
+                        <group string="Bank details" style="width:50%%">
                             <field name="bank_name" groups="hr.group_hr_user"/>
                             <field name="bic" groups="hr.group_hr_user"/>
                             <field name="iban" groups="hr.group_hr_user"/>
