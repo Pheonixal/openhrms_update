@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="hr_resignation.employee_resignation" name="Resignation"
+                  groups="base.group_user"
+                  web_icon="hr_resignation_update,static/description/resignation_web.png"
+                  sequence="21"/>
+    </data>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="hr_reward_warning.hr_announcement"
+                  name="Announcements"
+                  groups="hr.group_hr_user,hr.group_hr_manager"
+                  web_icon="hr_reward_warning_update,static/description/announcement_icon.png"
+                  sequence="-6"/>
+    </data>
+
+</odoo>

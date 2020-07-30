@@ -23,30 +23,22 @@ class HrEmployee(models.Model):
         channel_ids_in = []
 
         res_user_id = self.env['res.users'].search([('id', '=', self.user_id.id)])
-        # print(res_user_id)
         slide_channels = self.env['slide.channel.partner'].search([('partner_id','=',res_user_id.partner_id.id)])
-        # print(slide_channels)
 
         for i in slide_channels:
             tags = []
             # for j in i.channel_id.tag_ids:
             #     tags.append(j.name)
-            print(i.channel_id.category)
             if "instruction" == i.channel_id.category:
                 channel_ids_in.append(i.channel_id.id)
-        # print(channel_ids_in)
 
         action['domain'] = [('channel_id', '=', channel_ids_in), ('partner_id', '=', res_user_id.partner_id.id)]
-        # print(self.id)
 
         return action
 
 
 class ChannelUsersRelation(models.Model):
     _inherit = 'slide.channel.partner'
-
-
-
 
     employee_department = fields.Char(compute="_get_employee_id")
     employee_spec = fields.Char(compute='_get_employee_spec')
@@ -60,7 +52,6 @@ class ChannelUsersRelation(models.Model):
             else:
                 record.write_date_gen = ""
 
-
     def _get_employee_spec(self):
         for record in self:
             user = self.env['res.users'].search([('partner_id', '=', record.partner_id.id)])
@@ -69,6 +60,7 @@ class ChannelUsersRelation(models.Model):
                 record.employee_spec = employee.job_id.name
             else:
                 record.employee_spec = ""
+
     def _get_employee_id(self):
         for record in self:
             user = self.env['res.users'].search([('partner_id', '=', record.partner_id.id)])
@@ -77,6 +69,7 @@ class ChannelUsersRelation(models.Model):
                 record.employee_department = employee.department_id.name
             else:
                 record.employee_department = ""
+
 
 class WebsiteChannelSlide(models.Model):
     _inherit = 'slide.channel'

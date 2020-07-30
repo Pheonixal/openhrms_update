@@ -1,0 +1,813 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* medical_lab_management_update
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-28 09:43+0000\n"
+"PO-Revision-Date: 2020-07-28 09:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/lab_appointment.py:0
+#: code:addons/medical_lab_management_update/models/lab_request.py:0
+#, python-format
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">\n"
+"                                Documents are attached to the tasks and issues of your project.</p><p>\n"
+"                                Send messages or log internal notes with attachments to link\n"
+"                                documents to your project.\n"
+"                            </p>"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "<span class=\"d-flex\">Весь профессиональный маршрут</span>"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid ""
+"<span class=\"d-flex\">Заключение</span>\n"
+"\n"
+"                            <span style=\"margin-left:10px; margin-top:5px;\">Дата выдачи\n"
+"                                ______________________________________\n"
+"                            </span>\n"
+"                            <br/>\n"
+"                            <span style=\"margin-left:10px;\"> Подпись врача _________________________________</span>"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "<span class=\"d-flex\">Итоги предсменного медицинского осмотра</span>"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.kanban_view_patient_inherit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_kanban_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_physician_kanban_view
+msgid "<span class=\"ml-3\">Delete</span>"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.kanban_view_patient_inherit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_kanban_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_physician_kanban_view
+msgid "<span class=\"ml-3\">Edit</span>"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.kanban_view_patient_inherit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_kanban_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_physician_kanban_view
+msgid "<span class=\"ml-3\">Share</span>"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__a+
+msgid "A+ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__a-
+msgid "A-ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__ab+
+msgid "AB+ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__ab-
+msgid "AB-ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__permission__absent
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_appointment_form_inherit
+msgid "Absent"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__address_home_id
+msgid "Address"
+msgstr "Адрес"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__allergy
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__allergy
+msgid "Allergic reactions"
+msgstr "Аллергические реакции"
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_lab_appointment
+msgid "Appointment"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/lab_appointment_spec.py:0
+#, python-format
+msgid "Appointment Daily"
+msgstr "Ежедневное назначение"
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/hr_employee.py:0
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__appointments_count
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_employee_form_inherit_patient
+#, python-format
+msgid "Appointments"
+msgstr "Назначения"
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/lab_appointment.py:0
+#: code:addons/medical_lab_management_update/models/lab_request.py:0
+#, python-format
+msgid "Attachments"
+msgstr "Вложения"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__b+
+msgid "B+ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__b-
+msgid "B-ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__bad_habits
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__bad_habits
+msgid "Bad Habits"
+msgstr "Плохие привычки"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__supervision_start
+msgid "Beginning of Supervision"
+msgstr "Начало надзора"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__blood_group
+msgid "Blood Group"
+msgstr "Группа крови"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__blood_donor
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__blood_donor
+msgid "Blood donor"
+msgstr "Донор крови"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,help:medical_lab_management_update.field_hr_employee__operating_pressure
+#: model:ir.model.fields,help:medical_lab_management_update.field_lab_patient__operating_pressure
+msgid "Blood pressure of employee"
+msgstr "Артериальное давление работника"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__chronic_diseases
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__chronic_diseases
+msgid "Chronic diseases"
+msgstr "Хронические заболевания"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__content
+msgid "Content"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__contraindications
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__contraindications
+msgid "Contraindications"
+msgstr "Противопоказания"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__create_uid
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__create_date
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__create_date
+msgid "Created on"
+msgstr "Создано на"
+
+#. module: medical_lab_management_update
+#: model:ir.actions.server,name:medical_lab_management_update.examination_cron_ir_actions_server
+#: model:ir.cron,cron_name:medical_lab_management_update.examination_cron
+#: model:ir.cron,name:medical_lab_management_update.examination_cron
+msgid "Cron for medical appointment"
+msgstr "Крон для медицинских осмотров"
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/hr_employee.py:0
+#, python-format
+msgid "Custody"
+msgstr "Учет ТМЦ"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__country_id
+msgid "Customer Country"
+msgstr "Страна"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__type_of_appointment__daily
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_test__type_of_appointment__daily
+msgid "Daily"
+msgstr "Ежедневный"
+
+#. module: medical_lab_management_update
+#: model:ir.actions.server,name:medical_lab_management_update.qzh_app_spec_python_action
+msgid "Daily Appointment"
+msgstr "Ежедневное назначение"
+
+#. module: medical_lab_management_update
+#: model:ir.ui.menu,name:medical_lab_management_update.menu_lab_medical_appointment_spec
+msgid "Daily Appointment Specification"
+msgstr "Настройка ежедневного назначения"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__daily_app_time_to
+msgid "Daily Appointment end time"
+msgstr "Время окончания ежедневного приема"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__daily_app_time_from
+msgid "Daily Appointment start time"
+msgstr "Время начала ежедневной встречи"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__dob
+msgid "Date Of Birth"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__permission__denied
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_appointment_form_inherit
+msgid "Denied"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__department_id
+msgid "Department"
+msgstr "Отдел"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__display_name
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_patient__marital__divorced
+msgid "Divorced"
+msgstr "Разведенный"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_appointment_form_inherit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_reques_form_inherit
+msgid "Documents"
+msgstr "Документы"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.kanban_view_patient_inherit
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_kanban_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_physician_kanban_view
+msgid "Dropdown menu"
+msgstr "Выпадающее меню"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__duration
+msgid "Duration"
+msgstr "Продолжительность"
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_hr_employee
+msgid "Employee"
+msgstr "Сотрудник"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__supervision_end
+msgid "End of Supervision"
+msgstr "Конец надзора"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,help:medical_lab_management_update.field_lab_patient__address_home_id
+msgid ""
+"Enter here the private address of the employee, not the one linked to your "
+"company."
+msgstr ""
+"Введите здесь частный адрес сотрудника, а не тот, который связан с вашей "
+"компанией."
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_patient_form_inherit
+msgid "FullName"
+msgstr "ФИО"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__gender
+msgid "Gender"
+msgstr "Пол"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__permission__granted
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_appointment_form_inherit
+msgid "Granted"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__work_condition
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__work_condition
+msgid "Hazardous working conditions"
+msgstr "Опасные условия труда"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_appointment_form_inherit
+msgid "Health Code"
+msgstr "Кодекс здоровья"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__id
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__id
+msgid "ID"
+msgstr "Удостоверение"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__iin
+msgid "IIN"
+msgstr "ИИН"
+
+#. module: medical_lab_management_update
+#: model:res.groups,name:medical_lab_management_update.make_invisible
+msgid "Invisible"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__is_patient
+msgid "Is Patient"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__job_id
+msgid "Job Position"
+msgstr "Место работы"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__patient_id
+msgid "Lab Patient"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_lab_request
+msgid "Lab Request"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_lab_test
+msgid "Lab Test"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification____last_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение на"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__write_uid
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновление"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__write_date
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_patient__marital__cohabitant
+msgid "Legal Cohabitant"
+msgstr "Законный сожитель"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__marital
+msgid "Marital Status"
+msgstr "Семейный статус"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_patient__marital__married
+msgid "Married"
+msgstr "В браке"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_test_attribute__interval_max
+msgid "Max Value"
+msgstr "Максимальное значение"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_specification_form_view
+msgid "Medical Examination"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.actions.act_window,name:medical_lab_management_update.lab_medical_history_act_window
+#: model:ir.ui.menu,name:medical_lab_management_update.lab_medical_history_menu
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_form_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_tree_view
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_patient_form_inherit_inh
+msgid "Medical History"
+msgstr "История болезни"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__medical_history_count
+msgid "Medical History count"
+msgstr "Подсчет истории болезни"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_employee_form_inherit_patient
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_patient_form_inherit
+msgid "Medical Information"
+msgstr "Медицинская информация"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_test_attribute__interval
+msgid "Min Value"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__type_of_appointment__monthly
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_test__type_of_appointment__monthly
+msgid "Monthly"
+msgstr "Ежемесячный"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__name
+msgid "Name"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,help:medical_lab_management_update.field_lab_medical_history__name
+msgid "Name of current disease or ailment"
+msgstr "Название текущей болезни или недуга"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,help:medical_lab_management_update.field_lab_test__lab_test
+msgid "Name of lab test "
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__nationality
+msgid "Nationality"
+msgstr "Национальность"
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/lab_request.py:0
+#, python-format
+msgid "No Result Lines Entered !"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__operating_pressure
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__operating_pressure
+msgid "Normal blood pressure"
+msgstr "Нормальное кровяное давление"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_patient_form_inherit
+msgid "Note"
+msgstr "Заметка"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__doc_count
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_request__doc_count
+msgid "Number of documents attached"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__o+
+msgid "O+ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__blood_group__o-
+msgid "O-ve"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__pathologies
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__pathologies
+msgid "Pathologies"
+msgstr "Патологии"
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_lab_patient
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__patient
+msgid "Patient"
+msgstr "Пациент"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__patient
+msgid "Patient name"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__permission
+msgid "Permission"
+msgstr "Разрешение"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.view_lab_patient_form_inherit
+msgid "Personal information"
+msgstr "Персональные данные"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_physician_tree
+msgid "Physician"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__phys_condition
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__phys_condition
+msgid "Physiological condition"
+msgstr "Физиологическое состояние"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,help:medical_lab_management_update.field_hr_employee__phys_condition
+#: model:ir.model.fields,help:medical_lab_management_update.field_lab_patient__phys_condition
+msgid "Physiological condition of the patient"
+msgstr "Физиологическое состояние пациента"
+
+#. module: medical_lab_management_update
+#: code:addons/medical_lab_management_update/models/lab_appointment.py:0
+#, python-format
+msgid "Please Select Lab Test."
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__prescribed_drugs
+msgid "Prescribed drugs"
+msgstr "Прописанные лекарства"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__preventive_actions
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__preventive_actions
+msgid "Preventive actions"
+msgstr "Профилактические мероприятия"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_appointment__type_of_appointment__quarter
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_test__type_of_appointment__quarter
+msgid "Quarter"
+msgstr "Четверть"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment_specification__physician_id
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__physician_id
+msgid "Referred By"
+msgstr "Врач"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__request_ids
+msgid "Request"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__rhesus_factor__rh_plus
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_patient__rhesus_factor__rh_plus
+msgid "Rh+"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__hr_employee__rhesus_factor__rh_minus
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_patient__rhesus_factor__rh_minus
+msgid "Rh-"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_hr_employee__rhesus_factor
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__rhesus_factor
+msgid "Rhesus factor"
+msgstr "Резус фактор"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_patient__marital__single
+msgid "Single"
+msgstr "Не в браке"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,help:medical_lab_management_update.field_hr_employee__contraindications
+#: model:ir.model.fields,help:medical_lab_management_update.field_lab_patient__contraindications
+msgid ""
+"Specific situation in which a drug, procedure, or surgery should not be used"
+" because it may be harmful to the person."
+msgstr ""
+"Особая ситуация, в которой не следует использовать лекарство, процедуру или "
+"хирургическое вмешательство, поскольку оно может быть вредным для человека."
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_test__lab_test
+msgid "Test Name"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.actions.act_window,help:medical_lab_management_update.lab_medical_history_act_window
+msgid "There is no examples click here to add new Medical History."
+msgstr "Там нет примеров нажмите здесь, чтобы добавить новую историю болезни."
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_medical_history_form_view
+msgid "Title"
+msgstr "Заглавие"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_appointment__type_of_appointment
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_test__type_of_appointment
+msgid "Type Of Appointment"
+msgstr "Тип Назначения"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_medical_history__name
+msgid "Underlying disease"
+msgstr "Первопричинное патологическое состояние"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,help:medical_lab_management_update.field_hr_employee__preventive_actions
+#: model:ir.model.fields,help:medical_lab_management_update.field_lab_patient__preventive_actions
+msgid "Vaccinations"
+msgstr "Прививки"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields.selection,name:medical_lab_management_update.selection__lab_patient__marital__widower
+msgid "Widower"
+msgstr "Вдовец"
+
+#. module: medical_lab_management_update
+#: model:ir.model.fields,field_description:medical_lab_management_update.field_lab_patient__address_id
+msgid "Work Address"
+msgstr "Рабочий адрес"
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.lab_physician_kanban_view
+msgid "kanban image"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.kanban_view_patient_inherit
+msgid "kanban_image"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_lab_appointment_specification
+msgid "lab.appointment.specification"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_lab_medical_history
+msgid "lab.medical.history"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.model,name:medical_lab_management_update.model_lab_test_attribute
+msgid "lab.test.attribute"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Артериальное давление"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Дата выполнения"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Дата и год рождения:"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Длительность работы"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Заключение по результатам осмотра (допуск, недопуск)"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Место проживания:"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Месяц и год начала и окончания работы"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Наименование предприятия:"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Наименование структурного подразделения:"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Общий стаж работы:"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Осмотры"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Предприятие"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Проба на наличие алкоголя"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Профессия"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Профессия или должность в настоящее время:"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Пульс"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Рабочее давление"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Результат"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Температура тела"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Ф.И.О работника:"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model:ir.actions.report,name:medical_lab_management_update.action_pre_shift_med_form
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "Форма предсменных медицинских обследований"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "мм рт. ст."
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "уд./мин"
+msgstr ""
+
+#. module: medical_lab_management_update
+#: model_terms:ir.ui.view,arch_db:medical_lab_management_update.pre_shift_med_form
+msgid "№ п/п"
+msgstr ""

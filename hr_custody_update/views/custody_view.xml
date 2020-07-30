@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="hr_custody.hr_custody_main_menu"
+                  web_icon="hr_custody_update,static/description/custody_icon.png"
+                  name="Custody" sequence="20"/>
+    </data>
+
+</odoo>

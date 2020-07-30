@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <menuitem id="medical_lab_management.menu_root_lab" name="Laboratory" sequence="40"
-                  groups="medical_lab_management.group_lab_management_user,medical_lab_management.group_lab_management_technician" web_icon="medical_lab_management_update,static/description/icon.png"/>
+                  groups="medical_lab_management.group_lab_management_user,medical_lab_management.group_lab_management_technician" web_icon="medical_lab_management_update,static/description/labaratory.png"/>
 
         <record id="view_lab_patient_form_inherit" model="ir.ui.view">
             <field name="name">lab.patient.form.inherit</field>
