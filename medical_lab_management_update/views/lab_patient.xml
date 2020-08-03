@@ -44,6 +44,8 @@
                                 <field name="email"/>
                             </group>
                             <group name="med_info" string="Medical Information">
+                                <field name="height"/>
+                                <field name="weight"/>
                                 <field name="blood_group"/>
                                 <field name="rhesus_factor"/>
                                 <field name="allergy"/>

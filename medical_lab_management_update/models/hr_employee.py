@@ -33,6 +33,9 @@ class HrEmployee(models.Model):
     is_patient = fields.Boolean(string='Is Patient', default=True)
     patient_id = fields.One2many('lab.patient', 'patient', string="Lab Patient")
 
+    height = fields.Char(string="Height")
+    weight = fields.Char(string="Weight")
+
     # def patient_view(self):
     #     """ Function to open medical card of employee from button
     #     """
@@ -103,6 +106,8 @@ class HrEmployee(models.Model):
                 emp.chronic_diseases = patient.chronic_diseases
                 emp.contraindications = patient.contraindications
                 emp.operating_pressure = patient.operating_pressure
+                emp.height = patient.height
+                emp.weight = patient.weight
 
     # @api.model
     # def get_dept_employee(self):

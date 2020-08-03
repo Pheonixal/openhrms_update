@@ -56,6 +56,9 @@ class LabPatient(models.Model):
     medical_history_count = fields.Integer(string="Medical History count", compute="_compute_history_count", copy=False, default=0)
     dob = fields.Date(string='Date Of Birth', required=False)
 
+    height = fields.Char(string="Height")
+    weight = fields.Char(string="Weight")
+
     def _compute_history_count(self):
         for obj in self:
             obj.medical_history_count = self.env['lab.medical.history'].search_count([('patient', '=', obj.patient.id)])
