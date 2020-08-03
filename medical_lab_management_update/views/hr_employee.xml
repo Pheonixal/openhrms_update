@@ -20,6 +20,8 @@
                     <page name="med_info_page" string="Medical Information" groups="hr.group_hr_user">
                         <group name="med_info" string="Medical Information" style="width:50%%">
                             <group>
+                                <field name="is_patient" invisible="1"/>
+                                <field name="work_condition"/>
                                 <field name="height"/>
                                 <field name="weight"/>
                                 <field name="blood_donor"/>
@@ -28,8 +30,6 @@
                                 <field name="operating_pressure"/>
                             </group>
                             <group>
-                                <field name="is_patient" invisible="1"/>
-                                <field name="work_condition"/>
                                 <field name="allergy"/>
                                 <field name="phys_condition"/>
                                 <field name="pathologies"/>
