@@ -58,7 +58,7 @@ odoo.define('hr_employee_view.RadarWidget', function (require) {
                 this.$el.attr('style', this.nodeOptions.style);
                 this.$el.css({position: 'relative'});
                 let context = this.$canvas[0].getContext('2d');
-                context.canvas.style.maxWidth = '100%';
+                context.canvas.style.maxWidth = '99%';
                 context.canvas.style.minWidth = '90%';
                 this.chart = new Chart(context, spiderwidget);
                 let $value = $('<span class="oe_radar_widget_value">')
