@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
     <t t-extend="UserMenu.Actions">
         <t t-jquery="a[data-menu='settings']" t-operation="after">
-            <a role="menuitem" href="#" data-menu="manual" class="dropdown-item">My Passport</a>
+            <a role="menuitem" href="#" data-menu="passport" class="dropdown-item">My Passport</a>
         </t>
     </t>
 </templates>

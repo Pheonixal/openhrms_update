@@ -35,6 +35,20 @@ class HrEmployee(models.Model):
         else:
             self.age_from_born = ""
 
+    def open_current_user_employee_passport(self, data):
+        view_id = self.env.ref('hr.view_employee_form').id
+        if self.env.user.employee_ids:
+            value = {
+                'view_mode': 'form',
+                'res_model': 'hr.employee',
+                'view_id': view_id,
+                'views': [[False, 'form']],
+                'type': 'ir.actions.act_window',
+                'name': _('Employee'),
+                'res_id': self.env.user.employee_ids[0].id,
+                'target': 'current',
+            }
+            return value
 
 class EmployeeRelationInfo(models.Model):
     """Table for keep employee family information"""

@@ -57,5 +57,12 @@
             </field>
         </record>
 
+        <template id="on_menu_passport" name="New item 'My Passport' in onMenu" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript"
+                        src="/hr_employee_updation_update/static/src/js/user_passport.js"/>
+            </xpath>
+        </template>
+
     </data>
 </odoo>
