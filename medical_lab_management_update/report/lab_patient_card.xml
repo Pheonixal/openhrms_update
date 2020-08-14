@@ -276,9 +276,9 @@
                         <br/>
                         <table width="99%" style="margin-left:50px;margin-top:5px;border: None solid black;">
                             <tr>
-                                <td style="width:50px;height:25px" ><span>Patient: </span><span t-att-style="style" t-esc="o.lab_requestor.patient.name"/></td>
-                                <td style="width:50px;height:25px" ><span>Test  : </span><span t-att-style="style" t-esc="o.test_request.lab_test"/></td>
-                                <td style="width:50px;height:25px" ><span>Date: </span><span t-att-style="style" t-esc="o.lab_requesting_date"/></td>
+                                <td style="width:50px;height:25px" >Patient: <span t-att-style="style" t-esc="o.lab_requestor.patient.name"/></td>
+                                <td style="width:50px;height:25px" >Test: <span t-att-style="style" t-esc="o.test_request.lab_test"/></td>
+                                <td style="width:50px;height:25px" >Date: <span t-att-style="style" t-esc="o.lab_requesting_date"/></td>
                             </tr>
                         </table>
                         <br/>

@@ -567,22 +567,22 @@ msgstr "Количество запросов"
 #. module: medical_lab_management
 #: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
 msgid "<b>Lab Test Report</b>"
-msgstr ""
+msgstr "Результат лабораторного теста"
 
 #. module: medical_lab_management
 #: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
-msgid "<span>Date: </span>"
-msgstr "<span>Дата:</ span>"
+msgid "Date:"
+msgstr "Дата:"
 
 #. module: medical_lab_management
 #: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
-msgid "<span>Patient: </span>"
-msgstr "<span>Пациент:</ span>"
+msgid "Patient:"
+msgstr "Пациент:"
 
 #. module: medical_lab_management
 #: model_terms:ir.ui.view,arch_db:medical_lab_management.report_patient_labtest
-msgid "<span>Test  : </span>"
-msgstr "<span>Тест: </ span>"
+msgid "Test:"
+msgstr "Тест:"
 
 #. module: medical_lab_management
 #: model:ir.model.fields.selection,name:medical_lab_management.selection__lab_patient__blood_group__a+
