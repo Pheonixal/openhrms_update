@@ -68,6 +68,18 @@
             </field>
         </record>
 
+        <record id="employee_disciplinary_tree_inherited" model="ir.ui.view">
+            <field name="name">disciplinary.action.tree.inherited</field>
+            <field name="model">disciplinary.action</field>
+            <field name="inherit_id" ref="hr_disciplinary_tracking.employee_disciplinary_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_name']" position="after">
+                    <field name="discipline_reason" />
+                    <field name="department_name"/>
+                </xpath>
+            </field>
+        </record>
+
 
 
         <!--        <record id="disciplinary_category_view_tree_inherited" model="ir.ui.view">-->
