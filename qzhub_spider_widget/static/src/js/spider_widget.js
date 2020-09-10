@@ -12,7 +12,7 @@ odoo.define('hr_employee_view.RadarWidget2', function (require) {
     let SpiderWidget = AbstractField.extend({
         className: "oe_radar_value  d-block",
         jsLibs: [
-            '/hr_employee_updation/static/src/js/lib/Chart.js',
+            '/qzhub_spider_widget/static/src/js/lib/Chart.js',
         ],
 
         //Render this chart in odoo front
