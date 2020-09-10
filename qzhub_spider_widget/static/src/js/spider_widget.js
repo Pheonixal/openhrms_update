@@ -1,4 +1,4 @@
-odoo.define('hr_employee_view.RadarWidget', function (require) {
+odoo.define('hr_employee_view.RadarWidget2', function (require) {
     "use strict";
 
     let AbstractField = require('web.AbstractField');
