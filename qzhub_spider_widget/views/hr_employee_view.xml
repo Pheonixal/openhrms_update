@@ -29,14 +29,13 @@
     </record>
 
     <record model="ir.ui.view" id="hr_employee_inherit_form_view_qzhub_inherited">
-
         <field name="name">hr.employee.form.view.inherited</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='public']" position="after">
                 <page string="Skills" name="Skillsiks">
-                    <group class="widget-spider">
+                    <group>
                         <group name="Status" style="width:49%%">
                             <field mode="tree" nolabel="1" name="employee_skill_ids">
                                 <tree class="text-left">
@@ -80,8 +79,8 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='public']" position="after">
                 <page string="Skills" name="Skillsiks">
-                    <group class="d-flex">
-                        <group name="Status">
+                    <group>
+                        <group name="Status" style="width:49%%">
                             <field mode="tree" nolabel="1" name="employee_skill_ids">
                                 <tree>
                                     <field name="skill_type_id" invisible="1"/>
@@ -93,7 +92,7 @@
                                 </tree>
                             </field>
                         </group>
-                        <group name="Vizual">
+                        <group name="Vizual" style="width:51%%">
                             <field mode="tree" name="spider_widget" widget="spider" nolabel="1"/>
                         </group>
                     </group>
@@ -102,20 +101,12 @@
         </field>
     </record>
 
-
     <template id="assets_backend" name="qzhub_spider_widget_assets_backend" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <!--            <link rel="stylesheet" type="text/scss" href="/hr_skills/static/src/css/hr_skills.scss"/>-->
-            <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/spider_widget.js"></script>
-        </xpath>
-    </template>
-    <template id="qzhub_backend_dashboard" name="Hr Dashboard xml" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
             <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/lib/Chart.js"/>
-            <link rel="stylesheet" href="/qzhub_spider_widget/static/src/css/lib/nv.d3.css"/>
-<!--            <link rel="stylesheet" href="/qzhub_spider_widget/static/src/css/spider.css"/>-->
-<!--            <link rel="stylesheet" href="/qzhub_spider_widget/static/src/css/media-spider.css"/>-->
+            <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/spider_widget.js"/>
             <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/lib/d3.min.js"/>
+            <link rel="stylesheet" href="/qzhub_spider_widget/static/src/css/lib/nv.d3.css"/>
         </xpath>
     </template>
 </odoo>
