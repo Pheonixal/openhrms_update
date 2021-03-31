@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+                id="insurance_management_cybro.insurance_main_menu"
+                name="Insurance"
+                web_icon="insurance_management_cybro_update,static/description/icon.png"/>
+    </data>
+
+</odoo>

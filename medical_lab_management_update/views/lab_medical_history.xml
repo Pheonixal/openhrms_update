@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="lab_medical_history_kanban_view" model="ir.ui.view">
+            <field name="name">lab.medical.history.kanban</field>
+            <field name="model">lab.medical.history</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="patient"/>
+                    <field name="physician_id"/>
+                    <field name="supervision_start"/>
+                    <field name="supervision_end"/>
+                    <templates>
+                    <div t-name="kanban-box"
+                         class="oe_kanban_card oe_kanban_global_click">
+                        <div>
+                            <!--Kanban's header -->
+                            <div class=" userStory__header-kanban">
+                                <!--Button here-->
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                       href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a name="%(portal.portal_share_action)d" role="menuitem" type="action"
+                                           class="dropdown-item fa fa-share">
+                                            <span class="ml-3">Share</span>
+                                        </a>
+                                        <a t-if="widget.editable" role="menuitem" type="edit"
+                                           class="dropdown-item fa fa-pencil-square-o">
+                                            <span class="ml-3">Edit</span>
+                                        </a>
+                                        <a t-if="widget.editable" role="menuitem" type="delete"
+                                           class="dropdown-item fa fa-times">
+                                            <span class="ml-3">Delete</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            <!-- End header -->
+                            </div>
+
+                            <!-- Kanban's us name -->
+                            <div class="project__name-kanban  padding-name pr-1">
+                                <t t-esc="record.name.value"/>
+                            </div>
+                            <div>
+                                <t t-esc="record.patient.value"/>
+                            </div>
+                            <div>
+                                <t t-esc="record.physician_id.value"/>
+                            </div>
+                            <div>
+                                <t t-esc="record.supervision_start.value"/>
+                            </div>
+                            <div>
+                                <t t-esc="record.supervision_end.value"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="lab_medical_history_form_view" model="ir.ui.view">
+            <field name="name">lab.medical.history.form</field>
+            <field name="model">lab.medical.history</field>
+            <field name="arch" type="xml">
+                <form string="Medical History">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Title"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="patient" options="{'no_create':True}"/>
+                                <field name="physician_id" domain="[('is_physician','=',True)]" context="{'search_default_is_physician':1, 'default_is_physician':1}"/>
+                            </group>
+                            <group>
+                                <field name="supervision_start"/>
+                                <field name="supervision_end"/>
+                            </group>
+                            <group>
+                                <field name="prescribed_drugs"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="lab_medical_history_tree_view" model="ir.ui.view">
+            <field name="name">ProjectName.lab_medical_history.tree</field>
+            <field name="model">lab.medical.history</field>
+            <field name="arch" type="xml">
+                <tree string="Medical History">
+                    <field name="name"/>
+                    <field name="supervision_start"/>
+                    <field name="supervision_end"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="lab_medical_history_search_view" model="ir.ui.view">-->
+<!--            <field name="name">ProjectName.lab_medical_history.search</field>-->
+<!--            <field name="model">lab.medical.history</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="ModelTitle">-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Example Field" name="example_field" domain="[]" context="{'group_by':'example_field'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="lab_medical_history_act_window" model="ir.actions.act_window">
+            <field name="name">Medical History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lab.medical.history</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Medical History.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Medical History"
+                  id="lab_medical_history_menu"
+                  parent="medical_lab_management.menu_root_lab"
+                  action="lab_medical_history_act_window"
+                  groups="medical_lab_management.group_lab_management_user,medical_lab_management.group_lab_management_technician"
+                  sequence="20" />
+
+    </data>
+</odoo>

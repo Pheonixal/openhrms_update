@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Appraisal"
+                  id="oh_appraisal.menu_hr_appraisal_root"
+                  web_icon="oh_appraisal_update,static/description/appraisal_icon.png"
+                  groups="oh_appraisal.group_appraisal_manager,oh_appraisal.group_appraisal_employee"/>
+        </data>
+
+</odoo>

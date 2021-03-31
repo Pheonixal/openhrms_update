@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        <record id="lab_medical_examination_kanban_view" model="ir.ui.view">-->
+<!--            <field name="name">lab.medical.examination.kanban</field>-->
+<!--            <field name="model">lab.medical.examination</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <kanban>-->
+<!--                    <field name="patient"/>-->
+<!--                    <field name="physician_id"/>-->
+<!--                    <field name="permission"/>-->
+<!--                    <field name="examination_date"/>-->
+<!--                    <templates>-->
+<!--                    <div t-name="kanban-box"-->
+<!--                         class="oe_kanban_card oe_kanban_global_click">-->
+<!--                        <div>-->
+<!--                            &lt;!&ndash;Kanban's header &ndash;&gt;-->
+<!--                            <div class=" userStory__header-kanban">-->
+<!--                                &lt;!&ndash;Button here&ndash;&gt;-->
+<!--                                <div class="o_dropdown_kanban dropdown">-->
+<!--                                    <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"-->
+<!--                                       href="#" aria-label="Dropdown menu" title="Dropdown menu">-->
+<!--                                        <span class="fa fa-ellipsis-v"/>-->
+<!--                                    </a>-->
+<!--                                    <div class="dropdown-menu" role="menu">-->
+<!--                                        <a name="%(portal.portal_share_action)d" role="menuitem" type="action"-->
+<!--                                           class="dropdown-item fa fa-share">-->
+<!--                                            <span class="ml-3">Share</span>-->
+<!--                                        </a>-->
+<!--                                        <a t-if="widget.editable" role="menuitem" type="edit"-->
+<!--                                           class="dropdown-item fa fa-pencil-square-o">-->
+<!--                                            <span class="ml-3">Edit</span>-->
+<!--                                        </a>-->
+<!--                                        <a t-if="widget.editable" role="menuitem" type="delete"-->
+<!--                                           class="dropdown-item fa fa-times">-->
+<!--                                            <span class="ml-3">Delete</span>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            &lt;!&ndash; End header &ndash;&gt;-->
+<!--                            </div>-->
+
+<!--                            &lt;!&ndash; Kanban's us name &ndash;&gt;-->
+<!--                            <div class="project__name-kanban  padding-name pr-1">-->
+<!--                                <t t-esc="record.patient.value"/>-->
+<!--                                <t t-esc="record.permission.value"/>-->
+<!--                                <t t-esc="record.physician_id.value"/>-->
+<!--                                <t t-esc="record.examination_date.value"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </templates>-->
+<!--                </kanban>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="lab_medical_specification_form_view" model="ir.ui.view">
+            <field name="name">lab.appointment.specification.form</field>
+            <field name="model">lab.appointment.specification</field>
+            <field name="arch" type="xml">
+                <form string="Medical Examination" create="false" delete="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="physician_id" domain="[('is_physician','=',True)]"/>
+                            </group>
+                            <group>
+                                <field name="daily_app_time_from" widget="float_time"/>
+                                <field name="daily_app_time_to" widget="float_time"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+<!--        <record id="lab_medical_specification_tree_view" model="ir.ui.view">-->
+<!--            <field name="name">lab.appointment.specification.tree</field>-->
+<!--            <field name="model">lab.appointment.specification</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree string="Medical Specification">-->
+<!--                    <field name="physician_id"/>-->
+<!--                    <field name="daily_app_time_from"/>-->
+<!--                    <field name="daily_app_time_to"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="lab_medical_specification_search_view" model="ir.ui.view">-->
+<!--            <field name="name">lab.appointment.specification.search</field>-->
+<!--            <field name="model">lab.appointment.specification</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="ModelTitle">-->
+<!--                    <field name="physician_id" />-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter name="physician_id" string="Physician"-->
+<!--                            domain="[]" context="{'group_by':'physician_id'}" />-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="lab_medical_appointment_spec_act_window" model="ir.actions.act_window">-->
+<!--            <field name="name">Daily Appointment Specification</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">lab.appointment.specification</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="binding_view_types">form</field>-->
+<!--            <field name="search_view_id" ref="lab_medical_specification_search_view"/>-->
+<!--            <field name="help" type="html">-->
+<!--                <p class="oe_view_nocontent_create">-->
+<!--                    There is no examples click here to add new Daily Appointment Specification.-->
+<!--                </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="qzh_app_spec_python_action" model="ir.actions.server">
+            <field name="name">Daily Appointment</field>
+            <field name="model_id" ref="medical_lab_management_update.model_lab_appointment_specification"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.appointment_spec()
+            </field>
+        </record>
+
+        <menuitem id="menu_lab_medical_appointment_spec"
+                  name="Daily Appointment Specification"
+                  parent="hr.menu_human_resources_configuration"
+                  action="qzh_app_spec_python_action"
+                  groups="medical_lab_management.group_lab_management_user,medical_lab_management.group_lab_management_technician"
+                  sequence="15"/>
+
+    </data>
+</odoo>

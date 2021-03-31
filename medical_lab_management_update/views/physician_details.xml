@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="medical_lab_management.action_physician" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record id="lab_physician_kanban_view" model="ir.ui.view">
+            <field name="name">lab.partner.kanban</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="speciality"/>
+                    <field name="hospital"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <!--Kanban's header -->
+                                <div>
+                                    <!--Button here-->
+                                    <div class="o_dropdown_kanban dropdown">
+                                        <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                           href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                            <span class="fa fa-ellipsis-v"/>
+                                        </a>
+                                        <div class="dropdown-menu" role="menu">
+                                            <a name="%(portal.portal_share_action)d" role="menuitem" type="action"
+                                               class="dropdown-item fa fa-share">
+                                                <span class="ml-3">Share</span>
+                                            </a>
+                                            <a t-if="widget.editable" role="menuitem" type="edit"
+                                               class="dropdown-item fa fa-pencil-square-o">
+                                                <span class="ml-3">Edit</span>
+                                            </a>
+                                            <a t-if="widget.editable" role="menuitem" type="delete"
+                                               class="dropdown-item fa fa-times">
+                                                <span class="ml-3">Delete</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <!-- End header -->
+                                </div>
+
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('res.partner', 'image_1920', record.id.value)" alt="kanban image"/>
+                                </div>
+
+                                <!-- Kanban content -->
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <ul>
+                                            <li><t t-esc="record.name.value"/></li>
+                                            <li><t t-esc="record.speciality.value"/></li>
+                                            <li><t t-esc="record.hospital.value"/></li>
+                                        </ul>
+                                    </strong>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="lab_physician_tree" model="ir.ui.view">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Physician">
+                    <field name="name" />
+                    <field name="speciality"/>
+                    <field name="hospital"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_res_partner_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='is_patient']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

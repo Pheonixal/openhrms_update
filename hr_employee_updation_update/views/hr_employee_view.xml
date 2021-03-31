@@ -12,13 +12,16 @@
                 </xpath>
                 <xpath expr="//page[@name='hr_settings']" position="after">
                     <page name="bank_details" string="Bank details" groups="hr.group_hr_user">
-                        <group string="Bank details">
+                        <group string="Bank details" style="width:50%%">
                             <field name="bank_name" groups="hr.group_hr_user"/>
                             <field name="bic" groups="hr.group_hr_user"/>
                             <field name="iban" groups="hr.group_hr_user"/>
                             <field name="iic" groups="hr.group_hr_user"/>
                         </group>
                     </page>
+                </xpath>
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="nationality" placeholder="Ex. kazakh"/>
                 </xpath>
                 <xpath expr="//field[@name='job_title']" position="attributes">
                     <attribute name="readonly">1</attribute>
@@ -31,25 +34,35 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr_employee_updation.hr_employee_inherit_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[@name='identification_id']" position="attributes">
-                    <attribute name="invisible">('type_of_docs', '!=', 'id_card')</attribute>
+
+                <xpath expr="//group[@name='passport_id']" position="replace">
+                    <group name="passport_id" string="Passport ID" attrs="{'invisible':[('type_of_docs', '=', 'id_card')]}">
+                        <field name="passport_id"/>
+                        <field name="passport_expiry_date" groups="hr.group_hr_user" attrs="{'invisible': [('passport_id', 'in', [None,False])]}"/>
+                        <field name="passport_attachment_id" groups="hr.group_hr_user" widget="many2many_binary" class="oe_inline" attrs="{'invisible': [('passport_id', 'in', [None,False])]}"/>
+                    </group>
                 </xpath>
 
-                <xpath expr="//group[@name='passport_id']" position="attributes">
-                    <attribute name="invisible">('type_of_docs', '=', 'id_card')</attribute>
-                </xpath>
-
-                <xpath expr="//field[@name='identification_id']" position="after">
-                    <field name="iin" groups="hr.group_hr_user"
-                           attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
-                    <field name="id_given_by" groups="hr.group_hr_user"
-                           attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
-                    <field name="id_issue_date" groups="hr.group_hr_user"
-                           attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                <xpath expr="//group[@name='identification_id']" position="replace">
+                    <group name="identification_id" string="Identification ID" attrs="{'invisible':[('type_of_docs', '!=', 'id_card')]}">
+                        <field name="identification_id"/>
+                        <field name="iin" groups="hr.group_hr_user" attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                        <field name="id_given_by" groups="hr.group_hr_user" attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                        <field name="id_issue_date" groups="hr.group_hr_user" attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                        <field name="id_expiry_date"  groups="hr.group_hr_user" attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                        <field name="id_attachment_id" groups="hr.group_hr_user" widget="many2many_binary" class="oe_inline" attrs="{'invisible': [('identification_id', 'in', [None,False])]}"/>
+                    </group>
                 </xpath>
 
             </field>
         </record>
+
+        <template id="on_menu_passport" name="New item 'My Passport' in onMenu" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript"
+                        src="/hr_employee_updation_update/static/src/js/user_passport.js"/>
+            </xpath>
+        </template>
 
     </data>
 </odoo>

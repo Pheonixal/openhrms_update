@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_lab_reques_form_inherit" model="ir.ui.view">
+            <field name="name">lab.request.form.inherit</field>
+            <field name="model">lab.request</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_reques_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='interval']" position="after">
+                        <field name="interval_max"/>
+                    </xpath>
+                    <xpath expr="//div[@class='oe_left']" position="before">
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                                <field string="Documents" name="doc_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_lab_request_tree_inherit" model="ir.ui.view">
+            <field name="name">lab.request.tree.inherit</field>
+            <field name="model">lab.request</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_request_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lab_requestor']" position="after">
+                    <field name="lab_requesting_date"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

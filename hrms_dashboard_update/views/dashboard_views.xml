@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="hrms_dashboard.menu_hrms_dashboard"
+                  name="Dashboard"
+                  action="hrms_dashboard.hr_action_dashboard"
+                  web_icon="hrms_dashboard_update,static/description/dashboard_icon.png"
+                  sequence="-100" groups="base.group_user"/>
+    </data>
+
+</odoo>

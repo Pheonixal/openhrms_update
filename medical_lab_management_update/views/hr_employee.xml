@@ -1,0 +1,127 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="view_employee_form_inherit_patient" model="ir.ui.view">
+            <field name="name">hr.employee.form_inherit.patient</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="appointment_view"
+                            string="Appointments"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-stethoscope"
+                            groups="hr.group_hr_manager,hr.group_hr_user">
+                    </button>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']" position="after">
+                    <page name="med_info_page" string="Medical Information" groups="hr.group_hr_user">
+                        <group name="med_info" string="Medical Information" style="width:50%%">
+                            <group>
+                                <field name="is_patient" invisible="1"/>
+                                <field name="work_condition"/>
+                                <field name="height"/>
+                                <field name="weight"/>
+                                <field name="blood_donor"/>
+                                <field name="blood_group"/>
+                                <field name="rhesus_factor"/>
+                                <field name="operating_pressure"/>
+                            </group>
+                            <group>
+                                <field name="allergy"/>
+                                <field name="phys_condition"/>
+                                <field name="pathologies"/>
+                                <field name="bad_habits"/>
+                                <field name="preventive_actions"/>
+                                <field name="chronic_diseases"/>
+                                <field name="contraindications"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+<!--
+    <record model="ir.ui.view" id="medical_lab_management_update.list">
+      <field name="name">medical_lab_management_update list</field>
+      <field name="model">medical_lab_management_update.medical_lab_management_update</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="medical_lab_management_update.action_window">
+      <field name="name">medical_lab_management_update window</field>
+      <field name="res_model">medical_lab_management_update.medical_lab_management_update</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="medical_lab_management_update.action_server">
+      <field name="name">medical_lab_management_update server</field>
+      <field name="model_id" ref="model_medical_lab_management_update_medical_lab_management_update"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="medical_lab_management_update" id="medical_lab_management_update.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="medical_lab_management_update.menu_1" parent="medical_lab_management_update.menu_root"/>
+    <menuitem name="Menu 2" id="medical_lab_management_update.menu_2" parent="medical_lab_management_update.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="medical_lab_management_update.menu_1_list" parent="medical_lab_management_update.menu_1"
+              action="medical_lab_management_update.action_window"/>
+    <menuitem name="Server to list" id="medical_lab_management_update" parent="medical_lab_management_update.menu_2"
+              action="medical_lab_management_update.action_server"/>
+-->
+
+<!--      <template id="dashboard_update" name="Hr Dashboard update inherit" inherit_id="web.assets_backend">-->
+<!--          <xpath expr="." position="inside">-->
+<!--              <script type="text/javascript" src="/medical_lab_management_update/static/src/js/hrms_dashboard_update.js"/>-->
+<!--          </xpath>-->
+<!--      </template>-->
+
+<!--      <template id="assets_backend_dashboard_update" name="Hr Dashboard assets inherit" inherit_id="web.assets_backend">-->
+<!--        <xpath expr="." position="inside">-->
+<!--            <link rel="stylesheet" href="/hrms_dashboard/static/src/css/hrms_dashboard.css"/>-->
+<!--            <script type="text/javascript" src="/hrms_dashboard/static/src/js/hrms_dashboard.js"/>-->
+<!--            <link rel="stylesheet" href="/hrms_dashboard/static/src/css/lib/nv.d3.css"/>-->
+<!--            <script type="text/javascript" src="/hrms_dashboard/static/src/js/lib/d3.min.js"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+<!--    <templates xml:space="preserve">-->
+<!--        <t t-extend="ListView.buttons">-->
+<!--            <t t-jquery="button.o_list_export_xlsx" t-operation="after">-->
+<!--                <button type="button" accesskey="f" t-if='widget.modelName == "asset.asset"'-->
+<!--                        class="btn btn-primary oe_action_button">Report-->
+<!--                </button>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </templates>-->
+  </data>
+</odoo>

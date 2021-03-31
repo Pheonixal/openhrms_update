@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="hr_payroll_community.menu_hr_payroll_community_root"
+                  name="Payroll"
+                  sequence="45"
+                  web_icon="hr_payroll_community_update,static/description/payroll.png"/>
+    </data>
+
+</odoo>

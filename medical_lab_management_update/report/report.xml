@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="Patient card"
+            id="medical_lab_management.action_report_patient_label"
+            model="lab.patient"
+            report_type="qweb-pdf"
+            name="medical_lab_management.report_patient_label"
+            file="medical_lab_management.report_patient_label"
+        />
+
+        <report
+            string="Форма предсменных медицинских обследований"
+            id="medical_lab_management_update.action_pre_shift_med_form"
+            model="lab.patient"
+            report_type="qweb-pdf"
+            name="medical_lab_management_update.pre_shift_med_form"
+            file="medical_lab_management_update.pre_shift_med_form"
+        />
+
+        <report
+            string="Lab Test Result"
+            id="medical_lab_management.print_lab_test"
+            model="lab.request"
+            report_type="qweb-pdf"
+            name="medical_lab_management.report_patient_labtest"
+            file="medical_lab_management.report_patient_labtest"
+        />
+
+    </data>
+</odoo>

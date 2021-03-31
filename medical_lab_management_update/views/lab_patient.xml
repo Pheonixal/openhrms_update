@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="medical_lab_management.menu_root_lab" name="Laboratory" sequence="40"
+                  groups="medical_lab_management.group_lab_management_user,medical_lab_management.group_lab_management_technician" web_icon="medical_lab_management_update,static/description/labaratory.png"/>
+
+        <record id="view_lab_patient_form_inherit" model="ir.ui.view">
+            <field name="name">lab.patient.form.inherit</field>
+            <field name="model">lab.patient</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_patient_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="replace">
+
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <field name="patient_image" widget="image" class="oe_avatar"/>
+                        <group name="title_name" class="oe_title">
+                            <field name="patient"
+
+                                   required="1"
+                                   placeholder="FullName"
+                                   style="padding-right:10px"
+                                   domain="[('is_patient','=',True),('patient_id', '=', False)]" context="{'search_default_is_patient':1, 'default_is_patient':1, 'default_customer':1}"
+                            />
+                            <field name="company_id"/>
+                            <field name="department_id"/>
+                            <field name="job_id"/>
+                            <field name="address_id"/>
+                        </group>
+                        <group>
+                            <group name="personal_info" string="Personal information">
+                                <field name="name" />
+                                <field name="iin" />
+                                <field name="dob" />
+                                <field name="gender" />
+                                <field name="age"/>
+                                <field name="nationality"/>
+                                <field name="country_id"/>
+                                <field name="address_home_id"/>
+                                <field name="marital"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                            <group name="med_info" string="Medical Information">
+                                <field name="height"/>
+                                <field name="weight"/>
+                                <field name="blood_group"/>
+                                <field name="rhesus_factor"/>
+                                <field name="allergy"/>
+                                <field name="phys_condition"/>
+                                <field name="pathologies"/>
+                                <field name="bad_habits"/>
+                                <field name="preventive_actions"/>
+                                <field name="chronic_diseases"/>
+                                <field name="contraindications"/>
+                                <field name="operating_pressure"/>
+                                <field name="work_condition"/>
+                                <field name="blood_donor"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Note">
+                                <group>
+                                    <field name="note"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_lab_patient_form_inherit_inh" model="ir.ui.view">
+            <field name="name">lab.patient.form.inherit</field>
+            <field name="model">lab.patient</field>
+            <field name="inherit_id" ref="medical_lab_management.view_lab_patient_form_inherit" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//button[@name='%(medical_lab_management.act_open_lab_appointment_view)d']"
+                           position="after">
+                        <button name="%(lab_medical_history_act_window)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-building-o"
+                            context="{'search_default_patient_id': [active_id], 'default_patient_id':[active_id]}">
+                            <field name="medical_history_count" widget="statinfo" string="Medical History"/>
+                        </button>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="kanban_view_patient_inherit">
+            <field name="name">Patient Kanban</field>
+            <field name="model">lab.patient</field>
+            <field name="inherit_id" ref="medical_lab_management.kanban_view_patient"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div" position="inside">
+                    <div class=" userStory__header-kanban">
+                        <!--Button here-->
+                        <div class="o_dropdown_kanban dropdown">
+                            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                               href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                <span class="fa fa-ellipsis-v"/>
+                            </a>
+                            <div class="dropdown-menu" role="menu">
+                                <a name="%(portal.portal_share_action)d" role="menuitem" type="action"
+                                   class="dropdown-item fa fa-share">
+                                    <span class="ml-3">Share</span>
+                                </a>
+                                <a t-if="widget.editable" role="menuitem" type="edit"
+                                   class="dropdown-item fa fa-pencil-square-o">
+                                    <span class="ml-3">Edit</span>
+                                </a>
+                                <a t-if="widget.editable" role="menuitem" type="delete"
+                                   class="dropdown-item fa fa-times">
+                                    <span class="ml-3">Delete</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End header -->
+                    </div>
+                </xpath>
+                <xpath expr="//img" position="attributes">
+                    <attribute name="alt">kanban_image</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="oh_employee_documents_expiry.hr_employee_document_action" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record id="hr_employee_document_kanban_view" model="ir.ui.view">
+            <field name="name">hr.employee.document.kanban</field>
+            <field name="model">hr.employee.document</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state">
+                    <field name="name"/>
+                    <field name="employee_ref"/>
+                    <field name="document_type"/>
+                    <field name="expiry_date"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <!--Kanban's header -->
+                                <div>
+                                    <!--Button here-->
+                                    <div class="o_dropdown_kanban dropdown">
+                                        <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                           href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                            <span class="fa fa-ellipsis-v"/>
+                                        </a>
+                                        <div class="dropdown-menu" role="menu">
+                                            <a name="%(portal.portal_share_action)d" role="menuitem" type="action"
+                                               class="dropdown-item fa fa-share">
+                                                <span class="ml-3">Share</span>
+                                            </a>
+                                            <a t-if="widget.editable" role="menuitem" type="edit"
+                                               class="dropdown-item fa fa-pencil-square-o">
+                                                <span class="ml-3">Edit</span>
+                                            </a>
+                                            <a t-if="widget.editable" role="menuitem" type="delete"
+                                               class="dropdown-item fa fa-times">
+                                                <span class="ml-3">Delete</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- End header -->
+                                </div>
+                                <!-- Kanban content -->
+                                <div class="oe_kanban_details">
+                                    <div class="font-weight-bold">
+                                        <t t-esc="record.name.value"/>
+                                    </div>
+                                    <div>
+                                        <t t-esc="record.employee_ref.value"/>
+                                    </div>
+                                    <div>
+                                        <t t-esc="record.document_type.value"/>
+                                    </div>
+                                    <div>
+                                        <t t-esc="record.expiry_date.value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='employee_document_form_view'>
+            <field name="name">hr.employee.document.form</field>
+            <field name="model">hr.employee.document</field>
+            <field name="inherit_id" ref="oh_employee_documents_expiry.employee_document_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button string="Send For Approval" type="object" name="sent"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('state','not in',('draft'))]}"/>
+                        <button string="Approve" groups="hr.group_hr_manager" type="object" name="approve"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('state','not in',('to_approve'))]}"/>
+                        <button string="Refuse" groups="hr.group_hr_manager" type="action"
+                                name="%(wizard_document_reason_act)d"
+                                attrs="{'invisible': [('state','not in',('to_approve'))]}" class="btn-primary"
+                                context="{'reject_id':id,'model_id':'hr.employee.document'}"/>
+                        <button string="Set to Draft" type="object" name="set_to_draft"
+                                attrs="{'invisible': [('state','not in',('rejected'))]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,to_approve,approved"/>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='doc_attachment_id']" position="after">
+                    <field name="rejected_reason" attrs="{'invisible': [('state','not in',('rejected'))]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id='employee_documents_tree_view_inherit' model='ir.ui.view'>
+            <field name="name">hr.employee.document.tree</field>
+            <field name="model">hr.employee.document</field>
+            <field name="inherit_id" ref="oh_employee_documents_expiry.employee_documents_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='expiry_date']" position="after">
+                    <field name="state"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

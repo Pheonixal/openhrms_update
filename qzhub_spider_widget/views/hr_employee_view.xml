@@ -1,55 +1,112 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="employee_skill_view_form_inherited" model="ir.ui.view">
+        <field name="name">hr.skill.level.tree</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="inherit_id" ref="hr_skills.employee_skill_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='level_progress']" position="replace">
+                <field name="level_progress"/>
+            </xpath>
+            <xpath expr="//field[@name='level_progress']" position="after">
+                <field name="required_level_progress"/>
+            </xpath>
+        </field>
+    </record>
 
+    <record id="employee_skill_level_view_formform_inherited" model="ir.ui.view">
+        <field name="name">hr.employees.skill.form</field>
+        <field name="model">hr.skill.level</field>
+        <field name="inherit_id" ref="hr_skills.employee_skill_level_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='level_progress']" position="replace">
+                <field name="level_progress"/>
+            </xpath>
+            <xpath expr="//field[@name='level_progress']" position="after">
+                <field name="required_level_progress"/>
+            </xpath>
+        </field>
+    </record>
 
     <record model="ir.ui.view" id="hr_employee_inherit_form_view_qzhub_inherited">
-
         <field name="name">hr.employee.form.view.inherited</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='personal_information']" position="after">
-                <page string="Skills" name="Skills">
+            <xpath expr="//page[@name='public']" position="after">
+                <page string="Skills" name="Skillsiks">
                     <group>
-                        <group>
-                            <field mode="tree" nolabel="1" name="employee_skill_ids" widget="hr_skills">-->
-                                <tree>
+                        <group name="Status" style="width:49%%">
+                            <field mode="tree" nolabel="1" name="employee_skill_ids">
+                                <tree class="text-left">
+
                                     <field name="skill_type_id" invisible="1"/>
-                                    <field name="skill_id"/>
-                                    <field name="skill_level_id"/>
-                                    <field name="level_progress" widget="progressbar"/>
+                                    <field name="id" string="№" class="text-left"/>
+                                    <field name="skill_id" class="text-left" />
+                                    <field name="skill_level_id" class="text-left" />
+                                    <field name="level_progress" class="text-left" />
+                                    <field name="required_level_progress" class="text-left" />
                                 </tree>
+
                             </field>
                         </group>
-                        <group>
-                            <field mode="tree" name="spider_widget" nolabel="1" widget="spider"/>
+                        <group name="Vizual" style="width:51%%">
+                            <field mode="tree" name="spider_widget" widget="spider" nolabel="1"/>
                         </group>
                     </group>
                 </page>
             </xpath>
 
-            <xpath expr="//field[@name='employee_skill_ids']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <!--                 <xpath expr="//separator[@name='Skills']" position="attributes">-->
-            <!--                   <attribute name="invisible">1</attribute>-->
-            <!--                </xpath>-->
 
         </field>
     </record>
 
+    <record id="hr_employee_public_view_form_inherit_qzhub_inherited" model="ir.ui.view">
+        <field name="name">hr.employee.public.view.form.inherit.resume.inherit</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr_skills.hr_employee_public_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='public']/div/div[2]" position="replace">
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_employee_public_view_form_qzhub_inherited" model="ir.ui.view">
+        <field name="name">hr.employee.public.view.form.inherit.resume.inherit</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='public']" position="after">
+                <page string="Skills" name="Skillsiks">
+                    <group>
+                        <group name="Status" style="width:49%%">
+                            <field mode="tree" nolabel="1" name="employee_skill_ids">
+                                <tree>
+                                    <field name="skill_type_id" invisible="1"/>
+                                    <field name="id" string="№"/>
+                                    <field name="skill_id"/>
+                                    <field name="skill_level_id"/>
+                                    <field name="level_progress"/>
+                                    <field name="required_level_progress"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group name="Vizual" style="width:51%%">
+                            <field mode="tree" name="spider_widget" widget="spider" nolabel="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
 
     <template id="assets_backend" name="qzhub_spider_widget_assets_backend" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <!--            <link rel="stylesheet" type="text/scss" href="/hr_skills/static/src/css/hr_skills.scss"/>-->
-            <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/spider_widget.js"></script>
-        </xpath>
-    </template>
-    <template id="qzhub_backend_dashboard" name="Hr Dashboard xml" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
             <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/lib/Chart.js"/>
-            <link rel="stylesheet" href="/qzhub_spider_widget/static/src/css/lib/nv.d3.css"/>
+            <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/spider_widget.js"/>
             <script type="text/javascript" src="/qzhub_spider_widget/static/src/js/lib/d3.min.js"/>
+            <link rel="stylesheet" href="/qzhub_spider_widget/static/src/css/lib/nv.d3.css"/>
         </xpath>
     </template>
 </odoo>

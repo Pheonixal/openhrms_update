@@ -1,0 +1,159 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+
+        <!--        <record id="view_slide_channel_form_inherit" model="ir.ui.view">-->
+        <!--            <field name="name">slide.channel.view.form.inherit</field>-->
+        <!--            <field name="model">slide.channel</field>-->
+        <!--            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//button[@name='action_redirect_to_members']" position="after">-->
+        <!--                    <button name="action_redirect_to_employees"-->
+        <!--                            type="object"-->
+        <!--                            icon="fa-users"-->
+        <!--                            class="oe_stat_button"-->
+        <!--                    >-->
+        <!--                        <field name="employees_count" string="Attendees" widget="statinfo"/>-->
+        <!--                    </button>-->
+        <!--                </xpath>-->
+
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record id="slide_channel_partner_action" model="ir.actions.act_window">-->
+        <!--            <field name="name">Attendees</field>-->
+        <!--            <field name="res_model">slide.channel.employee</field>-->
+        <!--            <field name="view_mode">tree,form</field>-->
+        <!--        </record>-->
+
+        <!--        <record id="slide_channel_employee_tree" model="ir.ui.view">-->
+        <!--            <field name="name">slide_channel_employee_tree</field>-->
+        <!--            <field name="model">slide.channel.employee</field>-->
+        <!--            <field name="type">tree</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree>-->
+        <!--                    <field name="channel_id"/>-->
+        <!--                    <field name="employee_id"/>-->
+        <!--                    <field name="employee_email"/>-->
+
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+
+        <record id="slide_channel_partner_view_tree_inherited" model="ir.ui.view">
+            <field name="name">slide.channel.partner.tree.inherit</field>
+            <field name="model">slide.channel.partner</field>
+            <field name="inherit_id" ref="website_slides.slide_channel_partner_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='create_date']" position="replace">
+                    <field name="write_date_gen" string="Дата прохождения"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_email']" position="after">
+                    <field name="employee_department" string="Департамент"/>
+                    <field name="employee_spec" string="Должность"/>
+                    <field name="write_uid" string="ФИО назначающего"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="slide_channel_course" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">slide.channel.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_employee_form_inherit_courses" model="ir.ui.view">
+            <field name="name">hr.employee.form_inherit.courses</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@class='oe_stat_button']" position="after">
+                    <button name="get_slide_channels"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-calendar"
+                            groups="hr.group_hr_manager,hr.group_hr_user">
+                        <field name="course_count" widget="statinfo" string="Инструктаж"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_slide_channel_form_inherited" model="ir.ui.view">
+            <field name="name">slide.channel.view.form.inherit</field>
+            <field name="model">slide.channel</field>
+            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <div style="width:20%;">
+                        <field name="category" string="Категория"/>
+                        <field name="deadline" string="Дедлайн курса"/>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="slide_channel_view_kanban_inherited" model="ir.ui.view">
+            <field name="name">slide.channel.view.kanban.inherit</field>
+            <field name="model">slide.channel</field>
+            <field name="inherit_id" ref="website_slides.slide_channel_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_kanban_card_header']/div/div[2]" position="replace">
+
+                    <div class="d-flex" style="width:80%;" name="category">
+                        <span class="mr-auto">
+                            <label for="category" class="mb0">Category</label>
+                        </span>
+                        <field name="category"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="website_slides_update.action_window">
+              <field name="name">website_slides_update window</field>
+              <field name="res_model">website_slides_update.website_slides_update</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="website_slides_update.action_server">
+              <field name="name">website_slides_update server</field>
+              <field name="model_id" ref="model_website_slides_update_website_slides_update"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="website_slides_update" id="website_slides_update.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="website_slides_update.menu_1" parent="website_slides_update.menu_root"/>
+            <menuitem name="Menu 2" id="website_slides_update.menu_2" parent="website_slides_update.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="website_slides_update.menu_1_list" parent="website_slides_update.menu_1"
+                      action="website_slides_update.action_window"/>
+            <menuitem name="Server to list" id="website_slides_update" parent="website_slides_update.menu_2"
+                      action="website_slides_update.action_server"/>
+        -->
+    </data>
+</odoo>

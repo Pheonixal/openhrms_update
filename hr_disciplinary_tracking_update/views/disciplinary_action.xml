@@ -6,8 +6,148 @@
             <field name="name">Disciplinary Actions</field>
             <field name="res_model">disciplinary.action</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('state','=','action'),('employee_name.id', '=', active_id)]</field>
+            <field name="domain">[('state','in',('explain', 'action')),('employee_name.id', '=', active_id)]</field>
         </record>
+
+        <record id="hr_employee_view_form_qzhub" model="ir.ui.view">
+            <field name="name">hr.employee.view.form.inherit.resume.qzhub</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_skills.hr_employee_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='public']/div" position="attributes">
+                    <attribute name="class">o_hr_skills_group o_group_resume col-lg-10 d-flex </attribute>
+                </xpath>
+                <xpath expr="//page[@name='public']/div/div[2]" position="replace">
+
+                </xpath>
+                <xpath expr="//page[@name='public']/div/div" position="after">
+
+                    <field mode="tree" nolabel="1" name="disciplinary_line_ids" widget="disciplinary_action">
+                        <tree>
+                            <field name="line_type_id"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="joined_date"/>
+                            <field name="discipline_reason"/>
+                            <field name="action"/>
+                            <field name="attachment_ids"/>
+                            <field name="date_disciplinary"/>
+                            <field name="date_action"/>
+                            <field name="display_type" invisible="1"/>
+                        </tree>
+                    </field>
+
+                </xpath>
+
+
+            </field>
+        </record>
+
+        <record id="employee_disciplinary_form_inherited" model="ir.ui.view">
+            <field name="name">disciplinary.action.form.inherited</field>
+            <field name="model">disciplinary.action</field>
+            <field name="inherit_id" ref="hr_disciplinary_tracking.employee_disciplinary_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='joined_date']" position="after">
+                    <field name="date_disciplinary" string="Date Disciplinary"/>
+                </xpath>
+                <xpath expr="//field[@name='action']" position="after">
+                    <field name="date_action" string="Action Date"/>
+                </xpath>
+                <xpath expr="//page[@name='action_information']" position="after">
+
+                    <page name="labor_code" string="Labor Code">
+                        <field name="content" widget="html"/>
+                    </page>
+
+
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="employee_disciplinary_tree_inherited" model="ir.ui.view">
+            <field name="name">disciplinary.action.tree.inherited</field>
+            <field name="model">disciplinary.action</field>
+            <field name="inherit_id" ref="hr_disciplinary_tracking.employee_disciplinary_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_name']" position="after">
+                    <field name="discipline_reason" />
+                    <field name="department_name"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+        <!--        <record id="disciplinary_category_view_tree_inherited" model="ir.ui.view">-->
+        <!--            <field name="name">discipline.category.tree.inherited</field>-->
+        <!--            <field name="model">discipline.category</field>-->
+        <!--            <field name="inherit_id" ref="hr_disciplinary_tracking.disciplinary_category_view_tree"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <header>-->
+        <!--                    <button name="confirm" string="Confirm" class="oe_highlight"/>-->
+        <!--                    </header>-->
+
+
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="hr_disciplinary_tracking.action_disciplinary_category_view" model="ir.actions.act_window">
+            <field name="name">Discipline Categories</field>
+            <field name="res_model">discipline.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('category_type', '=', 'disciplinary')]</field>
+
+        </record>
+
+
+        <record id="action_category_view" model="ir.actions.act_window">
+            <field name="name">Discipline Categories</field>
+            <field name="res_model">discipline.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('category_type', '=', 'action')]</field>
+
+        </record>
+
+
+        <menuitem id="disciplinary_category_view2" action="action_category_view" groups="hr.group_hr_manager"
+                  name="Action Category" parent="hr_disciplinary_tracking.disciplinary_action"
+                  sequence="3"/>
+
+
+        <record id="help_form_view" model="ir.ui.view">
+            <field name="name">disciplinary.action.form.inherited_help</field>
+            <field name="model">disciplinary.action</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div>
+                    <field name="content" widget="html" create="False"/>
+                        </div>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="help_action" model="ir.actions.act_window">
+            <field name="name">Help</field>
+            <field name="res_model">disciplinary.action</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="help_form_view"/>
+
+        </record>
+
+
+
+
+        <menuitem id="help_labor_code" name="Help" action="help_action" parent="hr.menu_hr_root"
+                  sequence="25"/>
+
 
     </data>
 </odoo>

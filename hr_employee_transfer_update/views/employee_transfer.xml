@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="hr_employee_transfer.menu_employee_transfer"
+                  name="Transfers"
+                  sequence="10"
+                  action="hr_employee_transfer.action_employee_transfer"
+                  web_icon="hr_employee_transfer_update,static/description/transfer_icon.png"
+                  groups="hr.group_hr_manager"/>
+    </data>
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+
+
+<t t-name="disciplinary_action_data_row">
+    <tr class="o_data_row" t-attf-class="o_data_row #{is_last? 'o_data_row_last' : ''}" t-att-data-id="id">
+        <t>
+            <td class="o_resume_timeline_cell position-relative pr-lg-2">
+                <div class="rounded-circle bg-info position-relative"/>
+            </td>
+            <td class="o_data_cell pt-0 w-100">
+                <div class="o_resume_line" t-att-data-id="id">
+                    <small class="o_resume_line_dates">
+                        <b t-esc="data.date_disciplinary"/>
+                    </small>
+                    <h5 t-if="data.reason" class="o_resume_line_desc" t-esc="data.reason"/>
+<!--                    <h4 class="o_resume_line_title mt-2" t-esc="data.name"/>-->
+                    <small class="o_resume_line_dates">
+                        <b t-esc="data.date_action"/>
+                    </small>
+                    <h6 t-if="data.action" class="o_resume_line_desc" t-esc="data.action"/>
+<!--                    <p t-esc="data.attachment" widget="many2many_binary"/>-->
+                    <br></br>
+                </div>
+            </td>
+        </t>
+    </tr>
+</t>
+
+
+
+</templates>

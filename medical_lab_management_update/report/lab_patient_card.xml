@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="medical_lab_management.report_patient_label">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <style>
+                            span {
+                            white-space: nowrap;
+                            }
+
+                            p{
+                            margin-left:5px;
+                            }
+                        </style>
+                        <header>
+                            <div class="d-flex">
+                                <div>
+                                    <div>
+                                        <h2>Паспортные данные</h2>
+                                        <span class="d-flex">Patient ID :
+                                            <p t-field="o.name"/>
+                                        </span>
+                                        <strong>
+                                            <span t-field="o.patient.name"/>
+                                        </strong>
+                                        <span class="d-flex">Sex :
+                                            <t t-if="o.gender=='m'">
+                                                <p>Male</p>
+                                            </t>
+                                            <t t-if="o.gender=='ot'">
+                                                <p>Other</p>
+                                            </t>
+                                            <t t-if="o.gender=='f'">
+                                                <p>Female</p>
+                                            </t>
+                                        </span>
+                                        <span class="d-flex">Age:
+                                            <p t-field="o.age"/>
+                                        </span>
+                                    </div>
+                                    <hr/>
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="d-flex">ИИН:
+                                                <p t-field="o.iin"/>
+                                            </span>
+                                            <span class="d-flex">Дата рождения:
+                                                <p t-field="o.dob"/>
+                                            </span>
+                                            <span class="d-flex">Национальность:
+                                                <p t-field="o.nationality"/>
+                                            </span>
+                                            <span class="d-flex">Гражданство:
+                                                <p t-field="o.country_id"/>
+                                            </span>
+                                        </div>
+                                        <div style="margin-left:200px;">
+                                            <span class="d-flex">Адрес проживания:
+                                                <p t-field="o.address_home_id"/>
+                                            </span>
+                                            <span class="d-flex">Место работы:
+                                                <p t-field="o.company_id"/>
+                                            </span>
+                                            <span class="d-flex">Должность:
+                                                <p t-field="o.job_id"/>
+                                            </span>
+<!--                                            <span class="d-flex">Наименование страховой компании:-->
+<!--                                                <p>QZHUB</p>-->
+<!--                                            </span>-->
+<!--                                            <span class="d-flex">№ страхового полиса:-->
+<!--                                                <p>№ 234234</p>-->
+<!--                                            </span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-right:150px;">
+                                    <img style="max-height: 145px;"
+                                         t-attf-src="data:image/*;base64,{{o.patient_image}}"/>
+                                </div>
+                            </div>
+                            <h2>Минимальные медицинские данные:</h2>
+                            <span class="d-flex">Группа крови:
+                                <p t-field="o.blood_group"/>
+                            </span>
+                            <span class="d-flex">Рабочее давление:
+                                <p t-field="o.operating_pressure"/>
+                            </span>
+                            <span class="d-flex">Резус - фактор:
+                                <p t-field="o.rhesus_factor"/>
+                            </span>
+                            <span class="d-flex">Аллергические реакции:
+                                <p t-field="o.allergy"/>
+                            </span>
+                            <span class="d-flex">Физиологическое состояние пациента:
+                                <p t-field="o.phys_condition"/>
+                            </span>
+                            <span class="d-flex">Наследственные патологии:
+                                <p t-field="o.pathologies"/>
+                            </span>
+                            <span class="d-flex">Вредные привычки:
+                                <p t-field="o.bad_habits"/>
+                            </span>
+                            <span class="d-flex">Профилактические мероприятия:
+                                <p t-field="o.preventive_actions"/>
+                            </span>
+                            <span class="d-flex">Xронические заболевания:
+                                <p t-field="o.chronic_diseases"/>
+                            </span>
+                            <span class="d-flex">Противопоказания:
+                                <p t-field="o.contraindications"/>
+                            </span>
+                            <span class="d-flex">Список принимаемых в настоящее время лекарственных средств:
+                                <p>Парацетамол</p>
+                            </span>
+<!--                            <span class="d-flex" style="margin-top:5px;">ФИО врача:-->
+<!--                                <p>Алмаз П</p>-->
+<!--                            </span>-->
+<!--                            <span class="d-flex">ФИО среднего медицинского работника:-->
+<!--                                <p>Алмаз П</p>-->
+<!--                            </span>-->
+                        </header>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="medical_lab_management_update.pre_shift_med_form">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <style>
+                            span {
+                            white-space: nowrap;
+                            }
+
+                            p{
+                            margin-left:5px;
+                            }
+                            table{
+                            width: 100%;
+                            border-collapse:collapse;
+                            border-spacing:0
+                            }
+                            table, td, th {
+                            border: 1px solid #595959;
+                            }
+                            td, th {
+                            padding: 3px;
+                            width: 30px;
+                            height: 35px;
+                            text-align:center;
+                            }
+                        </style>
+
+
+                        <header>
+                            <strong>
+                                <p>Форма предсменных медицинских обследований</p>
+                            </strong>
+                            <span class="d-flex">Наименование предприятия:
+                                <p t-field="o.company_id"/>
+                            </span>
+                            <span class="d-flex">Наименование структурного подразделения:
+                                <p t-field="o.department_id"/>
+                            </span>
+                            <span class="d-flex">Ф.И.О работника:
+                                <p t-field="o.patient"/>
+                            </span>
+                            <span class="d-flex">Дата и год рождения:
+                                <p t-field="o.dob"/>
+                            </span>
+                            <span class="d-flex">Место проживания:
+                                <p t-field="o.address_home_id"/>
+                            </span>
+                            <span class="d-flex">Профессия или должность в настоящее время:
+                                <p t-field="o.job_id"/>
+                            </span>
+                            <span class="d-flex">Общий стаж работы:
+                                <p></p>
+                            </span>
+                            <span class="d-flex">Весь профессиональный маршрут</span>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Месяц и год начала и окончания работы</td>
+                                        <td>Длительность работы</td>
+                                        <td>Предприятие</td>
+                                        <td>Профессия</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <span class="d-flex">Итоги предсменного медицинского осмотра</span>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>№ п/п</td>
+                                        <td>Осмотры</td>
+                                        <td>Результат</td>
+                                        <td>Дата выполнения</td>
+                                        <td>Заключение по результатам осмотра (допуск, недопуск)</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">1</td>
+                                        <td>Рабочее давление</td>
+                                        <td>мм рт. ст.</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Артериальное давление</td>
+                                        <td>мм рт. ст.</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Пульс</td>
+                                        <td>уд./мин</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Температура тела</td>
+                                        <td>°C</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Проба на наличие алкоголя</td>
+                                        <td>‰</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <span class="d-flex">Заключение</span>
+
+                            <span style="margin-left:10px; margin-top:5px;">Дата выдачи
+                                ______________________________________
+                            </span>
+                            <br/>
+                            <span style="margin-left:10px;"> Подпись врача _________________________________</span>
+
+
+                        </header>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+            <template id="medical_lab_management.report_patient_labtest">
+              <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <br />
+                        <h3 style="text-decoration:underline;text-align:center;"><b>Lab Test Report</b></h3>
+                        <br/>
+                        <br/>
+                        <table width="99%" style="margin-left:50px;margin-top:5px;border: None solid black;">
+                            <tr>
+                                <td style="width:50px;height:25px" >Patient: <span t-att-style="style" t-esc="o.lab_requestor.patient.name"/></td>
+                                <td style="width:50px;height:25px" >Test: <span t-att-style="style" t-esc="o.test_request.lab_test"/></td>
+                                <td style="width:50px;height:25px" >Date: <span t-att-style="style" t-esc="o.lab_requesting_date"/></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                         <table width="99%" style="border:1px solid black;padding-left:1.16cm;">
+                             <thead>
+                                <th style="border:1px solid black;text-align:center;" width="13%" class="td4">Content</th>
+                                <th style="border:1px solid black;text-align:center;" width="13%" class="td4">Unit</th>
+                                <th style="border:1px solid black;text-align:center;" width="13%" class="td4" colspan="2">Normal Range</th>
+                                <th style="border:1px solid black;text-align:center;" width="13%" class="td4">Result</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.request_line" t-as="l">
+                                    <tr style="border:1px solid black">
+                                        <td style="border:1px solid black;text-align:center;"><span t-esc="l.test_content.content_type_name" style="font-size:16px;"/></td>
+                                        <td style="border:1px solid black;text-align:center;"><span t-esc="l.unit.code" style="font-size:16px;"/></td>
+                                        <td style="border:1px solid black;text-align:center;"><span t-esc="l.interval"  style="font-size:16px;"/></td>
+                                        <td style="border:1px solid black;text-align:center;"><span t-esc="l.interval_max"  style="font-size:16px;"/></td>
+                                        <td style="border:1px solid black;text-align:center;"><span t-esc="l.result" style="font-size:16px;"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                         </table>
+                         <br/>
+                         <br/>
+                    </div>
+                    <p style="page-break-after:always"></p>
+                </t>
+           </t>
+              </t>
+        </template>
+
+
+    </data>
+</odoo>
