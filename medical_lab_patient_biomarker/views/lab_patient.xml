@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_lab_patient_form_inherits" model="ir.ui.view">
+            <field name="name">lab.patient.form.inherits</field>
+            <field name="model">lab.patient</field>
+            <field name="inherit_id" ref="medical_lab_management_update.view_lab_patient_form_inherit"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="biomarkers" string="Biomarkers">
+                        <field name="patient_biomarker_ids">
+                            <tree editable="bottom">
+                                <field name="biomarkers"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

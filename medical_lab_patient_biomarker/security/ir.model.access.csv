@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lab_patient_biomarker_user,lab.patient.biomarker,model_lab_patient_biomarker,medical_lab_management.group_lab_management_user,1,1,1,1
+access_lab_patient_biomarker_technician,lab.patient.biomarker,model_lab_patient_biomarker,medical_lab_management.group_lab_management_technician,1,1,1,1
