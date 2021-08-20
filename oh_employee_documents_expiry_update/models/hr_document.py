@@ -10,13 +10,14 @@ class HrDocumentInherit(models.Model):
     _inherit = 'hr.document'
 
     document_type = fields.Selection([
-        ('hr_recruitment', 'О приеме на работу.'),
+        ('hr_recruitment', 'Приказ о приеме на работу.'),
         ('hr_business_trip', 'О командировании'),
         ('on_taking_office', 'О вступлении в должность'),
         ('going_to_work', 'О выходе на работу'),
         ('termination_employment_contract', 'О прекращение ТД'),
         ('leave_without_pay', 'О предоставлении отпуска без сохранения заработной платы'),
         ('paid_leave', 'О предоставлении оплачиваемого трудового отпуска'),
+        ('ispytalynyi_srok', '')
     ])
 
     document_type2 = fields.Selection([
@@ -44,13 +45,20 @@ class HrDocumentInherit(models.Model):
     date_last_day_otpusk = fields.Date(string='Дата окончания  отпуска')
     date_start_period = fields.Date(string='Дата начала периода')
     date_finish_period = fields.Date(string='Дата окончания периода')
+    ispytalynyi_srok = fields.Boolean(string='Испытательный срок')
+    # fio_hr_employee_gen = fields.Many2one(comodel_name='hr.employee', string='ФИО')
+    prodolzhitelynosty_isp_sroka_gen = fields.Integer(string='Продолжительность исп. срока')
+    date_from_gen = fields.Date('Дата начала')
+    date_to_gen = fields.Date('Дата окончания')
+
+
 
     # Generation of word
     future_job_spec_gen = fields.Char()
     employee_id_gen = fields.Char(compute='_get_employee_id_name')
     date_vstupleniya_spec_gen_rus = fields.Char(compute='_get_date_vstupleniya_spec_gen_rus')
     number_document_gen = fields.Char(compute='_get_number_document_gen')
-    datetime_dogovor = fields.Char(compute='_get_datetime_dogovor')
+    datetime_dogovor = fields.Date(compute='_get_datetime_dogovor')
     date_vstupleniya_spec_gen_kaz = fields.Char(compute='_get_date_vstupleniya_spec_gen_kaz')
     date_employee_termination = fields.Char(compute='_get_date_termination')
     date_employee_termination_rus = fields.Char(compute='_get_date_termination_rus')
@@ -65,6 +73,13 @@ class HrDocumentInherit(models.Model):
     director_spec = fields.Char(compute='_get_director_spec')
     director_spec_kaz = fields.Char(compute='_get_director_spec_kaz')
     company_id = fields.Many2one('res.partner', compute="_get_company")
+    # fio_hr_employee_gen = fields.Many2one(comodel_name='_get_fio_hr_employee_name')
+    #
+    # class HrIspytalynyiSrok(models.Model):
+    #     _inherit = 'hr.document'
+    #
+    # ispytalynyi_srok = fields.Boolean(string='Испытательный срок')
+
 
     @api.onchange('name_boss')
     def _get_director_spec_kaz(self):
@@ -181,9 +196,7 @@ class HrDocumentInherit(models.Model):
                 rec.date_vstupleniya_spec_gen_kaz = year + " жылдың " + " " + day + " " + month_str
 
     def _get_datetime_dogovor(self):
-        print(self.env['hr.contract'].search([('employee_id', '=', self.employee_id.id)]))
-        self.datetime_dogovor = \
-        str(self.env['hr.contract'].search([('employee_id', '=', self.employee_id.id)]).date_start).split(" ")[0]
+        self.datetime_dogovor = self.env['hr.contract'].search([('employee_id', '=', self.employee_id.id)]).date_start
 
     def _get_number_document_gen(self):
         self.number_document_gen = self.env['hr.contract'].search([('employee_id', '=', self.employee_id.id)]).name

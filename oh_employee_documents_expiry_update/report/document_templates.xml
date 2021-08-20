@@ -20,14 +20,14 @@
                     }
                     .names {
                     display:flex;
-                    justify-content: space-between;
+                    justify-content: center;
                     width: 100%;
 
                     }
 
                     .city {
                     display:flex;
-                    justify-content: space-between;
+                    justify-content: right;
                     }
 
                     .container {
@@ -69,7 +69,8 @@
                     }
 
                 </style>
-                <t t-foreach="docs" t-as="template">
+
+                   <t t-foreach="docs" t-as="template">
                     <div class="container">
                         <header class="header">
                             <!-- -->
@@ -96,9 +97,9 @@
                                 <strong>
                                     <span style="font-size: 21.7px;">БҰЙРЫҚ</span>
                                 </strong>
-                                <strong>
-                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
-                                </strong>
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>-->
+<!--                                </strong>-->
                             </div>
                         </header>
 
@@ -116,20 +117,22 @@
                                 </span>
                                 <span style="font-size: 18.6px;" class="float-right">
                                     <strong>
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </strong>
                                 </span>
                             </div>
-                            <div class="city mt-3">
-                                <span style="font-size: 18.6px;">
+
+                            <div class="city mt-3" >
+                                <span style="font-size: 18.6px;" class="float-right">
                                     <t t-esc="template.company_id.city"/>
                                     қаласы
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">город
-                                    <t t-esc="template.company_id.city"/>
-                                </span>
+<!--                                <span style="font-size: 18.6px;" class="float-right">город-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                </span>-->
                             </div>
-
+                            <br/>
+                            <br/>
                             <div class="mt-3 doc-content-text">
                                 <strong>
                                     <span style="font-size: 18.6px;">Жұмысқа қабылдау туралы</span>
@@ -150,8 +153,19 @@
                                         лауазымына қабылдансын.
                                     </p>
 
+                                    <t t-if="template.ispytalynyi_srok == true">
+                                        <p style="text-indent:35px">2. Қызметкердің
+                                            <t t-esc="template.employee_id_gen"/>
+                                            <t t-if="template.date_from_gen"> <t t-esc="template.date_from_gen.strftime('%d.%m.%Y')"/> </t>ж. бастап
+                                            <t t-if="template.date_to_gen"> <t t-esc="template.date_to_gen.strftime('%d.%m.%Y')"/> </t>ж. дейін ұзақтығы
+                                            <t t-esc="template.prodolzhitelynosty_isp_sroka_gen"/> ай сынақ мерзімі бекітілсін
+                                            .
+
+                                        </p>
+                                    </t>
+
                                     <p style="text-indent:35px" class="doc-date">Негізі:
-                                        <t t-esc="template.datetime_dogovor"/>
+                                        <t t-if="template.datetime_dogovor"> <t t-esc="template.datetime_dogovor.strftime('%d.%m.%Y')"/> </t>
                                         №<t t-esc="template.number_document_gen"/>
 
                                         eңбек шарты,
@@ -163,28 +177,28 @@
                             </div>
                             <br></br>
                             <div class="mt-5 doc-content-text">
-                                <strong>
-                                    <span style="font-size: 18.6px;">О приеме на работу</span>
-                                </strong>
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">О приеме на работу</span>-->
+<!--                                </strong>-->
 
                                 <div class="doc-text mt-3">
-                                    <p style="text-indent:35px" class="">В соответствии со статьей 34 Трудового Кодекса
-                                        Республики Казахстан и условиями трудового договора <strong>ПРИКАЗЫВАЮ:</strong>
-                                    </p>
+<!--                                    <p style="text-indent:35px" class="">В соответствии со статьей 34 Трудового Кодекса-->
+<!--                                        Республики Казахстан и условиями трудового договора <strong>ПРИКАЗЫВАЮ:</strong>-->
+<!--                                    </p>-->
 
-                                    <p style="text-indent:35px">Принять на должность
-                                        <t t-esc="template.future_job_spec_gen"/>
-                                        <t t-esc="template.employee_id_gen"/>
-                                        с
-                                        <t t-esc="template.date_vstupleniya_spec_gen_rus"/>
-                                        года с оплатой труда согласно штатному расписанию
-                                    </p>
-                                    <p style="text-indent:35px" class="doc-date">Основание: заявление <t
-                                            t-esc="template.employee_id_gen"/>, трудовой договор
-                                        №<t t-esc="template.number_document_gen"/>
-                                        от
-                                        <t t-esc="template.datetime_dogovor"/>
-                                    </p>
+<!--                                    <p style="text-indent:35px">Принять на должность-->
+<!--                                        <t t-esc="template.future_job_spec_gen"/>-->
+<!--                                        <t t-esc="template.employee_id_gen"/>-->
+<!--                                        с-->
+<!--                                        <t t-esc="template.date_vstupleniya_spec_gen_rus"/>-->
+<!--                                        года с оплатой труда согласно штатному расписанию-->
+<!--                                    </p>-->
+<!--                                    <p style="text-indent:35px" class="doc-date">Основание: заявление <t-->
+<!--                                            t-esc="template.employee_id_gen"/>, трудовой договор-->
+<!--                                        №<t t-esc="template.number_document_gen"/>-->
+<!--                                        от-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                    </p>-->
                                 </div>
 
                             </div>
@@ -216,11 +230,11 @@
                                         таныстым_________________________________________________________
                                     </span>
                                     <span style="font-size: 18.6px;" class="float-right">
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </span>
                                     <p></p>
-                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>
-                                    <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>-->
+                                    <span style="font-size: 12px;">(қызметкердің қолы)</span>
 
                                 </div>
                             </div>
@@ -230,6 +244,199 @@
 
                     </div>
                 </t>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                    <t t-foreach="docs" t-as="template">
+                    <div class="container">
+                        <header class="header">
+                            <!-- -->
+                            <div class="header_logo">
+                                <img style="max-height: 145px;"
+                                     t-attf-src="data:image/*;base64,{{template.company_id.image_1920}}"
+                                     t-att-alt="template.company_id.name"
+                                />
+                            </div>
+
+                            <div class="header__logo-text">
+                                <strong>
+                                    <p style="font-size: 21.7px;">
+                                        <t t-esc="template.company_id.name"/>
+                                    </p>
+                                </strong>
+                                <p style="font-size: 16px;">Қазахстан Республикасы, <t t-esc="template.company_id.city"/>
+                                    қаласы, <t t-esc="template.company_id.state_id.name"/>, <t
+                                            t-esc="template.company_id.street"/>, тел:
+                                    <t t-esc="template.company_id.mobile"/>
+                                </p>
+                            </div>
+                            <div class="names">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;">БҰЙРЫҚ</span>-->
+<!--                                </strong>-->
+                                <strong>
+                                    <span style="font-size: 21.7px;" class="float-center">ПРИКАЗ</span>
+                                </strong>
+                            </div>
+                        </header>
+
+                        <hr></hr>
+
+                        <div class="document-content mt-2">
+
+
+                            <div class="city mt-3">
+                                <span style="font-size: 18.6px;">
+                                    <strong>№
+                                        <t t-esc="template.id"/>
+                                        -Л/С
+                                    </strong>
+                                </span>
+                                <span style="font-size: 18.6px;" class="float-right">
+                                    <strong>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </strong>
+                                </span>
+                            </div>
+                            <div class="city mt-3">
+<!--                                <span style="font-size: 18.6px;">-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                    қаласы-->
+<!--                                </span>-->
+                                <span style="font-size: 18.6px;" class="float-right">город
+                                    <t t-esc="template.company_id.city"/>
+                                </span>
+                            </div>
+
+                            <div class="mt-3 doc-content-text">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">Жұмысқа қабылдау туралы</span>-->
+<!--                                </strong>-->
+
+                                <div class="doc-text mt-3">
+<!--                                    <p style="text-indent:35px" class="">Қазақстан Республикасының Еңбек Кодексінің 34-->
+<!--                                        бабына және еңбек шартының-->
+<!--                                        талаптарына сәйкес-->
+<!--                                        <strong>БҰЙЫРАМЫН:</strong>-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px">Штат кестесіне сәйкес еңбек ақысымен-->
+<!--                                        <t t-esc="template.date_vstupleniya_spec_gen_kaz"/>-->
+<!--                                        бастап-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        <t t-esc="template.future_job_spec.name"/>-->
+<!--                                        лауазымына қабылдансын.-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px" class="doc-date">Негізі:-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                        №<t t-esc="template.number_document_gen"/>-->
+
+<!--                                        eңбек шарты,-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        өтініші.-->
+<!--                                    </p>-->
+                                </div>
+
+                            </div>
+                            <br></br>
+                            <div class="mt-5 doc-content-text">
+                                <strong>
+                                    <span style="font-size: 18.6px;">О приеме на работу</span>
+                                </strong>
+
+                                <div class="doc-text mt-3">
+                                    <p style="text-indent:35px" class="">В соответствии со статьей 34 Трудового Кодекса
+                                        Республики Казахстан и условиями трудового договора <strong>ПРИКАЗЫВАЮ:</strong>
+                                    </p>
+
+                                    <p style="text-indent:35px">Принять на должность
+                                        <t t-esc="template.future_job_spec_gen"/>
+                                        <t t-esc="template.employee_id_gen"/>
+                                        с
+                                        <t t-esc="template.date_vstupleniya_spec_gen_rus"/>
+                                        года с оплатой труда согласно штатному расписанию
+                                    </p>
+                                    <t t-if="template.ispytalynyi_srok == true">
+                                        <p style="text-indent:35px">2. Установить
+                                            <t t-esc="template.employee_id_gen"/> работника  испытательный срок продолжительностью
+                                            <t t-esc="template.prodolzhitelynosty_isp_sroka_gen"/> месяца с
+                                            <t t-if="template.date_from_gen"> <t t-esc="template.date_from_gen.strftime('%d.%m.%Y')"/> </t>г. по
+                                            <t t-if="template.date_to_gen"> <t t-esc="template.date_to_gen.strftime('%d.%m.%Y')"/> </t>г.
+
+                                        </p>
+                                    </t>
+                                    <p style="text-indent:35px" class="doc-date">Основание: заявление <t
+                                            t-esc="template.employee_id_gen"/>, трудовой договор
+                                        №<t t-esc="template.number_document_gen"/>
+                                        от
+                                        <t t-if="template.datetime_dogovor"> <t t-esc="template.datetime_dogovor.strftime('%d.%m.%Y')"/> </t>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="doc-sign mt-5">
+                                <div class="main-director">
+                                    <p style="font-size: 18.6px;"><t t-esc="template.director_spec_kaz"/></p>
+                                    <strong style="float-right: auto; font-size: 18.6px; " class="float-right">
+                                        <p>
+                                            <t t-esc="template.name_boss.name"/>
+                                        </p>
+                                    </strong>
+                                </div>
+
+                                <div class="doc-signs">
+                                    <strong style="margin-right: auto; font-size: 18.6px;">
+                                        <p><t t-esc="template.director_spec"/></p>
+                                    </strong>
+
+                                </div>
+
+                            </div>
+                            <br></br>
+                            <br></br>
+
+                            <div>
+                                <div class="city mt-3">
+                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)_________________________________________________________
+                                    </span>
+                                    <span style="font-size: 18.6px;" class="float-right">
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </span>
+                                    <p></p>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>-->
+                                    <span style="font-size: 12px;">(подпись)</span>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </t>
+
+
             </div>
         </t>
     </template>
@@ -330,9 +537,9 @@
                                 <strong>
                                     <span style="font-size: 21.7px;">БҰЙРЫҚ</span>
                                 </strong>
-                                <strong>
-                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
-                                </strong>
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>-->
+<!--                                </strong>-->
                             </div>
                         </header>
 
@@ -349,18 +556,18 @@
                                 </span>
                                 <span style="font-size: 18.6px;" class="float-right">
                                     <strong>
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </strong>
                                 </span>
                             </div>
                             <div class="city mt-3">
-                                <span style="font-size: 18.6px;">
+                                <span style="font-size: 18.6px;" class="float-right">
                                     <t t-esc="template.company_id.city"/>
                                     қаласы
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">город
-                                    <t t-esc="template.company_id.city"/>
-                                </span>
+<!--                                <span style="font-size: 18.6px;" class="float-right">город-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                </span>-->
                             </div>
 
                             <div class="mt-5 doc-content-text">
@@ -391,6 +598,187 @@
                                 </div>
 
                             </div>
+
+                            <div class="mt-5 doc-content-text">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">О командировании</span>-->
+<!--                                </strong>-->
+<!--                                <br></br>-->
+<!--                                <strong class="mt-3">-->
+<!--                                    <span style="font-size: 18.6px;">ПРИКАЗЫВАЮ:</span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">1. Направить в командировку <t-->
+<!--                                            t-esc="template.employee_id_gen"/>,-->
+<!--                                        <t t-esc="template.employee_spec_gen"/>, в г.-->
+<!--                                        <t t-esc="template.city_departure"/>-->
+<!--                                        сроком на-->
+<!--                                        <t t-esc="template.number_days"/>-->
+<!--                                        (<t t-esc="template.number_days_rus"/>) календарных дней,-->
+<!--                                        <t t-esc="template.date_departure"/>-->
+<!--                                        для выполнения служебного поручения.-->
+<!--                                    </p>-->
+<!--                                    <p style="text-indent:35px">2. Бухгалтерии произвести начисление и выплату работнику-->
+<!--                                        командировочных расходов в установленном порядке.-->
+<!--                                    </p>-->
+
+<!--                                </div>-->
+
+                            </div>
+
+
+                            <div class="doc-sign mt-5">
+                                <div class="main-director">
+                                    <p style="font-size: 18.6px;"><t t-esc="template.director_spec_kaz"/></p>
+                                    <strong style="float-right: auto; font-size: 18.6px; " class="float-right">
+                                        <p>
+                                            <t t-esc="template.name_boss.name"/>
+                                        </p>
+                                    </strong>
+                                </div>
+
+                                <div class="doc-signs">
+                                    <strong style="margin-right: auto; font-size: 18.6px;">
+                                        <p><t t-esc="template.director_spec"/></p>
+                                    </strong>
+
+                                </div>
+
+                            </div>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+
+
+
+                                    <span style="font-size: 18.6px;">Бұйрықпен
+                                        таныстым_________________________________________________________
+                                    </span>
+                                    <span style="font-size: 18.6px;" class="float-right">
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </span>
+                                    <p></p>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>-->
+                                    <span style="font-size: 12px;">(қызметкердің қолы)</span>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </t>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <t t-foreach="docs" t-as="template">
+                    <div class="container">
+                        <header class="header">
+                            <!-- -->
+                            <div class="header_logo">
+                                <img style="max-height: 145px;"
+                                     t-attf-src="data:image/*;base64,{{template.company_id.image_1920}}"
+                                     t-att-alt="template.company_id.name"
+                                />
+                            </div>
+
+                            <div class="header__logo-text">
+                                <strong>
+                                    <p style="font-size: 18.6px;">
+                                        <t t-esc="template.company_id.name"/>
+                                    </p>
+                                </strong>
+                                <p style="font-size: 16px;">Қазахстан Республикасы, <t t-esc="template.company_id.city"/>
+                                    қаласы, <t t-esc="template.company_id.state_id.name"/>, <t
+                                            t-esc="template.company_id.street"/>, тел:
+                                    <t t-esc="template.company_id.mobile"/>
+                                </p>
+                            </div>
+                            <div class="names">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;">БҰЙРЫҚ</span>-->
+<!--                                </strong>-->
+                                <strong>
+                                    <span style="font-size: 21.7px;" class="float-center">ПРИКАЗ</span>
+                                </strong>
+                            </div>
+                        </header>
+
+                        <hr></hr>
+
+                        <div class="document-content mt-2">
+
+                            <div class="city mt-3">
+                                <span style="font-size: 18.6px;">
+                                    <strong>№
+                                        <t t-esc="template.id"/>
+                                        -Л/С
+                                    </strong>
+                                </span>
+                                <span style="font-size: 18.6px;" class="float-right">
+                                    <strong>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </strong>
+                                </span>
+                            </div>
+                            <div class="city mt-3">
+<!--                                <span style="font-size: 18.6px;">-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                    қаласы-->
+<!--                                </span>-->
+                                <span style="font-size: 18.6px;" class="float-right">город
+                                    <t t-esc="template.company_id.city"/>
+                                </span>
+                            </div>
+                            <br/>
+<!--                            <div class="mt-5 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">Іс сапарға жіберу туралы</span>-->
+<!--                                </strong>-->
+<!--                                <br></br>-->
+<!--                                <strong class="mt-3">-->
+<!--                                    <span style="font-size: 18.6px;">БҰЙЫРАМЫН:</span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">1.-->
+<!--                                        <t t-esc="template.employee_spec"/>-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        <t t-esc="template.city_departure"/>-->
+<!--                                        қаласына қызметтік тапсырманы орындау-->
+<!--                                        үшін-->
+<!--                                        <t t-esc="template.date_departure"/>-->
+<!--                                        <t t-esc="template.number_days"/>-->
+<!--                                        (<t t-esc="template.number_days_kaz"/>) күнтізбелік күнге іс-сапарға жіберілсін-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px">2. Бухгалтерия қызметкерге белгіленген тәртіппен іссапар-->
+<!--                                        шығыстарын есептеп төлем жүргізсін.-->
+<!--                                    </p>-->
+
+<!--                                </div>-->
+
+<!--                            </div>-->
 
                             <div class="mt-5 doc-content-text">
                                 <strong>
@@ -445,15 +833,14 @@
 
 
 
-                                    <span style="font-size: 18.6px;">Бұйрықпен
-                                        таныстым_________________________________________________________
+                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)_________________________________________________________
                                     </span>
                                     <span style="font-size: 18.6px;" class="float-right">
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </span>
                                     <p></p>
-                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>
-                                    <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                    <span style="font-size: 12px;">(подпись)</span>
 
 
 
@@ -463,6 +850,7 @@
 
                     </div>
                 </t>
+
             </div>
         </t>
     </template>
@@ -563,9 +951,9 @@
                                 <strong>
                                     <span style="font-size: 21.7px;">БҰЙРЫҚ</span>
                                 </strong>
-                                <strong>
-                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
-                                </strong>
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>-->
+<!--                                </strong>-->
                             </div>
                         </header>
 
@@ -581,18 +969,18 @@
                                 </span>
                                 <span style="font-size: 18.6px;" class="float-right">
                                     <strong>
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </strong>
                                 </span>
                             </div>
                             <div class="city mt-3">
-                                <span style="font-size: 18.6px;">
+                                <span style="font-size: 18.6px;" class="float-right">
                                     <t t-esc="template.company_id.city"/>
                                     қаласы
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">город
-                                    <t t-esc="template.company_id.city"/>
-                                </span>
+<!--                                <span style="font-size: 18.6px;" class="float-right">город-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                </span>-->
                             </div>
 
                             <div class="mt-5 doc-content-text">
@@ -617,6 +1005,179 @@
                                 </div>
 
                             </div>
+                            <br></br>
+
+<!--                            <div class="mt-5 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">О вступлении в должность</span>-->
+<!--                                </strong>-->
+<!--                                <br></br>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">На основании протокола общего собрания-->
+<!--                                        участников <t t-esc="template.company_id.name"/> от 09.09.2019 г.-->
+<!--                                    </p>-->
+
+
+<!--                                    <p style="text-indent:35px">Я,-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        приступаю к обязанностям-->
+<!--                                        <t t-esc="template.future_job_spec_gen"/>-->
+<!--                                        <t t-esc="template.company_id.name"/> с-->
+<!--                                        <t t-esc="template.date_vstupleniya_spec_gen_rus"/>-->
+<!--                                        с правом первой подписи финансовых, юридических и иных-->
+<!--                                        документов, с оплатой труда согласно штатному расписанию.-->
+<!--                                    </p>-->
+
+<!--                                </div>-->
+
+<!--                            </div>-->
+                            <br></br>
+
+                            <div class="doc-sign mt-5">
+                                <div class="main-director">
+                                    <p style="font-size: 18.6px;"><t t-esc="template.director_spec_kaz"/></p>
+                                    <strong style="float-right: auto; font-size: 18.6px; " class="float-right">
+                                        <p>
+                                            <t t-esc="template.name_boss.name"/>
+                                        </p>
+                                    </strong>
+                                </div>
+
+                                <div class="doc-signs">
+                                    <strong style="margin-right: auto; font-size: 18.6px;">
+                                        <p><t t-esc="template.director_spec"/></p>
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            <br></br>
+                            <br></br>
+                            <br></br>
+
+
+
+                                    <span style="font-size: 18.6px;">Бұйрықпен
+                                        таныстым_________________________________________________________
+                                    </span>
+                                    <span style="font-size: 18.6px;" class="float-right">
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </span>
+                                    <p></p>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>-->
+                                    <span style="font-size: 12px;">(қызметкердің қолы)</span>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </t>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <t t-foreach="docs" t-as="template">
+                    <div class="container">
+                        <header class="header">
+                            <!-- -->
+                            <div class="header_logo">
+                                <img style="max-height: 145px;"
+                                     t-attf-src="data:image/*;base64,{{template.company_id.image_1920}}"
+                                     t-att-alt="template.company_id.name"
+                                />
+                            </div>
+
+                            <div class="header__logo-text">
+                                <strong>
+                                    <p style="font-size: 18.6px;">
+                                        <t t-esc="template.company_id.name"/>
+                                    </p>
+                                </strong>
+                                <p style="font-size: 16px;">Қазахстан Республикасы, <t t-esc="template.company_id.city"/>
+                                    қаласы, <t t-esc="template.company_id.state_id.name"/>, <t
+                                            t-esc="template.company_id.street"/>, тел:
+                                    <t t-esc="template.company_id.mobile"/>
+                                </p>
+                            </div>
+                            <div class="names">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;">БҰЙРЫҚ</span>-->
+<!--                                </strong>-->
+                                <strong>
+                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
+                                </strong>
+                            </div>
+                        </header>
+
+                        <hr></hr>
+
+                        <div class="document-content mt-2">
+                            <div class="city mt-3">
+                                <span style="font-size: 18.6px;">
+                                    <strong>№
+                                        <t t-esc="template.id"/>
+                                        -Л/С
+                                    </strong>
+                                </span>
+                                <span style="font-size: 18.6px;" class="float-right">
+                                    <strong>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </strong>
+                                </span>
+                            </div>
+                            <div class="city mt-3">
+<!--                                <span style="font-size: 18.6px;" class="float-right">-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                    қаласы-->
+<!--                                </span>-->
+                                <span style="font-size: 18.6px;" class="float-right">город
+                                    <t t-esc="template.company_id.city"/>
+                                </span>
+                            </div>
+
+<!--                            <div class="mt-5 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">Қызметке кірісу туралы</span>-->
+<!--                                </strong>-->
+<!--                                <br></br>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">09.09.2019ж. <t t-esc="template.company_id.name"/>-->
+<!--                                        қатысушылардың жалпы жиналысының хаттамасы негізінде-->
+<!--                                    </p>-->
+<!--                                    <p style="text-indent:35px" class="">Мен,-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        <t t-esc="template.date_vstupleniya_spec_gen_kaz"/>-->
+<!--                                        бастап штат кестесіне сәйкес еңбек ақысымен, қаржылық, құқықтық және басқа-->
+<!--                                        құжаттарына алғашқы қол қою құқығымен <t t-esc="template.company_id.name"/>-->
+<!--                                        <t t-esc="template.future_job_spec.name"/>-->
+<!--                                        міндеттерін атқарауна кірістім.-->
+<!--                                    </p>-->
+
+<!--                                </div>-->
+
+<!--                            </div>-->
                             <br></br>
 
                             <div class="mt-5 doc-content-text">
@@ -671,15 +1232,14 @@
 
 
 
-                                    <span style="font-size: 18.6px;">Бұйрықпен
-                                        таныстым_________________________________________________________
+                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)_________________________________________________________
                                     </span>
                                     <span style="font-size: 18.6px;" class="float-right">
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </span>
                                     <p></p>
-                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>
-                                    <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                    <span style="font-size: 12px;">(подпись)</span>
 
 
 
@@ -789,9 +1349,9 @@
                                 <strong>
                                     <span style="font-size: 21.7px;">БҰЙРЫҚ</span>
                                 </strong>
-                                <strong>
-                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
-                                </strong>
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>-->
+<!--                                </strong>-->
                             </div>
                         </header>
 
@@ -807,18 +1367,18 @@
                                 </span>
                                 <span style="font-size: 18.6px;" class="float-right">
                                     <strong>
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </strong>
                                 </span>
                             </div>
                             <div class="city mt-3">
-                                <span style="font-size: 18.6px;">
+                                <span style="font-size: 18.6px;" class="float-right">
                                     <t t-esc="template.company_id.city"/>
                                     қаласы
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">город
-                                    <t t-esc="template.company_id.city"/>
-                                </span>
+<!--                                <span style="font-size: 18.6px;" class="float-right">город-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                </span>-->
                             </div>
 
                             <div class="mt-5 doc-content-text">
@@ -846,6 +1406,172 @@
                                 </div>
 
                             </div>
+
+
+                            <div class="mt-5 doc-content-text">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">О выходе на работу</span>-->
+<!--                                </strong>-->
+                                <br></br>
+<!--                                <strong style="margin-left:45%">-->
+<!--                                    <span style="font-size: 18.6px;">ПРИКАЗЫВАЮ:</span>-->
+<!--                                </strong>-->
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">Считать, <t t-esc="template.employee_id_gen"/>,-->
+<!--                                        <t t-esc="template.employee_spec_gen"/>, приступившей к своим обязанностям с-->
+<!--                                        <t t-esc="template.date_vstupleniya_spec_gen_rus"/> года-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px" class="doc_rep">Основание: заявление-->
+<!--                                        <t t-esc="template.employee_id_gen"/>-->
+<!--                                    </p>-->
+<!--                                </div>-->
+                                <br></br>
+
+                                <div class="doc-sign mt-5">
+                                    <div class="main-director">
+                                        <p style="font-size: 18.6px;"><t t-esc="template.director_spec_kaz"/></p>
+                                        <strong style="float-right: auto; font-size: 18.6px; " class="float-right">
+                                            <p>
+                                                <t t-esc="template.name_boss.name"/>
+                                            </p>
+                                        </strong>
+                                    </div>
+
+                                    <div class="doc-signs">
+                                        <strong style="margin-right: auto; font-size: 18.6px;">
+                                            <p><t t-esc="template.director_spec"/></p>
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+
+                                        <span style="font-size: 18.6px;">Бұйрықпен
+                                            таныстым_________________________________________________________
+                                        </span>
+                                        <span style="font-size: 18.6px;" class="float-right">
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                        </span>
+                                        <p></p>
+<!--                                        <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>-->
+                                        <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <t t-foreach="docs" t-as="template">
+                    <div class="container">
+                        <header class="header">
+                            <!-- -->
+                            <div class="header_logo">
+                                <img style="max-height: 145px;"
+                                     t-attf-src="data:image/*;base64,{{template.company_id.image_1920}}"
+                                     t-att-alt="template.company_id.name"
+                                />
+                            </div>
+
+                            <div class="header__logo-text">
+                                <strong>
+                                    <p style="font-size: 18.6px;">
+                                        <t t-esc="template.company_id.name"/>
+                                    </p>
+                                </strong>
+                                <p style="font-size: 16px;">Қазахстан Республикасы, <t t-esc="template.company_id.city"/>
+                                    қаласы, <t t-esc="template.company_id.state_id.name"/>, <t
+                                            t-esc="template.company_id.street"/>, тел:
+                                    <t t-esc="template.company_id.mobile"/>
+                                </p>
+                            </div>
+                            <div class="names">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;">БҰЙРЫҚ</span>-->
+<!--                                </strong>-->
+                                <strong>
+                                    <span style="font-size: 21.7px;" class="float-center">ПРИКАЗ</span>
+                                </strong>
+                            </div>
+                        </header>
+
+                        <hr></hr>
+
+                        <div class="document-content mt-2">
+                            <div class="city mt-3">
+                                <span style="font-size: 18.6px;">
+                                    <strong>№
+                                        <t t-esc="template.id"/>
+                                        -Л/С
+                                    </strong>
+                                </span>
+                                <span style="font-size: 18.6px;" class="float-right">
+                                    <strong>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </strong>
+                                </span>
+                            </div>
+                            <div class="city mt-3">
+<!--                                <span style="font-size: 18.6px;" class="float-right">-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                    қаласы-->
+<!--                                </span>-->
+                                <span style="font-size: 18.6px;" class="float-right">город
+                                    <t t-esc="template.company_id.city"/>
+                                </span>
+                            </div>
+
+<!--                            <div class="mt-5 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">Жұмысқа шығу туралы</span>-->
+<!--                                </strong>-->
+<!--                                <br></br>-->
+<!--                                <strong style="margin-left:45%">-->
+<!--                                    <span style="font-size: 18.6px;">БҰЙЫРАМЫН:</span>-->
+<!--                                </strong>-->
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">-->
+<!--                                        <t t-esc="template.date_vstupleniya_spec_gen_kaz"/>-->
+<!--                                        бастап-->
+<!--                                        <t t-esc="template.employee_spec"/>-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        өз міндеттерін-->
+<!--                                        атқаруға кірісті деп саналсын.-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px" class="doc_rep">Негізі:-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        өтініші-->
+<!--                                    </p>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
 
 
                             <div class="mt-5 doc-content-text">
@@ -892,15 +1618,14 @@
                                 <br></br>
                                 <br></br>
 
-                                        <span style="font-size: 18.6px;">Бұйрықпен
-                                            таныстым_________________________________________________________
+                                        <span style="font-size: 18.6px;">С приказом ознакомлен(а)_________________________________________________________
                                         </span>
                                         <span style="font-size: 18.6px;" class="float-right">
-                                            <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                         </span>
                                         <p></p>
-                                        <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>
-                                        <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+<!--                                        <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                        <span style="font-size: 12px;">(подпись)</span>
 
 
 
@@ -1008,9 +1733,9 @@
                                 <strong>
                                     <span style="font-size: 21.7px;">БҰЙРЫҚ</span>
                                 </strong>
-                                <strong>
-                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
-                                </strong>
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>-->
+<!--                                </strong>-->
                             </div>
                         </header>
 
@@ -1026,18 +1751,18 @@
                                 </span>
                                 <span style="font-size: 18.6px;" class="float-right">
                                     <strong>
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </strong>
                                 </span>
                             </div>
                             <div class="city mt-3">
-                                <span style="font-size: 18.6px;">
+                                <span style="font-size: 18.6px;" class="float-right">
                                     <t t-esc="template.company_id.city"/>
                                     қаласы
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">город
-                                    <t t-esc="template.company_id.city"/>
-                                </span>
+<!--                                <span style="font-size: 18.6px;" class="float-right">город-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                </span>-->
                             </div>
 
                             <div class="mt-3 doc-content-text">
@@ -1062,7 +1787,8 @@
                                     <p style="text-indent:35px" class="">2. Бухгалтерия қызметкерге барлық тиесілі
                                         төлемдер Қазақстан Республикасының
                                         заңнамасына сәйкес жүзеге асырылсын, оның ішінде
-                                        <t t-esc="template.datetime_dogovor"/>
+                                        <t t-if="template.datetime_dogovor"> <t t-esc="template.datetime_dogovor.strftime('%d.%m.%Y')"/> </t>
+
                                         мен
                                         <t t-esc="template.date_last_time_at_job"/>
                                         аралығындағы жұмыс кезеңі үшін жыл сайынғы еңбек демалысының пайдаланылмаған
@@ -1078,6 +1804,204 @@
                                 </div>
 
                             </div>
+
+<!--                            <div class="mt-3 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">О прекращении трудового договора</span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">В соответствии с пунктом 2 статьи 49 и статьей-->
+<!--                                        51 Трудового Кодекса Республики Казахстан-->
+<!--                                        <strong>ПРИКАЗЫВАЮ:</strong>-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px">1. Расторгнуть трудовой договор с <t-->
+<!--                                            t-esc="template.employee_id_gen"/>,-->
+<!--                                        <t t-esc="template.employee_spec_gen"/>-->
+<!--                                        <t t-esc="template.date_employee_termination_rus"/>-->
+<!--                                        года в связи с истечением срока. Считать последним рабочим днём –-->
+<!--                                        <t t-esc="template.date_employee_termination_rus"/>-->
+<!--                                        года.-->
+<!--                                    </p>-->
+
+
+<!--                                    <p style="text-indent:35px" class="">2. Бухгалтерии произвести выплату всех-->
+<!--                                        причитающихся работнику сумм в соответствии с законодательством Республики-->
+<!--                                        Казахстан, в том числе компенсационную-->
+<!--                                        выплату за неиспользованные дни трудового отпуска за период работы с-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                        по-->
+<!--                                        <t t-esc="template.date_last_time_at_job"/>-->
+<!--                                        в количестве 10 календарных дней.-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px" class="doc_rec">Основание: трудовой договор №<t t-esc="template.number_document_gen"/>-->
+<!--                                        от-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                    </p>-->
+
+<!--                                </div>-->
+
+<!--                            </div>-->
+
+                            <div class="doc-sign mt-5">
+                                <div class="main-director">
+                                    <p style="font-size: 18.6px;"><t t-esc="template.director_spec_kaz"/></p>
+                                    <strong style="float-right: auto; font-size: 18.6px; " class="float-right">
+                                        <p>
+                                            <t t-esc="template.name_boss.name"/>
+                                        </p>
+                                    </strong>
+                                </div>
+
+                                <div class="doc-signs">
+                                    <strong style="margin-right: auto; font-size: 18.6px;">
+                                        <p><t t-esc="template.director_spec"/></p>
+                                    </strong>
+
+                                </div>
+
+                            </div>
+                            <br></br>
+
+
+                            <div>
+                                <div class="city mt-3">
+                                    <span style="font-size: 18.6px;">Бұйрықпен
+                                        таныстым_________________________________________________________
+                                    </span>
+                                    <span style="font-size: 18.6px;" class="float-right">
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </span>
+                                    <p></p>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>-->
+                                    <span style="font-size: 12px;">(қызметкердің қолы)</span>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </t>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <t t-foreach="docs" t-as="template">
+                    <div class="container">
+                        <header class="header">
+                            <!-- -->
+                            <div class="header_logo">
+                                <img style="max-height: 300px; max-width: 300px;"
+                                     t-attf-src="data:image/*;base64,{{template.company_id.image_1920}}"
+                                     t-att-alt="template.company_id.name"
+                                />
+                            </div>
+
+                            <div class="header__logo-text">
+                                <strong>
+                                    <p style="font-size: 18.6px;">
+                                        <t t-esc="template.company_id.name"/>
+                                    </p>
+                                </strong>
+                                <p style="font-size: 16px;">Қазахстан Республикасы, <t t-esc="template.company_id.city"/>
+                                    қаласы, <t t-esc="template.company_id.state_id.name"/>, <t
+                                            t-esc="template.company_id.street"/>, тел:
+                                    <t t-esc="template.company_id.mobile"/>
+                                </p>
+                            </div>
+                            <div class="names">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;">БҰЙРЫҚ</span>-->
+<!--                                </strong>-->
+                                <strong>
+                                    <span style="font-size: 21.7px;" class="float-center">ПРИКАЗ</span>
+                                </strong>
+                            </div>
+                        </header>
+
+                        <hr></hr>
+
+                        <div class="document-content mt-2">
+                            <div class="city mt-3">
+                                <span style="font-size: 18.6px;">
+                                    <strong>№
+                                        <t t-esc="template.id"/>
+                                        -Л/С
+                                    </strong>
+                                </span>
+                                <span style="font-size: 18.6px;" class="float-right">
+                                    <strong>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </strong>
+                                </span>
+                            </div>
+                            <div class="city mt-3">
+<!--                                <span style="font-size: 18.6px;" class="float-right">-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                    қаласы-->
+<!--                                </span>-->
+                                <span style="font-size: 18.6px;" class="float-right">город
+                                    <t t-esc="template.company_id.city"/>
+                                </span>
+                            </div>
+
+<!--                            <div class="mt-3 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">Еңбек шартын тоқтату туралы</span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">Қазақстан Республикасының Еңбек Кодексінің 49-->
+<!--                                        бабы 2 тармағына және 51 бабына сәйкес-->
+<!--                                        <strong>БҰЙЫРАМЫН:</strong>-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px">1. Еңбек шарты мерзімінің аяқталуына байланысты-->
+<!--                                        <t t-esc="template.employee_spec"/>-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        <t t-esc="template.date_employee_termination"/>-->
+<!--                                        күнінде еңбек шарты тоқтатылсын. Соңғы жұмыс күні-->
+<!--                                        <t t-esc="template.date_employee_termination"/>-->
+<!--                                        күні болып есептелсін.-->
+<!--                                    </p>-->
+<!--                                    <p style="text-indent:35px" class="">2. Бухгалтерия қызметкерге барлық тиесілі-->
+<!--                                        төлемдер Қазақстан Республикасының-->
+<!--                                        заңнамасына сәйкес жүзеге асырылсын, оның ішінде-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                        мен-->
+<!--                                        <t t-esc="template.date_last_time_at_job"/>-->
+<!--                                        аралығындағы жұмыс кезеңі үшін жыл сайынғы еңбек демалысының пайдаланылмаған-->
+<!--                                        10 күнтізбелік күні үшін өтемақылық төлем төленсін-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px" class="doc_rec">Негізі:-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                        №<t t-esc="template.number_document_gen"/>-->
+<!--                                        еңбек шарты-->
+<!--                                    </p>-->
+
+<!--                                </div>-->
+
+<!--                            </div>-->
 
                             <div class="mt-3 doc-content-text">
                                 <strong>
@@ -1104,15 +2028,14 @@
                                         причитающихся работнику сумм в соответствии с законодательством Республики
                                         Казахстан, в том числе компенсационную
                                         выплату за неиспользованные дни трудового отпуска за период работы с
-                                        <t t-esc="template.datetime_dogovor"/>
-                                        по
+                                    <t t-if="template.datetime_dogovor"> <t t-esc="template.datetime_dogovor.strftime('%d.%m.%Y')"/> </t>                                        по
                                         <t t-esc="template.date_last_time_at_job"/>
                                         в количестве 10 календарных дней.
                                     </p>
 
                                     <p style="text-indent:35px" class="doc_rec">Основание: трудовой договор №<t t-esc="template.number_document_gen"/>
                                         от
-                                        <t t-esc="template.datetime_dogovor"/>
+                                        <t t-if="template.datetime_dogovor"> <t t-esc="template.datetime_dogovor.strftime('%d.%m.%Y')"/> </t>
                                     </p>
 
                                 </div>
@@ -1142,15 +2065,15 @@
 
                             <div>
                                 <div class="city mt-3">
-                                    <span style="font-size: 18.6px;">Бұйрықпен
-                                        таныстым_________________________________________________________
+                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)_________________________________________________________
                                     </span>
                                     <span style="font-size: 18.6px;" class="float-right">
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+
                                     </span>
                                     <p></p>
-                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>
-                                    <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                    <span style="font-size: 12px;">(подпись)</span>
 
                                 </div>
                             </div>
@@ -1260,7 +2183,7 @@
                                     <span style="font-size: 21.7px;">БҰЙРЫҚ</span>
                                 </strong>
                                 <strong>
-                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
+<!--                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>-->
                                 </strong>
                             </div>
                         </header>
@@ -1275,20 +2198,20 @@
                                         -Л/С
                                     </strong>
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">
+                                <span style="font-size: 18.6px;">
                                     <strong>
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </strong>
                                 </span>
                             </div>
                             <div class="city mt-3">
-                                <span style="font-size: 18.6px;">
+                                <span style="font-size: 18.6px;" class="float-right">
                                     <t t-esc="template.company_id.city"/>
                                     қаласы
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">город
-                                    <t t-esc="template.company_id.city"/>
-                                </span>
+<!--                                <span style="font-size: 18.6px;" class="float-right">город-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                </span>-->
                             </div>
 
                             <div class="mt-3 doc-content-text">
@@ -1322,6 +2245,193 @@
                                 </div>
 
                             </div>
+                            <br></br>
+<!--                            <div class="mt-3 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">О предоставлении отпуска без сохранения заработной-->
+<!--                                        платы-->
+<!--                                    </span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">В соответствии с п.1 и 2 ст. 97 Трудового-->
+<!--                                        Кодекса Республики Казахстан-->
+<!--                                    </p>-->
+<!--                                    <p>-->
+<!--                                        <strong>ПРИКАЗЫВАЮ:</strong>-->
+<!--                                    </p>-->
+<!--                                    <br></br>-->
+<!--                                    <p style="text-indent:35px">Предоставить <t t-esc="template.employee_id_gen_dat"/>,-->
+<!--                                        <t t-esc="template.employee_spec_gen_dat"/>-->
+<!--                                        отпуск без сохранения заработной-->
+<!--                                        платы с-->
+<!--                                        <t t-esc="template.date_first_day_otpusk_rus"/>-->
+<!--                                        по-->
+<!--                                        <t t-esc="template.date_last_day_otpusk_rus"/>-->
+<!--                                        года на-->
+<!--                                        <t t-esc="template.days_difference"/>-->
+<!--                                        дней.-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px;" class="doc_rec">Основание: заявление-->
+<!--                                        <t t-esc="template.employee_id_gen"/>-->
+<!--                                    </p>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+
+                            <div class="doc-sign mt-5">
+                                <div class="main-director">
+                                    <p style="font-size: 18.6px;"><t t-esc="template.director_spec_kaz"/></p>
+                                    <strong style="float-right: auto; font-size: 18.6px; " class="float-right">
+                                        <p>
+                                            <t t-esc="template.name_boss.name"/>
+                                        </p>
+                                    </strong>
+                                </div>
+
+                                <div class="doc-signs">
+                                    <strong style="margin-right: auto; font-size: 18.6px;">
+                                        <p><t t-esc="template.director_spec"/></p>
+                                    </strong>
+
+                                </div>
+
+                            </div>
+                            <br></br>
+                            <br></br>
+
+                            <div>
+                                <div class="city mt-3">
+                                    <span style="font-size: 18.6px;">Бұйрықпен
+                                        таныстым_________________________________________________________
+                                    </span>
+                                    <span style="font-size: 18.6px;" class="float-right">
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </span>
+                                    <p></p>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                    <span style="font-size: 12px;">(қызметкердің қолы)</span>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </t>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <t t-foreach="docs" t-as="template">
+                    <div class="container">
+                        <header class="header">
+                            <!-- -->
+                            <div class="header_logo">
+                                <img style="max-height: 145px;"
+                                     t-attf-src="data:image/*;base64,{{template.company_id.image_1920}}"
+                                     t-att-alt="template.company_id.name"
+                                />
+                            </div>
+
+                            <div class="header__logo-text">
+                                <strong>
+                                    <p style="font-size: 18.6px;">
+                                        <t t-esc="template.company_id.name"/>
+                                    </p>
+                                </strong>
+                                <p style="font-size: 16px;">Қазахстан Республикасы, <t t-esc="template.company_id.city"/>
+                                    қаласы, <t t-esc="template.company_id.state_id.name"/>, <t
+                                            t-esc="template.company_id.street"/>, тел:
+                                    <t t-esc="template.company_id.mobile"/>
+                                </p>
+                            </div>
+                            <div class="names">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;">БҰЙРЫҚ</span>-->
+<!--                                </strong>-->
+                                <strong>
+                                    <span style="font-size: 21.7px;" class="float-center">ПРИКАЗ</span>
+                                </strong>
+                            </div>
+                        </header>
+
+                        <hr></hr>
+
+                        <div class="document-content mt-2">
+                            <div class="city mt-3">
+                                <span style="font-size: 18.6px;">
+                                    <strong>№
+                                        <t t-esc="template.id"/>
+                                        -Л/С
+                                    </strong>
+                                </span>
+                                <span style="font-size: 18.6px;" class="float-right">
+                                    <strong>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </strong>
+                                </span>
+                            </div>
+                            <div class="city mt-3">
+<!--                                <span style="font-size: 18.6px;">-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                    қаласы-->
+<!--                                </span>-->
+                                <span style="font-size: 18.6px;" class="float-right">город
+                                    <t t-esc="template.company_id.city"/>
+                                </span>
+                            </div>
+
+<!--                            <div class="mt-3 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">Жалақысы сақталмайтын демалысын беру туралы</span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">Қазақстан Республикасының Еңбек Кодексінің 97-->
+<!--                                        бабы 1 және 2 тармақтарына сәйкес-->
+<!--                                    </p>-->
+<!--                                    <p>-->
+<!--                                        <strong>БҰЙЫРАМЫН:</strong>-->
+<!--                                    </p>-->
+<!--                                    <br></br>-->
+<!--                                    <p style="text-indent:35px">-->
+<!--                                        <t t-esc="template.employee_spec"/>-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        <t t-esc="template.date_first_day_otpusk_kaz"/>-->
+<!--                                        бастап-->
+<!--                                        <t t-esc="template.date_last_day_otpusk_kaz"/>-->
+<!--                                        дейін-->
+<!--                                        <t t-esc="template.days_difference"/>-->
+<!--                                        күнтізбелік күнге жалақысы сақталмайтын демалысы берілсін-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px;" class="doc_rec">Негізі:-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        өтініші-->
+<!--                                    </p>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
                             <br></br>
                             <div class="mt-3 doc-content-text">
                                 <strong>
@@ -1380,15 +2490,14 @@
 
                             <div>
                                 <div class="city mt-3">
-                                    <span style="font-size: 18.6px;">Бұйрықпен
-                                        таныстым_________________________________________________________
+                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)_________________________________________________________
                                     </span>
                                     <span style="font-size: 18.6px;" class="float-right">
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </span>
                                     <p></p>
-                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>
-                                    <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                    <span style="font-size: 12px;">(подпись)</span>
 
                                 </div>
                             </div>
@@ -1499,9 +2608,9 @@
                                 <strong>
                                     <span style="font-size: 21.7px;">БҰЙРЫҚ</span>
                                 </strong>
-                                <strong>
-                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>
-                                </strong>
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;" class="float-right">ПРИКАЗ</span>-->
+<!--                                </strong>-->
                             </div>
                         </header>
 
@@ -1517,18 +2626,18 @@
                                 </span>
                                 <span style="font-size: 18.6px;" class="float-right">
                                     <strong>
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </strong>
                                 </span>
                             </div>
                             <div class="city mt-3">
-                                <span style="font-size: 18.6px;">
+                                <span style="font-size: 18.6px;" class="float-right">
                                     <t t-esc="template.company_id.city"/>
                                     қаласы
                                 </span>
-                                <span style="font-size: 18.6px;" class="float-right">город
-                                    <t t-esc="template.company_id.city"/>
-                                </span>
+<!--                                <span style="font-size: 18.6px;" class="float-right">город-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                </span>-->
                             </div>
 
                             <div class="mt-3 doc-content-text">
@@ -1566,6 +2675,199 @@
                                 </div>
 
                             </div>
+                            <br></br>
+<!--                            <div class="mt-3 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">О предоставлении оплачиваемого трудового отпуска-->
+<!--                                    </span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">В соответствии со ст. 92 Трудового Кодекса-->
+<!--                                        Республики Казахстан-->
+<!--                                    </p>-->
+<!--                                    <p>-->
+<!--                                        <strong>ПРИКАЗЫВАЮ:</strong>-->
+<!--                                    </p>-->
+<!--                                    <br></br>-->
+<!--                                    <p style="text-indent:35px">Предоставить <t t-esc="template.employee_id_gen_dat"/>,-->
+<!--                                        <t t-esc="template.employee_spec_gen_dat"/>-->
+<!--                                        ежегодный оплачиваемый трудовой отпуск за период работы с-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                        по-->
+<!--                                        <t t-esc="template.date_finish_period"/>-->
+<!--                                        на-->
+<!--                                        <t t-esc="template.days_difference"/>-->
+<!--                                        календарных дней с-->
+<!--                                        <t t-esc="template.date_first_day_otpusk_rus"/>-->
+<!--                                        по-->
+<!--                                        <t t-esc="template.date_last_day_otpusk_rus"/>-->
+<!--                                        года.-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px;" class="doc_rec">Основание: заявление-->
+<!--                                        <t t-esc="template.employee_id_gen"/>-->
+<!--                                    </p>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+
+                            <div class="doc-sign mt-5">
+                                <div class="main-director">
+                                    <p style="font-size: 18.6px;"><t t-esc="template.director_spec_kaz"/></p>
+                                    <strong style="float-right: auto; font-size: 18.6px; " class="float-right">
+                                        <p>
+                                            <t t-esc="template.name_boss.name"/>
+                                        </p>
+                                    </strong>
+                                </div>
+
+                                <div class="doc-signs">
+                                    <strong style="margin-right: auto; font-size: 18.6px;">
+                                        <p><t t-esc="template.director_spec"/></p>
+                                    </strong>
+
+                                </div>
+
+                            </div>
+                            <br></br>
+
+
+                            <div>
+                                <div class="city mt-3">
+                                    <span style="font-size: 18.6px;">Бұйрықпен
+                                        таныстым_________________________________________________________
+                                    </span>
+                                    <span style="font-size: 18.6px;" class="float-right">
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </span>
+                                    <p></p>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                    <span style="font-size: 12px;">(қызметкердің қолы)</span>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </t>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <t t-foreach="docs" t-as="template">
+                    <div class="container">
+                        <header class="header">
+                            <!-- -->
+                            <div class="header_logo">
+                                <img style="max-height: 145px;"
+                                     t-attf-src="data:image/*;base64,{{template.company_id.image_1920}}"
+                                     t-att-alt="template.company_id.name"
+                                />
+                            </div>
+
+                            <div class="header__logo-text">
+                                <strong>
+                                    <p style="font-size: 18.6px;">
+                                        <t t-esc="template.company_id.name"/>
+                                    </p>
+                                </strong>
+                                <p style="font-size: 16px;">Қазахстан Республикасы, <t t-esc="template.company_id.city"/>
+                                    қаласы, <t t-esc="template.company_id.state_id.name"/>, <t
+                                            t-esc="template.company_id.street"/>, тел:
+                                    <t t-esc="template.company_id.mobile"/>
+                                </p>
+                            </div>
+                            <div class="names">
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 21.7px;">БҰЙРЫҚ</span>-->
+<!--                                </strong>-->
+                                <strong>
+                                    <span style="font-size: 21.7px;" class="float-center">ПРИКАЗ</span>
+                                </strong>
+                            </div>
+                        </header>
+
+                        <hr></hr>
+
+                        <div class="document-content mt-2">
+                            <div class="city mt-3">
+                                <span style="font-size: 18.6px;">
+                                    <strong>№
+                                        <t t-esc="template.id"/>
+                                        -Л/С
+                                    </strong>
+                                </span>
+                                <span style="font-size: 18.6px;" class="float-right">
+                                    <strong>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
+                                    </strong>
+                                </span>
+                            </div>
+                            <div class="city mt-3">
+<!--                                <span style="font-size: 18.6px;" class="float-right">-->
+<!--                                    <t t-esc="template.company_id.city"/>-->
+<!--                                    қаласы-->
+<!--                                </span>-->
+                                <span style="font-size: 18.6px;" class="float-right">город
+                                    <t t-esc="template.company_id.city"/>
+                                </span>
+                            </div>
+
+<!--                            <div class="mt-3 doc-content-text">-->
+<!--                                <strong>-->
+<!--                                    <span style="font-size: 18.6px;">Ақылы еңбек демалысын беру туралы</span>-->
+<!--                                </strong>-->
+
+<!--                                <div class="doc-text mt-3">-->
+<!--                                    <p style="text-indent:35px" class="">Қазақстан Республикасының Еңбек Кодексінің 92-->
+<!--                                        бабына сәйкес-->
+<!--                                    </p>-->
+<!--                                    <p>-->
+<!--                                        <strong>БҰЙЫРАМЫН:</strong>-->
+<!--                                    </p>-->
+<!--                                    <br></br>-->
+<!--                                    <p style="text-indent:35px">-->
+<!--                                        <t t-esc="template.employee_spec"/>-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        <t t-esc="template.datetime_dogovor"/>-->
+<!--                                        мен-->
+<!--                                        <t t-esc="template.date_finish_period"/>-->
+<!--                                        аралығындағы жұмыс кезеңі үшін жыл сайынғы ақылы еңбек демалысы-->
+<!--                                        <t t-esc="template.date_first_day_otpusk_kaz"/>-->
+<!--                                        бастап-->
+<!--                                        <t t-esc="template.date_last_day_otpusk_kaz"/>-->
+<!--                                        дейін-->
+<!--                                        <t t-esc="template.days_difference"/>-->
+<!--                                        күнтізбелік күнге берілсін.-->
+<!--                                    </p>-->
+
+<!--                                    <p style="text-indent:35px;" class="doc_rec">Негізі:-->
+<!--                                        <t t-esc="template.employee_id.name"/>-->
+<!--                                        өтініші-->
+<!--                                    </p>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
                             <br></br>
                             <div class="mt-3 doc-content-text">
                                 <strong>
@@ -1626,15 +2928,14 @@
 
                             <div>
                                 <div class="city mt-3">
-                                    <span style="font-size: 18.6px;">Бұйрықпен
-                                        таныстым_________________________________________________________
+                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)_________________________________________________________
                                     </span>
                                     <span style="font-size: 18.6px;" class="float-right">
-                                        <t t-esc="template.date_document"/>
+                                        <t t-if="template.date_document"> <t t-esc="template.date_document.strftime('%d.%m.%Y')"/> </t>
                                     </span>
                                     <p></p>
-                                    <span style="font-size: 18.6px;">С приказом ознакомлен (а)</span>
-                                    <span style="font-size: 12px;">(қызметкердің қолы) (подпись)</span>
+<!--                                    <span style="font-size: 18.6px;">С приказом ознакомлен(а)</span>-->
+                                    <span style="font-size: 12px;">(подпись)</span>
 
                                 </div>
                             </div>

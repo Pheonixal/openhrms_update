@@ -11,21 +11,34 @@
             </xpath>
             <xpath expr="//sheet/group" position="inside">
 
-                <group name="Priem_na_rabotu" string="О приеме на работу"
+               <group name="Priem_na_rabotu" string="О приеме на работу"
                        attrs="{'invisible':[('document_type', '!=', 'hr_recruitment')]}">
-                    <field name="employee_id"/>
-<!--                    <button type="object" name="check_python_docx" string="Refresh Data" class="btn-link"/>-->
-                    <field name="name_boss"/>
-                    <field name="director_spec" string="Должность руководителя"/>
-                    <field name="date_document"/>
-                    <field name="future_job_spec"/>
-                    <field name="future_job_spec_gen" invisible="1"/>
-                    <field name="employee_id_gen" invisible="1"/>
-                    <field name="date_vstupleniya_spec_gen_rus" invisible="1"/>
-                    <field name="date_vstupleniya_spec_gen_kaz" invisible="1"/>
-                    <field name="number_document_gen" invisible="1"/>
-                    <field name="date_vstupleniya_spec"/>
-                </group>
+                        <field name="employee_id"/>
+                        <!--                    <button type="object" name="check_python_docx" string="Refresh Data" class="btn-link"/>-->
+                        <field name="name_boss"/>
+                        <field name="director_spec" string="Должность руководителя"/>
+                        <field name="date_document"/>
+                        <field name="future_job_spec"/>
+                        <field name="future_job_spec_gen" invisible="1"/>
+                        <field name="employee_id_gen" invisible="1"/>
+                        <field name="date_vstupleniya_spec_gen_rus" invisible="1"/>
+                        <field name="date_vstupleniya_spec_gen_kaz" invisible="1"/>
+                        <field name="number_document_gen" invisible="1"/>
+                        <field name="date_vstupleniya_spec"/>
+                        <field name="ispytalynyi_srok"/>
+
+
+                    </group>
+                    <group name="ispytalynyi_srok" string="Испытальный срок"
+                           attrs="{'invisible':[('ispytalynyi_srok', '=', False)]}">
+                        <field name="employee_id_gen" string="Сотрудник"/>
+                        <field name="prodolzhitelynosty_isp_sroka_gen"/>
+                        <field name="date_from_gen"/>
+                        <field name="date_to_gen"/>
+                    </group>
+
+
+
 
                 <group name="Business_trip" string="О командировании"
                        attrs="{'invisible':[('document_type', '!=', 'hr_business_trip')]}">
@@ -99,6 +112,7 @@
 
             </xpath>
         </field>
+
     </record>
 
 
